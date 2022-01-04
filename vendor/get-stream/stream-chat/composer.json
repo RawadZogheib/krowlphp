@@ -1,0 +1,33 @@
+{
+    "name": "get-stream/stream-chat",
+    "description": "A PHP client for Stream Chat (https://getstream.io/chat/)",
+    "keywords": ["stream", "chat", "api", "chat-sdk"],
+    "homepage": "https://getstream.io/chat/",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Tommaso Barbugli",
+            "email": "support@getstream.io"
+        }
+    ],
+    "require": {
+        "php": ">=7.3",
+        "guzzlehttp/guzzle": "^6.3.3 || ^7.0.1",
+        "firebase/php-jwt": "^v5.0.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.18.0",
+        "phan/phan": "^5.2.1",
+        "phpunit/phpunit": "^9.5.10",
+        "ramsey/uuid": "^4.2.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "GetStream\\StreamChat" : "lib/"
+        },
+        "psr-4": {
+            "GetStream\\Unit\\" : "tests/unit/",
+            "GetStream\\Integration\\" : "tests/integration/"
+        }
+    }
+}

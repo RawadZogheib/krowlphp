@@ -1,0 +1,8 @@
+{
+    "require": {
+        "wildbit/postmark-php": "^4.0",
+        "alek13/slack": "^2.1",
+        "mdwheele/swotphp": "^1.0",
+        "get-stream/stream-chat": "^2.7"
+    }
+}

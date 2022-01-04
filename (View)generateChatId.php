@@ -1,0 +1,1 @@
+<?php echo '["SUCCESS","'.$chat_id.'","'.$usernameForChat.'"]'; ?>

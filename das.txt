@@ -1,0 +1,18 @@
+{"email": "testnet404",
+"first_name": "dfgfdg",
+"last_name": "dfgfdg",
+"username": "dfgfdg",
+"password": "dfgfdg",
+"date_of_birth": "dfgfdg",
+"photo": "dfgfdg",
+"terms_of_service": "dfgfdg",
+"crop_x": "dfgfdg",
+"crop_y": "dfgfdg",
+"crop_width": "dfgfdg",
+"crop_height": "dfgfdg",
+"university_ids": "dfgfdg",
+"major_degree_ids": "dfgfdg",
+"minor_degree_ids": "dfgfdg"}
+
+
+

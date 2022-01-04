@@ -1,0 +1,8 @@
+Generating your JaaS API key
+passphrase: Hello#darkness1MY0ldfrn
+
+
+Your identification has been saved in /c/Users/dmourani/.ssh/id_rsa
+Your public key has been saved in /c/Users/dmourani/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:cawI2+qRiegcn0ROj17PtiQcm3BWxRVg/5AkpO22kRM dmourani@df-danam-pc
