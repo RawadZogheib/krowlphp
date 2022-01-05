@@ -28,6 +28,9 @@ if(require '(Control)tokenCheck.php'){
             $json_array[2] = $userToken;
             $json_array[3] = $usernameForChat;
         }
+        echo json_encode($json_array);
+
+        mysqli_close($con);
 
 
     }else require '(View)Error7.php';
