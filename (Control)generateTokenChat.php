@@ -17,7 +17,7 @@ if(require '(Control)tokenCheck.php'){
         require './vendor/autoload.php';
         require '(Model)getUsername.inc.php';
         if(mysqli_num_rows($xx)>0){
-
+            $res = mysqli_fetch_assoc($xx);
             $usernameForChat=$res['username'];
 
             $server_client = new Client("z5j34vkctqrq", "zad2a8rmxswdce7ay4wv4xjsbwue4tzpjmkb8vex2aqzjpc646n6ttsc7j727nkn"); //stable for account krowl
