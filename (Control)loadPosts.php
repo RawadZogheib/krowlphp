@@ -20,6 +20,7 @@ if(require '(Control)tokenCheck.php'){
             while($res = mysqli_fetch_assoc($xx)){	
                 $posts_array[] = array($res["post_id"],
                                     $res["username"],
+                                    $res["post_tag"],
                                     $res["post_data"],
                                     $res["post_val"],
                                     $res["post_date"],
