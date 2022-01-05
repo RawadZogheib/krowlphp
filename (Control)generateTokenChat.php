@@ -4,7 +4,7 @@ use GetStream\StreamChat\Client;
 use GetStream\StreamChat\StreamException;
 
 require '(Control)versionTest.php';
-//if(require '(Control)tokenCheck.php'){
+if(require '(Control)tokenCheck.php'){
 
     require '(Model)config.inc.php';
     $con=con();
@@ -13,7 +13,7 @@ require '(Control)versionTest.php';
         $user_id = htmlspecialchars($data->user_id);
 
         $json_array[0] = 'error4';
-        $json_array[1] = $token;
+        
 
         require './vendor/autoload.php';
         require '(Model)getUsername.inc.php';
@@ -25,12 +25,12 @@ require '(Control)versionTest.php';
             $userToken = $server_client->createToken("'.$usernameForChat.'");
                 
             $json_array[0] = 'success';
+            $json_array[1] = $token;
             $json_array[2] = $userToken;
             $json_array[3] = $usernameForChat;
         }
 
 
     }else require '(View)Error7.php';
-
-//}
+}
 ?>
