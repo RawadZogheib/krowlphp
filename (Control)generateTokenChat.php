@@ -6,8 +6,7 @@ use GetStream\StreamChat\StreamException;
 require '(Control)versionTest.php';
 if(require '(Control)tokenCheck.php'){
 
-    require '(Model)config.inc.php';
-    $con=con();
+
     if(!empty($data->user_id)){
         
         $user_id = htmlspecialchars($data->user_id);
