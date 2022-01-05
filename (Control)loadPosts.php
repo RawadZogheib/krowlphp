@@ -9,19 +9,20 @@ if(require '(Control)tokenCheck.php'){
     $posts_array = array();
     $t1=0;
     
-    if(!empty($data->user_id)){
+    if(!empty($data->user_id) && !empty($data->user_uni)){
         
         $user_id = htmlspecialchars($data->user_id);
+        $user_uni = htmlspecialchars($data->user_uni);
         
         require '(Model)loadPosts.inc.php';
         if(mysqli_num_rows($xx)>0){
             $t1 = 1;
             while($res = mysqli_fetch_assoc($xx)){	
-                $posts_array[] = array($res1["post_id"],
-                                    $res2["username"],
-                                    $res1["post_data"],
-                                    $res1["post_val"],
-                                    $res1["post_date"],
+                $posts_array[] = array($res["post_id"],
+                                    $res["username"],
+                                    $res["post_data"],
+                                    $res["post_val"],
+                                    $res["post_date"],
                                     );
             }	
         }else{
