@@ -1,7 +1,7 @@
 <?php 
 //CHAT
-//loading the recent contacts in chat section (PS:the contacts and friends should be from the same uni but we will add this restriction in add friend section)
-//PS:Contacts are the friends that the user has been talking with recently (recent=1)
+//loading the friends that has recent=0 or recent=1 in friend section (PS:the contacts and friends should be from the same uni but we will add this restriction in add friend section)
+
 
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
@@ -13,11 +13,11 @@ if(require '(Control)tokenCheck.php'){
         
         $user_id = htmlspecialchars($data->user_id);
         
-        require '(Model)loadContacts.inc.php';
+        require '(Model)loadFriends.inc.php';
         if(mysqli_num_rows($xx)>0){
             $t1 = 1;
             while($res = mysqli_fetch_assoc($xx)){	
-                $table_array[] = array($res["nameFriend"]);
+                $table_array[] = array($res["user_id"],$res["nameFriend"]);
             }	
         }else{
             $table_array[]=[];
