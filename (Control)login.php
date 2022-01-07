@@ -31,6 +31,7 @@ if(!empty($data->email) && !empty($data->password)){
 					if(password_verify($pass, $repass)){
 						if($yy2){
 							require '(Model)getUserInfo.inc.php';
+							require '(Control)generateTokenChat.php';
 							require '(View)true.php';
 						} 
 						else{
