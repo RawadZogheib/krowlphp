@@ -21,7 +21,8 @@ if(require '(Control)tokenCheck.php'){
                 $posts_array[] = array($res["post_id"],
                                     $res["username"],
                                     $res["post_tag"],
-                                    $res["post_data"],
+                                    $res["post_question"],
+                                  //$res["post_context"], 
                                     $res["post_val"],
                                     $res["post_date"],
                                     );
