@@ -1,7 +1,7 @@
 <?php 
+
 //CHAT
 //loading the friends that has recent=0 or recent=1 in friend section (PS:the contacts and friends should be from the same uni but we will add this restriction in add friend section)
-
 
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
@@ -24,8 +24,8 @@ if(require '(Control)tokenCheck.php'){
         }
                     
             $json_array[0] = 'error4';
-            $json_array[1] = $token;
-            $json_array[2] = $table_array;
+            $json_array[1] = $table_array;
+           
 
             if($t1 == 1){
                 $json_array[0] = 'success';

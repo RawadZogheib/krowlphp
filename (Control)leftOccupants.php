@@ -1,5 +1,6 @@
 <?php 
-//Webhook from jaas
+
+//Webhook from jaas to alarm us when a user left  
 
 $json = file_get_contents('php://input');
 $data = json_decode($json);

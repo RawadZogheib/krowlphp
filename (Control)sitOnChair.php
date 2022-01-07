@@ -1,4 +1,7 @@
 <?php 
+
+//Checking a specific position in Table if it's taken or not via CustomTable
+
 require '(Control)versionTest.php';
 if(require '(Control)tokenCheck.php'){
    
@@ -10,8 +13,7 @@ if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->posit
 	$position = htmlspecialchars($data->position);
 
     $json_array[0] = 'error4';
-    $json_array[1] = $token;
-
+   
     require '(Model)checkNbrSeats.inc.php';
     $table_id =$res["table_id"];
     require '(Model)checkNbrOccupants.inc.php';

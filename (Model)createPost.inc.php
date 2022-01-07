@@ -1,8 +1,11 @@
 <?php 
 
-$sql="INSERT INTO `posts`(`post_id`, `account_Id`, `post_question`, `post_context`, `post_val`, `post_tag`) 
-VALUES (NULL,'".$account_Id."','".$post_question."','".$post_context."',0,'".$post_tag."')";
+    //Insert values into Posts
 
-$yy=mysqli_query($con,$sql);
+    $sql="INSERT INTO `posts`(`post_id`, `account_Id`, `post_question`, `post_context`, `post_val`, `post_tag`) 
+    VALUES (NULL,'".$account_Id."','".$post_question."','".$post_context."',0,'".$post_tag."')";
+
+    $yy=mysqli_query($con,$sql);
+
 ?>
 

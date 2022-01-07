@@ -1,11 +1,10 @@
 <?php 
-require '(Control)versionTest.php'; 
 
+//Creating a Post via Forum2
+
+require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){ 
     
-//creating a Post 
-$post_array = array();
-
 if(!empty($data->account_Id) && !empty($data->post_subject) && !empty($data->post_question) && !empty($data->post_context)){
   
     $account_Id = htmlspecialchars($data->account_Id);
@@ -25,7 +24,6 @@ if(!empty($data->account_Id) && !empty($data->post_subject) && !empty($data->pos
         mysqli_close($con);
 
 }else require '(View)Error7.php';
-
 
 
 }

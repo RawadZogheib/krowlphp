@@ -1,4 +1,6 @@
-<?php //getting the table's name, nbr of seats and table type available for this account
+<?php 
+
+	//getting the table's name, nbr of seats and table type available for this account
 
 	// $sql = "SELECT o.`account_Id`,t.`table_name`,t.`seats`,t.`table_type` FROM `occupants`o JOIN `tables`t ON o.`table_id`=t.`table_id` WHERE o.`table_id` =
 	// (SELECT `table_id` FROM `occupants` WHERE `account_Id`='".$account_Id."')'";

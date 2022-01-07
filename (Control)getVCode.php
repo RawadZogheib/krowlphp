@@ -1,4 +1,7 @@
 <?php 
+
+//Getting the code for an existing email via Code
+
 //json_decode($data);
 require '(Control)versionTest.php';
 
@@ -17,8 +20,9 @@ if(!empty($data->email) && !empty($data->vCode)){
             require '(View)success.php';
         }else require '(View)false.php';
 
-        mysqli_close($con);
-    }
+    mysqli_close($con);
+
+}
     
 
 ?>

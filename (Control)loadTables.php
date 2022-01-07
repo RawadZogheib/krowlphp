@@ -1,10 +1,13 @@
 <?php 
+
+//Loading Tables of of accounts in a same University 
+
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
 
     $table_array = array();
     $t1=0;
-    //loading tables
+
     if(!empty($data->account_Id) && !empty($data->user_uni)){
         
         $account_Id = htmlspecialchars($data->account_Id);
@@ -25,8 +28,7 @@ if(require '(Control)tokenCheck.php'){
         }
                     
             $json_array[0] = 'error4';
-            $json_array[1] = $token;
-            $json_array[2] = $table_array;
+            $json_array[1] = $table_array;
 
             if($t1 == 1){
                 $json_array[0] = 'success';

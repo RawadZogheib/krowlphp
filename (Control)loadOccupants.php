@@ -1,13 +1,16 @@
 <?php 
+
+//Getting the occupants of an existing table via Library
+
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
-//require '(Model)config.inc.php';
+
     
     $table_array = array();
     $t1=0;
-    //loading tables
+    
     if(!empty($data->table_name)){
-        //$con =con($server);
+        
         $table_name = htmlspecialchars($data->table_name);
         require '(Model)loadOccupants.inc.php';
 
@@ -23,8 +26,7 @@ if(require '(Control)tokenCheck.php'){
         }
                     
             $json_array[0] = 'error4';
-            $json_array[1] = $token;
-            $json_array[2] = $table_array;
+            $json_array[1] = $table_array;
 
             if($t1 == 1){
                 $json_array[0] = 'success';
