@@ -1,7 +1,7 @@
 <?php 
 
 $sql="INSERT INTO `tables`(`table_id`, `admin_id`, `table_name`,`table_uni`,`seats`, `table_type`)
-VALUES (NULL,'".$user_id."','".$table_name."','".$table_uni."','".$seats."',1)";
+VALUES (NULL,'".$account_Id."','".$table_name."','".$table_uni."','".$seats."',1)";
 $yy=mysqli_query($con,$sql);
 
 ?>

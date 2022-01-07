@@ -13,7 +13,7 @@ if(!empty($data->email) && !empty($data->password)){
 	//require '(Control)encryptiGet.php';
     //require '(Model)passwordGet.inc.php';
 	require '(Model)login.inc.php';
-	$user_id = $res["user_id"];
+	$account_Id = $res["account_Id"];
 	if($res["nbr"]==1){ //check if email exist
 		/////////Verify Password(login)/////////
 		

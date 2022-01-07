@@ -7,9 +7,9 @@ require '(Control)versionTest.php';
 if(require '(Control)tokenCheck.php'){
 
 
-    if(!empty($data->user_id)){
+    if(!empty($data->account_Id)){
         
-        $user_id = htmlspecialchars($data->user_id);
+        $account_Id = htmlspecialchars($data->account_Id);
 
         $json_array[0] = 'error4';
         
@@ -26,7 +26,7 @@ if(require '(Control)tokenCheck.php'){
             $json_array[0] = 'success';
             $json_array[1] = $token;
             $json_array[2] = $userToken;
-            $json_array[3] = $usernameForChat;
+            //$json_array[3] = $usernameForChat;
         }
         echo json_encode($json_array);
 

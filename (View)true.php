@@ -1,3 +1,3 @@
 <?php 
-		echo '["true","'.$token.'","'.$res['user_id'].'","'.$res['username'].'","'.$res['university_ids'].'","'.$res['photo'].'"]';
+		echo '["true","'.$token.'","'.$res['account_Id'].'","'.$res['username'].'","'.$res['university_ids'].'","'.$res['photo'].'"]';
 ?>

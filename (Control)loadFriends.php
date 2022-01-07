@@ -9,15 +9,15 @@ if(require '(Control)tokenCheck.php'){
     $table_array = array();
     $t1=0;
     
-    if(!empty($data->user_id)){
+    if(!empty($data->account_Id)){
         
-        $user_id = htmlspecialchars($data->user_id);
+        $account_Id = htmlspecialchars($data->account_Id);
         
         require '(Model)loadFriends.inc.php';
         if(mysqli_num_rows($xx)>0){
             $t1 = 1;
             while($res = mysqli_fetch_assoc($xx)){	
-                $table_array[] = array($res["user_id"],$res["nameFriend"],$res["friend_id"]);
+                $table_array[] = array($res["account_Id"],$res["nameFriend"],$res["friend_id"]);
             }	
         }else{
             $table_array[]=[];

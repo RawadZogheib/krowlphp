@@ -3,9 +3,9 @@ require '(Control)versionTest.php';
 if(require '(Control)tokenCheck.php'){
    
 
-if(!empty($data->user_id) && !empty($data->table_name) && !empty($data->position)){
+if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->position)){
     
-    $user_id = htmlspecialchars($data->user_id);
+    $account_Id = htmlspecialchars($data->account_Id);
     $table_name = htmlspecialchars($data->table_name);
 	$position = htmlspecialchars($data->position);
 

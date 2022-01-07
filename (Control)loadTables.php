@@ -5,9 +5,9 @@ if(require '(Control)tokenCheck.php'){
     $table_array = array();
     $t1=0;
     //loading tables
-    if(!empty($data->user_id) && !empty($data->user_uni)){
+    if(!empty($data->account_Id) && !empty($data->user_uni)){
         
-        $user_id = htmlspecialchars($data->user_id);
+        $account_Id = htmlspecialchars($data->account_Id);
         $user_uni = htmlspecialchars($data->user_uni);
       
 

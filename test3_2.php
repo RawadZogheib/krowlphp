@@ -1,9 +1,9 @@
 <?php
 $option = array('cost'=>11);
-if(!empty($_GET["user_id"]) && !empty($_GET["token"])){
+if(!empty($_GET["account_Id"]) && !empty($_GET["token"])){
 
 
-    $user_id = htmlspecialchars($_GET["user_id"]);
+    $account_Id = htmlspecialchars($_GET["account_Id"]);
     $token = htmlspecialchars($_GET["token"]);
 
 require '(Model)config.inc.php';
@@ -30,7 +30,7 @@ if(password_verify($token, $tokenHashed)){
     $tokenHashed = password_hash($token, PASSWORD_BCRYPT, $option);
 
     
-    require '(Model)tokenSet.inc.php'; //not done $token to the user 
+    require '(Model)tokenSet.inc.php'; //not done $token to the account 
                     
     if($yy){
         // set token success

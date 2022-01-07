@@ -3,8 +3,8 @@ require '(Control)versionTest.php';
 if(require '(Control)tokenCheck.php'){ 
     
 //creating a table 
-if(!empty($data->user_id) && !empty($data->table_name) && !empty($data->table_uni) && !empty($data->seats)&& !empty($data->table_type)){
-    $user_id = htmlspecialchars($data->user_id);
+if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->table_uni) && !empty($data->seats)&& !empty($data->table_type)){
+    $account_Id = htmlspecialchars($data->account_Id);
     $table_name = htmlspecialchars($data->table_name);
     $table_uni = htmlspecialchars($data->table_uni);
 	$seats = htmlspecialchars($data->seats);

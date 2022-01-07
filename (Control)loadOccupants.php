@@ -16,7 +16,7 @@ if(require '(Control)tokenCheck.php'){
             $t1 = 1;
             while($res = mysqli_fetch_assoc($xx)){	
 
-                $table_array[] = array($res["user_id"],$res["username"],$res["position"],"batikhh");
+                $table_array[] = array($res["account_Id"],$res["username"],$res["position"],"batikhh");
             }	
         }else{
             $table_array[]=[];
