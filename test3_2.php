@@ -7,7 +7,7 @@ if(!empty($_GET["account_Id"]) && !empty($_GET["token"])){
     $token = htmlspecialchars($_GET["token"]);
 
 require '(Model)config.inc.php';
-$con=con();
+$con=con($server);
 
 require '(Model)tokenGet.inc.php'; // $tokenHashed
 

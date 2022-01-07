@@ -7,7 +7,7 @@ if(require '(Control)tokenCheck.php'){
     $t1=0;
     //loading tables
     if(!empty($data->table_name)){
-        //$con =con();
+        //$con =con($server);
         $table_name = htmlspecialchars($data->table_name);
         require '(Model)loadOccupants.inc.php';
 

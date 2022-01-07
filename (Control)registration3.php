@@ -54,7 +54,7 @@ if(!empty($data->email) && !empty($data->first_name) && !empty($data->last_name)
                 $age = date_diff(date_create($date_of_birth), date_create($currentDate));
 
                 require '(Model)config.inc.php';
-                $con=con();
+                $con=con($server);
                 require '(Model)registMail.inc.php';
                 if($res["nbr"]==0){
                         require '(Model)registUserName.inc.php';

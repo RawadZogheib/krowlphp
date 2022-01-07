@@ -11,7 +11,7 @@ if(!empty($data->email)){
 
 
      require '(Model)config.inc.php';
-     $con=con();
+     $con=con($server);
      require '(Model)registMail.inc.php';
      if($res["nbr"]==0){
           if(preg_match("/\s/", $email)){

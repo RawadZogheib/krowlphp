@@ -6,7 +6,7 @@ $data = json_decode($json);
 
 if(!empty($data->exception)){
     require '(Model)config.inc.php';
-    $con=con();
+    $con=con($server);
 
     $exception=mysqli_real_escape_string($con,$data->exception);
     require '(Model)exception.php';

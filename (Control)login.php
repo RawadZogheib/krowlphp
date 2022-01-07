@@ -9,7 +9,7 @@ if(!empty($data->email) && !empty($data->password)){
 	$repass = '$2a$11$j7w28Z9P.PUeKWv6hciYpeBkYIkzBzsp5Ky5iYNVG1ElwK2AkEs0.';
 
 	require '(Model)config.inc.php';
-	$con=con();
+	$con=con($server);
 	//require '(Control)encryptiGet.php';
     //require '(Model)passwordGet.inc.php';
 	require '(Model)login.inc.php';
@@ -29,7 +29,7 @@ if(!empty($data->email) && !empty($data->password)){
 					// set password success
 					require '(Control)tokenCreate.php';
 					if(password_verify($pass, $repass)){
-						if($yy22){
+						if($yy2){
 							require '(Model)getUserInfo.inc.php';
 							require '(View)true.php';
 						} 

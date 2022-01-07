@@ -10,7 +10,7 @@ require '(Model)config.inc.php';
 	$uni_array = array();
     $maj_array = array();
     $min_array = array();
-	$con=con();
+	$con=con($server);
     
 
     //Get Universities List

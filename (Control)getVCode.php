@@ -10,7 +10,7 @@ if(!empty($data->email) && !empty($data->vCode)){
             
             
         require '(Model)config.inc.php';
-        $con=con();
+        $con=con($server);
         require '(Model)getVCodeMySQL.php';
         
         if($vCode == $res["vCode"]){
