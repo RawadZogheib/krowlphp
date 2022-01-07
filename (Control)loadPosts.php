@@ -22,7 +22,6 @@ if(require '(Control)tokenCheck.php'){
                                     $res["username"],
                                     $res["post_tag"],
                                     $res["post_question"],
-                                  //$res["post_context"], 
                                     $res["post_val"],
                                     $res["post_date"],
                                     );

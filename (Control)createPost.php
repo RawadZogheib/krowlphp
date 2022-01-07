@@ -18,7 +18,7 @@ if(!empty($data->account_Id) && !empty($data->post_subject) && !empty($data->pos
 
 
     require '(Model)config.inc.php';
-    $con=con();
+    $con=con($server);
  
     require '(Model)createPost.inc.php'; 
     if(mysqli_num_rows($yy)>0){
