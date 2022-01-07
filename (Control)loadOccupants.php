@@ -21,8 +21,11 @@ if(require '(Control)tokenCheck.php'){
 
                 $table_array[] = array($res["account_Id"],$res["username"],$res["position"],"batikhh");
             }	
-        }else{
+        }else  if(mysqli_num_rows($xx) == 0){
+            $t1 = 2;
             $table_array[]=[];
+        }else{
+            
         }
                     
             $json_array[0] = 'error4';
@@ -30,6 +33,8 @@ if(require '(Control)tokenCheck.php'){
 
             if($t1 == 1){
                 $json_array[0] = 'success';
+            }else if($t1 == 2){
+                $json_array[0] = 'empty';
             }
             echo json_encode($json_array);
 
