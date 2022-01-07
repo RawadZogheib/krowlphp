@@ -4,7 +4,7 @@ $data = json_decode($json);
 // Token configuration
 $server = 'krowl';// DB name
 $time = 1;// Token expire time
-$tokenLimitation = 1;// Token per account
+$tokenLimitation = 4;// Token per account
 
 if(!empty($data->version)){
 
