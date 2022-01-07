@@ -15,22 +15,22 @@ if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->table
 
     $json_array[0] = 'error4';
 
-if($table_type =='1'){ // public 
-    require '(Model)tablePublic.inc.php'; 
-    if($yy){
-        $json_array[0] = 'success';
+    if($table_type =='1'){ // public 
+        require '(Model)tablePublic.inc.php'; 
+        if($yy){
+            $json_array[0] = 'success';
+        }
+
+    }else if($table_type =='2'){ //private
+        require '(Model)tablePrivate.inc.php'; 
+        if($yy){
+            $json_array[0] = 'success';
+        }
     }
 
-}else if($table_type =='2'){ //private
-    require '(Model)tablePrivate.inc.php'; 
-    if($yy){
-        $json_array[0] = 'success';
-    }
-}
+    echo json_encode($json_array);
 
-        echo json_encode($json_array);
-
-        mysqli_close($con);
+    mysqli_close($con);
 
 }else require '(View)Error7.php';
 
