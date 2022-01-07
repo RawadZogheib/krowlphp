@@ -23,11 +23,14 @@ if(require '(Control)tokenCheck.php'){
 
                 $table_array[] = array($res["table_name"],$res["seats"],$res["table_type"]);
             }	
-        }else{
+        }else  if(mysqli_num_rows($xx) == 0){
+            $t1 = 1;
             $table_array[]=[];
+        }else{
+
         }
                     
-            $json_array[0] = 'error4';
+            $json_array[0] = 'errorElse';
             $json_array[1] = $table_array;
 
             if($t1 == 1){
