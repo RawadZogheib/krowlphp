@@ -9,7 +9,7 @@ if(!empty($data->data->name)){ //getting the name of the participant who left
   require '(Model)leftOccupants.inc.php'; //delete the particpant from occupants so the position will be free again
 }
 else{
-    //$nameLeft="failed";
+    $nameLeft="failed";
 }
 
 ?>
