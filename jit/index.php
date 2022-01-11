@@ -35,12 +35,10 @@
                   audioOutput: '<deviceLabel>',
                   videoInput: '<deviceLabel>'
                 },
+                interfaceConfigOverwrite: { SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
                 userInfo: {
                 displayName:<?php echo $account?>
                 },
-                
-                interfaceConfigOverwrite: { SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] }
-
             });
           }
         </script>
