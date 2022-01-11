@@ -1,6 +1,11 @@
 <?php //Delete the occupant that left the meeting
-   require '(Model)config.inc.php';
-   $con=con($server);
+   
+	function con() {
+		$con = mysqli_connect("127.0.0.1","root","gU4YTcNMe3AEPY7M","krowl")or die("Failed to connect... Try again in few seconds");
+		return $con;
+	}
+
+   $con=con();
     $sql="INSERT INTO `leftoccupants`(`id_leftoccupant`, `name`) VALUES (NULL,'TOTOOO')";
     $yy=mysqli_query($con,$sql);
     // $sql="DELETE FROM `occupants` WHERE `account_Id`=(SELECT `account_Id` FROM `account` WHERE `username`='".$nameLeft."')";
