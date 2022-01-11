@@ -41,7 +41,7 @@
                 interfaceConfigOverwrite: {
                 SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ]
                 },
-            };
+          };
           window.onload = () => {
             var api = new JitsiMeetExternalAPI(domain,options);
           }
