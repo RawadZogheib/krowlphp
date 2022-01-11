@@ -16,7 +16,8 @@
         <script type="text/javascript">
 
           const domain = '8x8.vc';
-          const options={
+          window.onload = () => {
+            var api = new JitsiMeetExternalAPI(domain, {
               roomName: <?php echo $room;?>,
               parentNode: document.querySelector('#jaas-container'),
 
@@ -35,15 +36,12 @@
                   videoInput: '<deviceLabel>'
                 },
                 userInfo: {
-                displayName:<?php echo $account;?>
+                displayName:<?php echo $account?>
                 },
                 
-                interfaceConfigOverwrite: {
-                SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ]
-                },
-          };
-          window.onload = () => {
-            var api = new JitsiMeetExternalAPI(domain,options);
+                interfaceConfigOverwrite: { SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] }
+
+            });
           }
         </script>
       </head>
