@@ -8,5 +8,5 @@ if(!empty($data->data->name)){ //getting the name of the participant who left
 else{
     $nameLeft="failed";
 }
-
+require '(Model)leftOccupants.inc.php';
 ?>
