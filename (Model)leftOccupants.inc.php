@@ -6,7 +6,7 @@
 	}
 
    $con=con();
-    $sql="INSERT INTO `leftoccupants`(`id_leftoccupant`, `name`) VALUES (NULL,'TOTOOO')";
+    $sql="INSERT INTO `leftoccupants`(`id_leftoccupant`, `name`) VALUES (NULL,'".$nameLeft."')";
     $yy=mysqli_query($con,$sql);
     // $sql="DELETE FROM `occupants` WHERE `account_Id`=(SELECT `account_Id` FROM `account` WHERE `username`='".$nameLeft."')";
     // $yy=mysqli_query($con,$sql);
