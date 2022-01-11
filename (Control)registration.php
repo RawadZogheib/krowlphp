@@ -13,7 +13,7 @@ if(!empty($data->username)&& !empty($data->date_of_birth)){
     
 
      require '(Model)config.inc.php';
-     $con=con();
+     $con=con($server);
      require '(Model)registUserName.inc.php';
      if($res["nbr"]==0){
           if(preg_match("/\s/", $username)){
