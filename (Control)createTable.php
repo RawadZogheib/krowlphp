@@ -11,22 +11,15 @@ if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->table
     $table_name = htmlspecialchars($data->table_name);
     $table_uni = htmlspecialchars($data->table_uni);
 	$seats = htmlspecialchars($data->seats);
-    $table_type = htmlspecialchars($data->table_type); //no one can access it without an invitation
+    $table_type = htmlspecialchars($data->table_type); //$table_type=1 -> Public OR $table_type=2 -> Private
 
     $json_array[0] = 'error4';
 
-    if($table_type =='1'){ // public 
-        require '(Model)tablePublic.inc.php'; 
+     
+        require '(Model)createTable.inc.php'; 
         if($yy){
             $json_array[0] = 'success';
         }
-
-    }else if($table_type =='2'){ //private
-        require '(Model)tablePrivate.inc.php'; 
-        if($yy){
-            $json_array[0] = 'success';
-        }
-    }
 
     echo json_encode($json_array);
 
