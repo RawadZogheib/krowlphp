@@ -24,7 +24,7 @@ if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->table
             }
     
         }else{
-            $json_array[0] = 'error12'; //Table name already taken
+            $json_array[0] = 'error10'; //Table name already taken
         }
      
     echo json_encode($json_array);
