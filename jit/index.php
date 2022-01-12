@@ -41,6 +41,15 @@
                 },
             });
           }
+          api.addListener('readyToClose', 
+          function {
+          api.dispose(); api = null;
+          <?php
+          require '(Model)config.inc.php';
+            $con=con("krowl");
+            $sql="DELETE FROM `occupants` WHERE `account_Id`=(SELECT `account_Id` FROM `account` WHERE `username`='TOTOOO')";
+              $yy=mysqli_query($con,$sql); ?>
+          });
         </script>
       </head>
       <body><div id="jaas-container" ></div></body>
