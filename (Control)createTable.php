@@ -15,12 +15,18 @@ if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->table
 
     $json_array[0] = 'error4';
 
-     
-        require '(Model)createTable.inc.php'; 
-        if($yy){
-            $json_array[0] = 'success';
-        }
+        require '(Model)nameTableUnique.inc.php'; //Table name is unique 
+        if($res["nbr"]==0){
 
+            require '(Model)createTable.inc.php'; 
+            if($yy){
+                $json_array[0] = 'success';
+            }
+    
+        }else{
+            $json_array[0] = 'error12'; //Table name already taken
+        }
+     
     echo json_encode($json_array);
 
     mysqli_close($con);
