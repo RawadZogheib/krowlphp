@@ -40,7 +40,7 @@
                 displayName:<?php echo $account?>
                 },
             });
-              api.addListener('readyToClose',api.dispose(); api = null;);
+            api.addListener('readyToClose',api.dispose(); api = null);
             // 
             // require '(Model)config.inc.php';
             //   $con=con("krowl");
