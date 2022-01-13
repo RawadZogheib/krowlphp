@@ -1,7 +1,7 @@
 <?php 
 
-//POST
-//Loading Posts of accounts in then same university via Forum1
+//REPLIES
+//Loading Replies of a specific post of accounts in then same university via Forum3
 
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
@@ -9,22 +9,20 @@ if(require '(Control)tokenCheck.php'){
     $posts_array = array();
     $t1=0;
     
-    if(!empty($data->account_Id) && !empty($data->user_uni)){
+    if(!empty($data->account_Id) && !empty($data->post_id)){
         
         $account_Id = htmlspecialchars($data->account_Id);
-        $user_uni = htmlspecialchars($data->user_uni);
+        $post_id = htmlspecialchars($data->post_id);
         
-        require '(Model)loadPosts.inc.php';
+        require '(Model)loadReplies.inc.php';
         if(mysqli_num_rows($xx)>0){
             $t1 = 1;
             while($res = mysqli_fetch_assoc($xx)){	
-                $posts_array[] = array($res["post_id"],
+                $posts_array[] = array($res["reply_id"],
                                     $res["username"],
-                                    $res["post_tag"],
-                                    $res["post_question"],
-                                    $res["post_val"],
-                                    $res["post_date"],
-                                    $res["post_context"],
+                                    $res["reply_data"],
+                                    $res["reply_val"],
+                                    $res["reply_date"],
                                     );
             }	
         }else{
