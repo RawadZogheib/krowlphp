@@ -9,7 +9,7 @@
 	$sql= "SELECT o.`account_Id`,o.`position`,a.`username`,a.`photo` FROM `occupants`o JOIN `account`a ON o.`account_Id`=a.`account_Id` WHERE o.`table_id` =
 	(SELECT `table_id` FROM `tables` WHERE `table_name`='".$table_name."')ORDER BY o.`position`";
 
-	$xx = mysqli_query($con,$sql);
+	$yy = mysqli_query($con,$sql);
 	
 
 ?>
