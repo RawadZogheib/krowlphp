@@ -16,11 +16,11 @@ if(require '(Control)tokenCheck.php'){
 
     $json_array[0] = 'success';
    
-    if(!empty($data->account_Id) && !empty($data->user_uni)){
+    if(!empty($data->account_Id) && !empty($data->currentPage) && !empty($data->user_uni)){
         
         $account_Id = htmlspecialchars($data->account_Id);
         $user_uni = htmlspecialchars($data->user_uni);
-      
+        $currentPage=htmlspecialchars($data->currentPage);
 
         require '(Model)loadTables.inc.php';
 
@@ -28,9 +28,6 @@ if(require '(Control)tokenCheck.php'){
         if(mysqli_num_rows($xx)>0){
             $nbr_table= mysqli_num_rows($xx); 
             $json_array[1] = $nbr_table;
-
-            // echo $nbr_table;
-            // echo "</br>";
 
             while($res = mysqli_fetch_assoc($xx)){	
                 $i=$i+1;
