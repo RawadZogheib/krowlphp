@@ -79,18 +79,6 @@ if(require '(Control)tokenCheck.php'){
             $json_array[1] = 0;
 
         }
-                    
-            $json_array[0] = 'error4';
-            //$json_array[1] = $table4;
-
-            if($t1 == 1 && $t2 == 1){
-                $json_array[0] = 'success';
-
-            }else if($t1 == 2){
-                $json_array[0] = 'empty';
-
-            }
-
 
             echo json_encode($json_array);
 
