@@ -56,8 +56,7 @@ if(require '(Control)tokenCheck.php'){
                     $table3=array();
                
                 }else  if(mysqli_num_rows($yy) == 0){
-                    $table3[]=[];
-                    array_push($table1,$table3);
+                    array_push($table1,[]);
                 }
                 array_push($table4,$table1);
                 if ($i == $nbr_table){
