@@ -9,13 +9,13 @@ if(require '(Control)tokenCheck.php'){
     $table2=array();
     $table3=array();
     $table4=array();
-    
-    $t1=0; // $t1=1 -> success   $t1=2 -> failure
-    $t2=0; // $t2=1 -> success   $t2=2 -> failure
+    $json_array=array();
 
     $i=0; //counter
-    $j=1; //counter
+    $j=2; //counter
 
+    $json_array[0] = 'success';
+   
     if(!empty($data->account_Id) && !empty($data->user_uni)){
         
         $account_Id = htmlspecialchars($data->account_Id);
@@ -27,9 +27,10 @@ if(require '(Control)tokenCheck.php'){
 
         if(mysqli_num_rows($xx)>0){
             $nbr_table= mysqli_num_rows($xx); 
-            echo $nbr_table;
-            echo "</br>";
-            $t1 = 1;
+            $json_array[1] = $nbr_table;
+
+            // echo $nbr_table;
+            // echo "</br>";
 
             while($res = mysqli_fetch_assoc($xx)){	
                 $i=$i+1;
@@ -43,7 +44,7 @@ if(require '(Control)tokenCheck.php'){
 
                 require '(Model)loadOccupants.inc.php';
                 if(mysqli_num_rows($yy)>0){
-                    $t2 = 1;
+                   
 
                     while($res1 = mysqli_fetch_assoc($yy)){	
                         $table2 = array($res1["account_Id"],$res1["username"],$res1["position"],"batikhh");
@@ -55,23 +56,28 @@ if(require '(Control)tokenCheck.php'){
                     $table3=array();
                
                 }else  if(mysqli_num_rows($yy) == 0){
-                    $t2 = 2;
-
+                    //nothing to do
                 }
                 array_push($table4,$table1);
                 if ($i == $nbr_table){
                     $json_array[$j] = $table4;
                 }
                 if ($i == 12){
+                    $json_array[$j] = $table4;
                     $i=0;
                     $j=$j+1;
+                    $nbr_table=$nbr_table-12;
+                    $table4=array();
                 }
                 
                
             }	
         }else  if(mysqli_num_rows($xx) == 0){
-            $t1 = 2;
-            $table4 []=[];
+
+            $table4=array();
+            $json_array[0] = 'empty';
+            $json_array[1] = 0;
+
         }
                     
             $json_array[0] = 'error4';
