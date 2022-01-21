@@ -13,6 +13,7 @@ if(require '(Control)tokenCheck.php'){
 
     $i=0; //counter
     $j=2; //counter
+    $tot_tables=0;
 
     $json_array[0] = 'success';
    
@@ -22,12 +23,16 @@ if(require '(Control)tokenCheck.php'){
         $user_uni = htmlspecialchars($data->user_uni);
         $currentPage=htmlspecialchars($data->currentPage);
 
+        require '(Model)countTables.inc.php';
+
+        $tot_tables=$res["nbr"];
+
         require '(Model)loadTables.inc.php';
 
 
         if(mysqli_num_rows($xx)>0){
             $nbr_table= mysqli_num_rows($xx); 
-            $json_array[1] = $nbr_table;
+            $json_array[1] = $tot_tables;
 
             while($res = mysqli_fetch_assoc($xx)){	
                 $i=$i+1;
