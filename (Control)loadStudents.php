@@ -38,7 +38,7 @@ if(require '(Control)tokenCheck.php'){
                 $table1 = array($student_id,
                                     $res2["first_name"],
                                     $res2["last_name"],
-                                    "photo_to_upload",
+                                    "",
                                     // $res2["photo"],
                                     $res2["uni_name"],
                                     );
