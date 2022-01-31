@@ -47,13 +47,16 @@ if(require '(Control)tokenCheck.php'){
                 require '(Model)loadStudents2.inc.php';
 
                 if($res3["nbr"]==1){
-                    array_push($table1,'true'); // true -> this student is a friend with the account_Id
-            
+                    if($res3["request"]==0)// 0 -> FRIEND OR 1 -> REQUEST IN DB 
+                    array_push($table1,'2');  //2 -> FRIEND 
+                    else
+                    array_push($table1,'1');// 1 -> REQUEST
                 }else{
-                    array_push($table1,'false'); // false -> this student is not a friend with the account_Id
+                    array_push($table1,'0'); // 0 -> this student is not a friend with the account_Id , UNFRIEND
                 }
                 array_push($student_array,$table1);
                 $table1=array();
+
 
 
             }
