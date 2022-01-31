@@ -28,7 +28,7 @@ if(require '(Control)tokenCheck.php'){
                                     );
             }	
         }else{
-            $table_array[]=[];
+            $posts_array[]=[];
         }
                     
             $json_array[0] = 'error4';
