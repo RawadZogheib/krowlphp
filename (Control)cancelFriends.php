@@ -6,7 +6,7 @@
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
 
-    
+    $json_array[0] = 'error4';
     if(!empty($data->account_Id) && !empty($data->friend_id)){
         
         $id1 = htmlspecialchars($data->account_Id);
@@ -18,7 +18,7 @@ if(require '(Control)tokenCheck.php'){
         }
 
 
-        $json_array[0] = 'error4';
+       
          
         echo json_encode($json_array);
 
