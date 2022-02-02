@@ -5,10 +5,11 @@
 //json_decode($data);
 require '(Control)versionTest.php';
 
-if(!empty($data->email) && !empty($data->vCode)){
+if(!empty($data->email) && !empty($data->username) && !empty($data->vCode) ){
 
               
     $email = htmlspecialchars($data->email);
+    $username = htmlspecialchars($data->username);
     $vCode = htmlspecialchars($data->vCode);
             
             
@@ -17,7 +18,9 @@ if(!empty($data->email) && !empty($data->vCode)){
         require '(Model)getVCodeMySQL.php';
         
         if($vCode == $res["vCode"]){
-            require '(View)success.php';
+            require '(Control)generateTokenChat.php';
+            require '(View)success2.php'; //to be addedd
+
         }else require '(View)false.php';
 
     mysqli_close($con);
