@@ -17,7 +17,6 @@ if(require '(Control)tokenCheck.php'){
             require '(Model)requestFriends.inc.php';
             if($yy){
                 $json_array[0] = 'success';
-                $json_array[1] = $id2;
             }
         }
        
