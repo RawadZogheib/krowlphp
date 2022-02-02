@@ -1,7 +1,7 @@
 <?php 
 require '(Control)versionTest.php';
 require_once('vendor/autoload.php');
-use SwotPHP\Facades\Native\Swot;
+//use SwotPHP\Facades\Native\Swot;
 //json_decode($data);
 
 if(!empty($data->email) && !empty($data->first_name) && !empty($data->last_name) && 
