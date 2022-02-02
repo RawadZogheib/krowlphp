@@ -63,8 +63,9 @@ if(!empty($data->email) && !empty($data->first_name) && !empty($data->last_name)
                                         require '(View)Error1.php'; //1 No Spaces Allowed.
                                 }else if(preg_match($emailExp, $email)!=1){
                                         require '(View)Error2_5.php'; //2_5 It's not an  email format.
-                                }else if(!Swot::isAcademic($email)){
-                                        require '(View)Error2_6.php'; //2_6 It's not a university email.
+                                // }else if(!Swot::isAcademic($email)){
+                                //         require '(View)Error2_6.php'; //2_6 It's not a university email.
+                                
                                 }else if(strlen($username)<8){
                                         require '(View)Error2_1.php'; //2_1 Your username must contain at least 8 characters.
                                 }else if(preg_match($userNameRegExp, $username) == 0){
