@@ -7,6 +7,7 @@ require '(Control)versionTest.php';
 if(require '(Control)tokenCheck.php'){
 
     $posts_array = array();
+    $table1= array();
     $t1=0;
     
     if(!empty($data->account_Id) && !empty($data->user_uni)){
@@ -20,7 +21,7 @@ if(require '(Control)tokenCheck.php'){
             $t1 = 1;
             while($res = mysqli_fetch_assoc($xx)){	
                 $post_id=$res["post_id"];
-                $posts_array[] = array($post_id,
+                array_push($table1,$post_id,
                                     $res["username"],
                                     $res["post_tag"],
                                     $res["post_question"],
@@ -30,11 +31,11 @@ if(require '(Control)tokenCheck.php'){
                                     );
             require "(Model)checklikePosts.inc.php";
             if($res2["nbr"]==0){
-                array_push($posts_array,0);
+                array_push($table1,0);
             }else{
-                array_push($posts_array,$res2["post_likes_val"]);
+                array_push($table1,$res2["post_likes_val"]);
             }
-                
+            array_push($posts_array,$table1);
             }	
         }else{
             $posts_array[]=[];
