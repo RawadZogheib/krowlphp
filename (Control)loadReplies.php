@@ -21,7 +21,7 @@ if(require '(Control)tokenCheck.php'){
                 $posts_array[] = array($res["reply_id"],
                                     $res["username"],
                                     $res["reply_data"],
-                                    $res["reply_val"],
+                                    $res["reply_likes"],
                                     $res["reply_date"],
                                     );
             }	

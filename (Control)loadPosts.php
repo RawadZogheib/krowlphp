@@ -22,7 +22,7 @@ if(require '(Control)tokenCheck.php'){
                                     $res["username"],
                                     $res["post_tag"],
                                     $res["post_question"],
-                                    $res["post_val"],
+                                    $res["post_likes"],
                                     $res["post_date"],
                                     $res["post_context"],
                                     );
