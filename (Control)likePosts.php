@@ -14,7 +14,7 @@ if(require '(Control)tokenCheck.php'){
 
 
         require '(Model)checklikePosts.inc.php';
-        if($res["nbr"]==0){ 
+        if($res2["nbr"]==0){ 
         require '(Model)addlikePosts.inc.php';
         }else{
             require '(Model)updatelikePosts.inc.php';

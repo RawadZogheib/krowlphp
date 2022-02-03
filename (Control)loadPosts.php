@@ -16,9 +16,11 @@ if(require '(Control)tokenCheck.php'){
         
         require '(Model)loadPosts.inc.php';
         if(mysqli_num_rows($xx)>0){
+           
             $t1 = 1;
             while($res = mysqli_fetch_assoc($xx)){	
-                $posts_array[] = array($res["post_id"],
+                $post_id=$res["post_id"];
+                $posts_array[] = array($post_id,
                                     $res["username"],
                                     $res["post_tag"],
                                     $res["post_question"],
@@ -26,6 +28,13 @@ if(require '(Control)tokenCheck.php'){
                                     $res["post_date"],
                                     $res["post_context"],
                                     );
+            require "(Model)checklikePosts.inc.php";
+            if($res2["nbr"]==0){
+                array_push($posts_array,0);
+            }else{
+                array_push($posts_array,$res2["post_likes_val"]);
+            }
+                
             }	
         }else{
             $posts_array[]=[];
