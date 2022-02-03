@@ -5,7 +5,7 @@
 //json_decode($data);
 require '(Control)versionTest.php';
 
-if(!empty($data->email) && !empty($data->username) && !empty($data->vCode) ){
+if(!empty($data->email) && !empty($data->username) && !empty($data->vCode)){
 
               
     $email = htmlspecialchars($data->email);
