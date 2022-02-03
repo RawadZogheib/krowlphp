@@ -36,6 +36,7 @@ if(require '(Control)tokenCheck.php'){
                 array_push($table1,$res2["post_likes_val"]);
             }
             array_push($posts_array,$table1);
+            $table1=array();
             }	
         }else{
             $posts_array[]=[];
