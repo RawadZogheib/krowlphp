@@ -31,7 +31,7 @@ if(require '(Control)tokenCheck.php'){
                                     );
             require "(Model)checklikePosts.inc.php";
             if($res2["nbr"]==0){
-                array_push($table1,0);
+                array_push($table1,"0");
             }else{
                 array_push($table1,$res2["post_likes_val"]);
             }
