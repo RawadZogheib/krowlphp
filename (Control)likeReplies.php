@@ -15,7 +15,7 @@ if(require '(Control)tokenCheck.php'){
 
 
         require '(Model)checklikeReplies.inc.php';
-        if($res2["nbr"]==0){ 
+        if($res3["nbr"]==0){ 
         require '(Model)addlikeReplies.inc.php';
         $json_array[0] = 'success1';
         }else{
@@ -27,9 +27,18 @@ if(require '(Control)tokenCheck.php'){
         require '(Model)selectlikePosts.inc.php';
          if(mysqli_num_rows($yy)>0){
         $res1 = mysqli_fetch_assoc($yy);
-        $json_array[0] = 'success2';
-        $json_array[1] = $res1["reply_likes"];  
+        $json_array[1] = $res1["reply_likes"]; 
 
+        require "(Model)checklikePosts.inc.php";
+        if($res2["nbr"]==0){
+            $json_array[2] = '0';
+        }else{
+            $json_array[2] = $res2["post_likes_val"]; //sending number of likes of the post taht we're commenting it 
+        }
+        array_push($posts_array,$table1);
+        $table1=array();
+        }	
+        $json_array[0] = 'success2';
         }
     }   
 
