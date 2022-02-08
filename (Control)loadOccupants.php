@@ -6,7 +6,7 @@ require '(Control)versionTest.php';
 if(require '(Control)tokenCheck.php'){
 
     
-    $table_array = array();
+    $occupants = array();
     $t1=0;
     
     if(!empty($data->table_name)){
@@ -19,17 +19,16 @@ if(require '(Control)tokenCheck.php'){
             $t1 = 1;
             while($res = mysqli_fetch_assoc($xx)){	
 
-                $table_array[] = array($res["account_Id"],$res["username"],$res["position"],"batikhh");
+                $occupants[] = array($res["account_Id"],$res["username"],$res["position"],"batikhh");
             }	
         }else  if(mysqli_num_rows($xx) == 0){
             $t1 = 2;
-            $table_array[]=[];
-        }else{
-            
+            //$occupants[]=[];
+            $occupants = array();
         }
                     
             $json_array[0] = 'error4';
-            $json_array[1] = $table_array;
+            $json_array[1] = $occupants;
 
             if($t1 == 1){
                 $json_array[0] = 'success';
