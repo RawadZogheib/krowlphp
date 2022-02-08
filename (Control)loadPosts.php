@@ -18,7 +18,7 @@ if(require '(Control)tokenCheck.php'){
         require '(Model)loadPosts.inc.php';
         if(mysqli_num_rows($xx)>0){
            
-            $t1 = 1;
+     
             while($res = mysqli_fetch_assoc($xx)){	
                 $post_id=$res["post_id"];
                 array_push($table1,$post_id,
@@ -31,8 +31,10 @@ if(require '(Control)tokenCheck.php'){
                                     );
             require "(Model)checklikePosts.inc.php"; //status of the button that has been pressed ( -1->unlike, 0->no button is pressed, 1->like )
             if($res2["nbr"]==0){
+                $t1 = 1;
                 array_push($table1,"0");
             }else{
+                $t1 = 1;
                 array_push($table1,$res2["post_likes_val"]);
             }
             array_push($posts,$table1);
