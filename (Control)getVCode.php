@@ -25,7 +25,7 @@ if(!empty($data->email) && !empty($data->username) && !empty($data->vCode)){
 
     mysqli_close($con);
 
-}
+}else require '(View)Error7.php';
     
 
 ?>
