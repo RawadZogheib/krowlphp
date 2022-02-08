@@ -16,10 +16,16 @@ if(require '(Control)tokenCheck.php'){
         require '(Model)checklikePosts.inc.php';
         if($res2["nbr"]==0){ 
         require '(Model)addlikePosts.inc.php';
-        $json_array[0] = 'error4';
+        $json_array[1] = $like_val;  
         }else{
-            require '(Model)updatelikePosts.inc.php';
-            $json_array[0] = 'error4';
+            if($res2["post_likes_val"]==$like_val){
+                require '(Model)deletelikePosts.inc.php';
+                $json_array[1] = "0";  
+            }else{ 
+                require '(Model)updatelikePosts.inc.php';
+                $json_array[1] = $like_val;  
+            }
+
         }
 
     if($xx){
@@ -27,7 +33,7 @@ if(require '(Control)tokenCheck.php'){
          if(mysqli_num_rows($yy)>0){
         $res1 = mysqli_fetch_assoc($yy);
         $json_array[0] = 'success';
-        $json_array[1] = $res1["post_likes"];  
+        $json_array[2] = $res1["post_likes"];  
 
         }
     }   
