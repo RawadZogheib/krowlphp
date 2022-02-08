@@ -1,3 +1,3 @@
 <?php 
-		echo '["success","'.$$userTokenChat.'"]';
+		echo '["success","'.$userTokenChat.'"]';
 ?>
