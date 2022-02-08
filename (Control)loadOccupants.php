@@ -15,12 +15,12 @@ if(require '(Control)tokenCheck.php'){
         require '(Model)loadOccupants.inc.php';
 
 
-        if(mysqli_num_rows($xx)>0){
+        if(mysqli_num_rows($yy)>0){
             $t1 = 1;
-            while($res = mysqli_fetch_assoc($xx)){	
-                 array_push($occupants,$res["account_Id"],$res["username"],$res["position"],"batikhh");
+            while($res = mysqli_fetch_assoc($yy)){	
+                array_push($occupants,$res["account_Id"],$res["username"],$res["position"],"batikhh");
             }	
-        }else  if(mysqli_num_rows($xx) == 0){
+        }else  if(mysqli_num_rows($yy) == 0){
             $t1 = 2;
             //$occupants[]=[];
             $occupants = array();
