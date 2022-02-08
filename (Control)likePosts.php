@@ -16,7 +16,7 @@ if(require '(Control)tokenCheck.php'){
         require '(Model)checklikePosts.inc.php';
         if($res2["nbr"]==0){ 
         require '(Model)addlikePosts.inc.php';
-        $json_array[1] = $like_val;  
+        $json_array[1] = $like_val;  //status of the button that has been pressed ( -1->unlike, 0->no button is pressed, 1->like )
         }else{
             if($res2["post_likes_val"]==$like_val){
                 require '(Model)deletelikePosts.inc.php';
