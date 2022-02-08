@@ -33,7 +33,7 @@ if(require '(Control)tokenCheck.php'){
          if(mysqli_num_rows($yy)>0){
         $res1 = mysqli_fetch_assoc($yy);
         $json_array[0] = 'success';
-        $json_array[2] = $res1["post_likes"];  
+        $json_array[2] = $res1["post_likes"];  //total likes on a post
 
         }
     }   
