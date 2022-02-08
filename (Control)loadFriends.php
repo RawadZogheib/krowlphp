@@ -6,7 +6,7 @@
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
 
-    $table_array = array();
+    $friends = array();
     $t1=0;
     
     if(!empty($data->account_Id)){
@@ -17,17 +17,14 @@ if(require '(Control)tokenCheck.php'){
         if(mysqli_num_rows($xx)>0){
             $t1 = 1;
             while($res = mysqli_fetch_assoc($xx)){	
-                $table_array[] = array($res["account_Id"],$res["nameFriend"],$res["friend_id"]);
+                array_push($friends,$res["account_Id"],$res["nameFriend"],$res["friend_id"]);
             }	
         }else  if(mysqli_num_rows($xx) == 0){
             $t1 = 2;
-            $table_array[]=[];
-        }else{
-            
-        }
-                    
+            $friends = array();
+        }       
             $json_array[0] = 'error4';
-            $json_array[1] = $table_array;
+            $json_array[1] = $friends;
            
 
             if($t1 == 1){

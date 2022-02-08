@@ -6,7 +6,7 @@
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
 
-    $posts_array = array();
+    $replies = array();
     $t1=0;
     
     if(!empty($data->account_Id) && !empty($data->post_id)){
@@ -18,7 +18,7 @@ if(require '(Control)tokenCheck.php'){
         if(mysqli_num_rows($xx)>0){
             $t1 = 1;
             while($res = mysqli_fetch_assoc($xx)){	
-                $posts_array[] = array($res["reply_id"],
+                array_push($replies,$res["reply_id"],
                                     $res["username"],
                                     $res["reply_data"],
                                     $res["reply_likes"],
@@ -30,7 +30,7 @@ if(require '(Control)tokenCheck.php'){
         }
                     
             $json_array[0] = 'error4';
-            $json_array[1] =  $posts_array;
+            $json_array[1] =  $replies;
             
 
             if($t1 == 1){

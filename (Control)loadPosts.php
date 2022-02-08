@@ -6,7 +6,7 @@
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
 
-    $posts_array = array();
+    $posts = array();
     $table1= array();
     $t1=0;
     
@@ -29,25 +29,28 @@ if(require '(Control)tokenCheck.php'){
                                     $res["post_date"],
                                     $res["post_context"],
                                     );
-            require "(Model)checklikePosts.inc.php";
+            require "(Model)checklikePosts.inc.php"; //status of the button that has been pressed ( -1->unlike, 0->no button is pressed, 1->like )
             if($res2["nbr"]==0){
                 array_push($table1,"0");
             }else{
                 array_push($table1,$res2["post_likes_val"]);
             }
-            array_push($posts_array,$table1);
+            array_push($posts,$table1);
             $table1=array();
             }	
-        }else{
-            $posts_array[]=[];
+        }else if(mysqli_num_rows($xx) == 0){
+            $t1 = 2;
+            $posts = array();
         }
                     
             $json_array[0] = 'error4';
-            $json_array[1] =  $posts_array;
+            $json_array[1] =  $posts;
             
 
             if($t1 == 1){
                 $json_array[0] = 'success';
+            }else if($t1 == 2){
+                $json_array[0] = 'empty';
             }
             echo json_encode($json_array);
 

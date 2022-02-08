@@ -6,13 +6,13 @@
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
 
-    $student_array = array();
+    $students = array();
     $table1=array();
-
+    $t1=0;
    
     $tot_students=0; //number of students in a specific uni
     
-    $json_array[0] = 'success';
+    $json_array[0] = 'error4';
     
     if(!empty($data->account_Id) && !empty($data->currentPage)){
         
@@ -26,7 +26,7 @@ if(require '(Control)tokenCheck.php'){
 
         require '(Model)loadStudents1.inc.php';
         if(mysqli_num_rows($xx)>0){
-
+            $t1 = 1;
             $json_array[1] = $tot_students;
         
            
@@ -54,24 +54,26 @@ if(require '(Control)tokenCheck.php'){
                 }else{
                     array_push($table1,'0'); // 0 -> this student is not a friend with the account_Id , UNFRIEND
                 }
-                array_push($student_array,$table1);
+                array_push($students,$table1);
                 $table1=array();
 
 
 
             }
-            $json_array[2] = $student_array;
+            $json_array[2] = $students;
 
         }else  if(mysqli_num_rows($xx) == 0){
-
-            $student_array=array();
-
-            $json_array[0] = 'empty';
-            $json_array[1] = 0;
-    
+            $t1 = 2;
+            $students=array();
             
         }
-                    
+            
+        if($t1 == 1){
+            $json_array[0] = 'success';
+        }else if($t1 == 2){
+            $json_array[0] = 'empty';
+            $json_array[1] = 0;
+        }
          
             echo json_encode($json_array);
 
