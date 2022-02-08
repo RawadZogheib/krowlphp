@@ -18,7 +18,7 @@ if(require '(Control)tokenCheck.php'){
         if(mysqli_num_rows($xx)>0){
             $t1 = 1;
             while($res = mysqli_fetch_assoc($xx)){	
-                array_push($contacts,$res["account_Id"],$res["nameFriend"],$res["friend_id"]);
+                $contacts[] = array($res["account_Id"],$res["nameFriend"],$res["friend_id"]);
             }	
         }else  if(mysqli_num_rows($xx) == 0){
             $t1 = 2;
