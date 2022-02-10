@@ -22,7 +22,7 @@ if(require '(Control)tokenCheck.php'){
         $json_array[1] = $like_val; //status of the button that has been pressed ( -1->unlike, 0->no button is pressed, 1->like )
         } 
         }else{
-            if($res2["reply_likes_val"]==$like_val){
+            if($res3["reply_likes_val"]==$like_val){
                 require '(Model)deletelikeReplies.inc.php';
                 if($xx){
                     $json_array[1] = "0"; 
