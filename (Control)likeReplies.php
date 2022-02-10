@@ -55,13 +55,13 @@ if(require '(Control)tokenCheck.php'){
         $table1=array();
         }	
         
-        }
-    }   
+    }
+    
 
     echo json_encode($json_array);
 
     mysqli_close($con);
 
-    }else require '(View)Error7.php';
+}else require '(View)Error7.php';
 }
 ?>
