@@ -51,8 +51,7 @@ if(require '(Control)tokenCheck.php'){
             $json_array[0] = 'success';
             $json_array[3] = $res2["post_likes_val"]; //sending number of likes of the post that we're commenting it 
         }
-        array_push($posts_array,$table1);
-        $table1=array();
+
         }	
         
    
