@@ -38,7 +38,7 @@ if(require '(Control)tokenCheck.php'){
         }
 
     
-        require '(Model)selectlikePosts.inc.php';
+        require '(Model)selectlikeReplies.inc.php';
          if(mysqli_num_rows($yy)>0){
         $res1 = mysqli_fetch_assoc($yy);
         $json_array[2] = $res1["reply_likes"];//total like of the comment
