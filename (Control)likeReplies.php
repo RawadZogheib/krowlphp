@@ -8,6 +8,7 @@ if(require '(Control)tokenCheck.php'){
 
     if(!empty($data->account_Id) && !empty($data->post_id) && !empty($data->reply_id) && !empty($data->like_val)){
         $json_array[0] = 'error4';
+        $json_array[1] = 'error4';
         $account_Id = htmlspecialchars($data->account_Id);
         $post_id = htmlspecialchars($data->post_id);
         $reply_id = htmlspecialchars($data->reply_id);
@@ -17,28 +18,43 @@ if(require '(Control)tokenCheck.php'){
         require '(Model)checklikeReplies.inc.php';
         if($res3["nbr"]==0){ 
         require '(Model)addlikeReplies.inc.php';
-        $json_array[0] = 'success1';
+        if($xx){
+        $json_array[1] = $like_val; //status of the button that has been pressed ( -1->unlike, 0->no button is pressed, 1->like )
+        } 
         }else{
-            require '(Model)updatelikeReplies.inc.php';
-            $json_array[0] = 'success1';
+            if($res2["reply_likes_val"]==$like_val){
+                require '(Model)deletelikeReplies.inc.php';
+                if($xx){
+                    $json_array[1] = "0"; 
+                }
+                  
+            }else{ 
+                require '(Model)updatelikeReplies.inc.php';
+                if($xx){
+                    $json_array[1] = $like_val; 
+                }
+            }
+
         }
 
     if($xx){
         require '(Model)selectlikePosts.inc.php';
          if(mysqli_num_rows($yy)>0){
         $res1 = mysqli_fetch_assoc($yy);
-        $json_array[1] = $res1["reply_likes"]; 
+        $json_array[2] = $res1["reply_likes"];//total like of the comment
 
         require "(Model)checklikePosts.inc.php";
         if($res2["nbr"]==0){
-            $json_array[2] = '0';
+            $json_array[0] = 'success';
+            $json_array[3] = '0';
         }else{
-            $json_array[2] = $res2["post_likes_val"]; //sending number of likes of the post taht we're commenting it 
+            $json_array[0] = 'success';
+            $json_array[3] = $res2["post_likes_val"]; //sending number of likes of the post that we're commenting it 
         }
         array_push($posts_array,$table1);
         $table1=array();
         }	
-        $json_array[0] = 'success2';
+        
         }
     }   
 
