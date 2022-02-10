@@ -8,6 +8,7 @@ if(require '(Control)tokenCheck.php'){
 
     if(!empty($data->account_Id) && !empty($data->post_id)&& !empty($data->like_val)){
         $json_array[0] = 'error4';
+        $json_array[1] = 'error4';
         $account_Id = htmlspecialchars($data->account_Id);
         $post_id = htmlspecialchars($data->post_id);
         $like_val = htmlspecialchars($data->like_val);
@@ -34,15 +35,14 @@ if(require '(Control)tokenCheck.php'){
 
         }
 
-    if($xx){
+    
         require '(Model)selectlikePosts.inc.php';
          if(mysqli_num_rows($yy)>0){
         $res1 = mysqli_fetch_assoc($yy);
         $json_array[0] = 'success';
         $json_array[2] = $res1["post_likes"];  //total likes on a post
 
-        }
-    }   
+        } 
 
     echo json_encode($json_array);
 

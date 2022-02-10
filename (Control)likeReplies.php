@@ -37,7 +37,7 @@ if(require '(Control)tokenCheck.php'){
 
         }
 
-    if($xx){
+    
         require '(Model)selectlikePosts.inc.php';
          if(mysqli_num_rows($yy)>0){
         $res1 = mysqli_fetch_assoc($yy);
@@ -55,7 +55,7 @@ if(require '(Control)tokenCheck.php'){
         $table1=array();
         }	
         
-    }
+   
     
 
     echo json_encode($json_array);
