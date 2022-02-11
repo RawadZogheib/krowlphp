@@ -20,7 +20,15 @@ if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->table
 
             require '(Model)createTable.inc.php'; 
             if($yy){
-                $json_array[0] = 'success';
+
+                if($table_type == "2"){
+                    require '(Model)inviteParticipants.inc.php'; //inserting the creator of the table in the participant table 
+                    if($zz){
+                        $json_array[0] = 'success';
+                    }
+                    
+                }
+               
             }
     
         }else{
