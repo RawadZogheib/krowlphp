@@ -10,7 +10,7 @@ if(require '(Control)tokenCheck.php'){
     $table1=array();
     $t1=0;
    
-    $tot_students=0; //number of students in a specific uni
+    $tot_students=0; //number of students in all uni
     
     $json_array[0] = 'error4';
     
