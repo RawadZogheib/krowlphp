@@ -8,7 +8,6 @@ if(require '(Control)tokenCheck.php'){
 
     if(!empty($data->account_Id) && !empty($data->post_id)&& !empty($data->like_val)){
         $json_array[0] = 'error4';
-        $json_array[1] = 'error4';
         $account_Id = htmlspecialchars($data->account_Id);
         $post_id = htmlspecialchars($data->post_id);
         $like_val = htmlspecialchars($data->like_val);
