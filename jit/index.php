@@ -30,7 +30,7 @@
                   startWithAudioMuted: [true],
                   startWithVideoMuted: [true],
                   startSilent: true,
-                  disableInitialGUM: false,
+                  disableInitialGUM: true,
                 },
                 // optionally, we can have the meeting select the devices we want
                 devices: {
