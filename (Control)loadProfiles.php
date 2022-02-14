@@ -17,9 +17,6 @@ if(require '(Control)tokenCheck.php'){
         $account_Id = htmlspecialchars($data->account_Id);
         $friend_id = htmlspecialchars($data->friend_id);
         $json_array[0] = 'error4';
-        $json_array[1] = 'error4';
-        $json_array[2] = 'error4';
-        $json_array[3] = 'error4';
 
         if($friend_id != 0){
             $account_Id=$friend_id;
