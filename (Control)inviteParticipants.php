@@ -20,7 +20,7 @@ if(!empty($data->account_Id) && !empty($data->friend_id) && !empty($data->table_
 
         
             require '(Model)inviteParticipants.inc.php'; 
-            if($yy){
+            if($zz){
                 $json_array[0] = 'success';
             }
     
