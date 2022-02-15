@@ -69,8 +69,7 @@
                   
                   //optionally we can control the mute state on join from the emebedding application
                   startWithAudioMuted: [true],
-                  startWithVideoMuted: [true],
-                  toolbarButtons: ['camera','chat','desktop','download','embedmeeting','etherpad','feedback','filmstrip','fullscreen','hangup','help','invite','livestreaming','participants-pane','profile','raisehand','recording','security','select-background','settings','sharedvideo','shortcuts','stats','tileview','toggle-camera','videoquality','__end']
+                  startWithVideoMuted: [true] 
                 },
                 // optionally, we can have the meeting select the devices we want
                 devices: {
