@@ -19,7 +19,7 @@ if(require '(Control)tokenCheck.php'){
         $json_array[0] = 'error4';
 
         require '(Model)countReplies.inc.php';
-       
+        if($res2["nbr"]!=0){
 
         $tot_replies=$res2["nbr"];
         
@@ -57,7 +57,9 @@ if(require '(Control)tokenCheck.php'){
                     
             
             $json_array[2] =  $replies;
-            
+        }else if($res2["nbr"]==0)  {
+            $t1=2;
+        } 
 
             if($t1 == 1){
                 $json_array[0] = 'success';
