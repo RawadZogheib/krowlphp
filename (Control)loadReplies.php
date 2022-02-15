@@ -16,6 +16,7 @@ if(require '(Control)tokenCheck.php'){
         $account_Id = htmlspecialchars($data->account_Id);
         $post_id = htmlspecialchars($data->post_id);
         $currentPage = htmlspecialchars($data->currentPage);
+        $json_array[0] = 'error4';
 
         require '(Model)countReplies.inc.php';
        
@@ -54,7 +55,7 @@ if(require '(Control)tokenCheck.php'){
             $replies = array();
         }
                     
-            $json_array[0] = 'error4';
+            
             $json_array[2] =  $replies;
             
 
