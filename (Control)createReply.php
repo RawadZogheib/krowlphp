@@ -17,7 +17,7 @@ if(!empty($data->account_Id) && !empty($data->post_id) && !empty($data->reply_da
     require '(Model)createReply.inc.php'; 
     if($yy){
             $json_array[0] = 'success';
-            $json_array[1] = ".$id.";
+            $json_array[1] = "$id";
     }
 
         echo json_encode($json_array);
