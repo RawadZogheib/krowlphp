@@ -10,10 +10,11 @@ if(require '(Control)tokenCheck.php'){
     $tmp = array();
     $t1=0;
     
-    if(!empty($data->account_Id) && !empty($data->post_id)){
+    if(!empty($data->account_Id) && !empty($data->post_id) && !empty($data->currentPage)){
         
         $account_Id = htmlspecialchars($data->account_Id);
         $post_id = htmlspecialchars($data->post_id);
+        $currentPage = htmlspecialchars($data->currentPage);
         
         require '(Model)loadReplies.inc.php';
         if(mysqli_num_rows($xx)>0){
