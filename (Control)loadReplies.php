@@ -9,16 +9,24 @@ if(require '(Control)tokenCheck.php'){
     $replies = array();
     $tmp = array();
     $t1=0;
+    $tot_replies=0;
     
     if(!empty($data->account_Id) && !empty($data->post_id) && !empty($data->currentPage)){
         
         $account_Id = htmlspecialchars($data->account_Id);
         $post_id = htmlspecialchars($data->post_id);
         $currentPage = htmlspecialchars($data->currentPage);
+
+        require '(Model)countReplies.inc.php';
+       
+
+        $tot_replies=$res2["nbr"];
         
         require '(Model)loadReplies.inc.php';
         if(mysqli_num_rows($xx)>0){
-            
+
+            $json_array[1] = $tot_replies;
+
             while($res = mysqli_fetch_assoc($xx)){	
                 $reply_id=$res["reply_id"];
                 array_push($tmp,$reply_id,
@@ -47,7 +55,7 @@ if(require '(Control)tokenCheck.php'){
         }
                     
             $json_array[0] = 'error4';
-            $json_array[1] =  $replies;
+            $json_array[2] =  $replies;
             
 
             if($t1 == 1){
