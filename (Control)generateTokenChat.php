@@ -10,7 +10,7 @@ require './vendor/autoload.php';
 
 
 
-$server_client = new Client("z5j34vkctqrq", "zad2a8rmxswdce7ay4wv4xjsbwue4tzpjmkb8vex2aqzjpc646n6ttsc7j727nkn"); //stable for an existing account on stream (eg:krowl)
+$server_client = new Client("yzh74xz7aez6", "9jdgxqtz4fa59g6a4fyd4w58cmwwpke5dfjqtv77tq74u6g484qqxkn26jj49cna"); //stable for an existing account on stream (eg:krowl)
 $userTokenChat = $server_client->createToken($username);
     
 
