@@ -7,6 +7,7 @@ require '(Control)versionTest.php';
 if(require '(Control)tokenCheck.php'){
 
     $replies = array();
+    $posts = array();
     $tmp = array();
     $t1=0;
     $tot_replies=0;
@@ -19,14 +20,30 @@ if(require '(Control)tokenCheck.php'){
         $json_array[0] = 'error4';
 
         require '(Model)countReplies.inc.php';
-        if($res2["nbr"]!=0){
+        if($res5["nbr"]!=0){
 
-        $tot_replies=$res2["nbr"];
+        $tot_replies=$res5["nbr"];
+        $json_array[1] = $tot_replies;
         
+        require '(Model)getPost.inc.php';
+        if(mysqli_num_rows($yy)>0){
+            $res1 = mysqli_fetch_assoc($yy);
+            array_push($posts,$res1["post_id"],$res1["username"],$res1["post_tag"],$res1["post_question"],$res1["post_likes"],$res1["post_date"],$res1["post_context"]);
+            
+            require "(Model)checklikePosts.inc.php"; //status of the button that has been pressed ( -1->unlike, 0->no button is pressed, 1->like )
+            if($res2["nbr"]==0){
+              
+                array_push($posts,"0");
+            }else{
+                
+                array_push($posts,$res2["post_likes_val"]);
+            }
+            $json_array[2]=$posts;
+
         require '(Model)loadReplies.inc.php';
         if(mysqli_num_rows($xx)>0){
 
-            $json_array[1] = $tot_replies;
+            
 
             while($res = mysqli_fetch_assoc($xx)){	
                 $reply_id=$res["reply_id"];
@@ -54,10 +71,10 @@ if(require '(Control)tokenCheck.php'){
             $t1 = 2;
             $replies = array();
         }
-                    
-            
-            $json_array[2] =  $replies;
-        }else if($res2["nbr"]==0)  {
+            $json_array[3] =  $replies;
+
+    }
+        }else if($res5["nbr"]==0)  {
             $t1=2;
         } 
 

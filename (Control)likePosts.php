@@ -35,7 +35,7 @@ if(require '(Control)tokenCheck.php'){
         }
 
     
-        require '(Model)selectlikePosts.inc.php';
+        require '(Model)getPost.inc.php';
          if(mysqli_num_rows($yy)>0){
         $res1 = mysqli_fetch_assoc($yy);
         $json_array[0] = 'success';
