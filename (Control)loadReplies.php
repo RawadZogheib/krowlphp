@@ -28,7 +28,7 @@ if(require '(Control)tokenCheck.php'){
         require '(Model)getPost.inc.php';
         if(mysqli_num_rows($yy)>0){
             $res1 = mysqli_fetch_assoc($yy);
-            array_push($posts,$res1["post_id"],$res1["username"],$res1["post_tag"],$res1["post_question"],$res1["post_likes"],$res1["post_date"],$res1["post_context"]);
+            array_push($posts,$res1["username"],$res1["post_tag"],$res1["post_question"],$res1["post_likes"],$res1["post_date"],$res1["post_context"]);
             
             require "(Model)checklikePosts.inc.php"; //status of the button that has been pressed ( -1->unlike, 0->no button is pressed, 1->like )
             if($res2["nbr"]==0){
