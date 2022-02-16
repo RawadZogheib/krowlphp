@@ -18,8 +18,13 @@ if(!empty($data->email) && !empty($data->username) && !empty($data->vCode)){
         require '(Model)getVCodeMySQL.php';
         
         if($vCode == $res["vCode"]){
-            require '(Control)generateTokenChat.php';
-            require '(View)success2.php'; //to be addedd
+            require '(Control)generateTokenChat.php'; //to be added some control to it 
+            require '(Model)insertTokenChat.inc.php';
+                if($xx1){
+                    require '(View)success2.php'; 
+                }else require '(View)false.php';
+           
+            
 
         }else require '(View)false.php';
 
