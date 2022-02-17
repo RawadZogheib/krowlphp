@@ -7,5 +7,6 @@
     VALUES (NULL,'".$account_Id."','".$table_name."','".$table_uni."','".$seats."','".$table_type."')";
 
     $yy=mysqli_query($con,$sql);
+    $table_id = mysqli_insert_id($con);
 
 ?>

@@ -22,9 +22,6 @@ if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->table
             if($yy){
 
                 if($table_type == "2"){
-                    require '(Model)getTableId.inc.php';
-                    $res1= mysqli_fetch_assoc($zz1);
-                    $table_id=$res1["table_id"];
                     $friend_id=$account_Id;
                     require '(Model)inviteParticipants.inc.php'; //inserting the creator of the table in the participant table 
                     if($zz){
