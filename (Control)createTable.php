@@ -31,6 +31,8 @@ if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->table
                         $json_array[0] = 'success';
                     }
                     
+                }else{
+                    $json_array[0] = 'success';
                 }
                
             }
