@@ -29,7 +29,7 @@ if(require '(Control)tokenCheck.php'){
             require "(Model)getAccountInfos.inc.php";
             if(mysqli_num_rows($xx6)>0){
                     $res6 = mysqli_fetch_assoc($xx6);	
-                    array_push($tmp,$res6["username"],
+                    array_push($infos,$res6["username"],
                                     $res6["uni_name"],
                                     $res6["bio"],
                                     //$res6["photo"]
@@ -37,7 +37,7 @@ if(require '(Control)tokenCheck.php'){
 
             require "(Model)loadFriends.inc.php"; //number of friends
             $nbr_friends=mysqli_num_rows($xx);
-            array_push($tmp,$nbr_friends);
+            array_push($infos,$nbr_friends);
 
             if($t2 == 1){
             require "(Model)isFriendProfile.inc.php";
@@ -47,14 +47,13 @@ if(require '(Control)tokenCheck.php'){
             if($res7["nbr"] == 1){
                 
                 if($res7["request"]==1)// 1 -> REQUEST OR 2 -> FRIEND IN DB 
-                array_push($tmp,'1');  //1 -> REQUEST
+                array_push($infos,'1');  //1 -> REQUEST
                 else if($res7["request"]==2)
-                array_push($tmp,'2');// 2 -> FRIEND 
+                array_push($infos,'2');// 2 -> FRIEND 
             }else{
 
-                array_push($tmp,'0'); // 0 -> this student is not a friend with the account_Id , UNFRIEND
+                array_push($infos,'0'); // 0 -> this student is not a friend with the account_Id , UNFRIEND
             }
-            array_push($infos,$tmp);
             $json_array[1] = $infos;
             $tmp=array();
             }
