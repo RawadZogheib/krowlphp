@@ -5,6 +5,6 @@
 	UNION SELECT  a.`account_Id`as account_Id,a.`username`as nameFriend,f.`friendship_id` as friend_id FROM `friendships`f join `account`a on f.id1=a.account_Id 
 	WHERE `id2` = '".$student_id."' AND `request`=2" ;
 
-	$xx = mysqli_query($con,$sql);
+	$xx5 = mysqli_query($con,$sql);
 		
 ?>

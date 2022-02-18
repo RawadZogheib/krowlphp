@@ -46,8 +46,8 @@ if(require '(Control)tokenCheck.php'){
 
                                     );
                 require "(Model)loadFriends2.inc.php";
-                if(mysqli_num_rows($xx)>=0)
-                $nbr_friends=mysqli_num_rows($xx);
+                if(mysqli_num_rows($xx5)>=0)
+                $nbr_friends=mysqli_num_rows($xx5);
                 
                 array_push($table1,$nbr_friends);
                 require '(Model)loadStudents2.inc.php';
