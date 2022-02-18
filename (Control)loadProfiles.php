@@ -41,7 +41,8 @@ if(require '(Control)tokenCheck.php'){
 
             if($t2 == 1){
             require "(Model)isFriendProfile.inc.php";
-            if(mysqli_num_rows($yy7)>0){
+            if(mysqli_num_rows($yy7)>0){ //to be added control if it's less than 0 what's gonna hppen
+
             $res7 = mysqli_fetch_assoc($yy7);
             if($res7["nbr"] == 1){
                 
@@ -108,7 +109,7 @@ if(require '(Control)tokenCheck.php'){
                         $json_array[3] = $replies;
                     }
                 }
-            }
+            
             echo json_encode($json_array);
 
             mysqli_close($con);
