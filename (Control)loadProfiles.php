@@ -28,7 +28,7 @@ if(require '(Control)tokenCheck.php'){
 
             require "(Model)getAccountInfos.inc.php";
             if(mysqli_num_rows($xx6)>0){
-                    $res6 = mysqli_fetch_assoc($xx6))	
+                    $res6 = mysqli_fetch_assoc($xx6)	
                     array_push($tmp,$res6["username"],
                                     $res6["uni_name"],
                                     $res6["bio"],
