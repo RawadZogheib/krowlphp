@@ -55,11 +55,9 @@ if(require '(Control)tokenCheck.php'){
                 array_push($infos,'0'); // 0 -> this student is not a friend with the account_Id , UNFRIEND
             }
             $json_array[1] = $infos;
-            $tmp=array();
             }
             }else{
-                array_push($tmp,"3"); //not to add any button (requested, friend)
-                array_push($infos,$tmp);
+                array_push($infos,"3"); //not to add any button (requested, friend)
                 $json_array[1] = $infos;
                 $tmp=array();
     
