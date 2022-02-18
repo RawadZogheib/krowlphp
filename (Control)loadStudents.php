@@ -45,12 +45,10 @@ if(require '(Control)tokenCheck.php'){
                                      $res2["bio"],
 
                                     );
-                $account_Id=$student_id;
-                require "(Model)loadFriends.inc.php";
-                
+                require "(Model)loadFriends2.inc.php";
                 if(mysqli_num_rows($xx)>=0)
                 $nbr_friends=mysqli_num_rows($xx);
-
+                
                 array_push($table1,$nbr_friends);
                 require '(Model)loadStudents2.inc.php';
 
