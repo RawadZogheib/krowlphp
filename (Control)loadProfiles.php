@@ -59,7 +59,6 @@ if(require '(Control)tokenCheck.php'){
             }else{
                 array_push($infos,"3"); //not to add any button (requested, friend)
                 $json_array[1] = $infos;
-                $tmp=array();
     
             }
           
