@@ -38,7 +38,7 @@ if(require '(Control)tokenCheck.php'){
 
             require "(Model)loadFriends.inc.php"; //number of friends
             $nbr_friends=mysqli_num_rows($xx);
-            array_push($infos,$nbr_friends);
+            array_push($infos,"$nbr_friends");
 
             if($t2 == 1){
             require "(Model)isFriendProfile.inc.php";
