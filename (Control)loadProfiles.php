@@ -87,15 +87,16 @@ if(require '(Control)tokenCheck.php'){
                         $json_array[0] = 'success';
                         $tmp=array(); 
             
-                        while($res3 = mysqli_fetch_assoc($xx3)){	
-                            array_push($tmp,$res3["post_id"],
+                        while($res3 = mysqli_fetch_assoc($xx3)){
+                           $post_id= $res3["post_id"];
+                            array_push($tmp,$post_id,
                                             $res3["post_question"],
                                             $res3["reply_id"],
                                             $res3["reply_data"],
-                                            $res3["reply_date"]
                                         ); 
                             require "(Model)countReplies.inc.php";  
                             array_push($tmp,$res5["nbr"]);
+                            array_push($tmp, $res3["reply_date"]);
                             array_push($replies,$tmp);
                             $tmp=array();                    
                         }
