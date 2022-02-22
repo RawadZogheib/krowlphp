@@ -68,11 +68,11 @@ if(require '(Control)tokenCheck.php'){
 
                     while($res2 = mysqli_fetch_assoc($xx2)){	
                         array_push($tmp,$res2["post_id"],
-                                        // $res2["post_tag"],
-                                        // $res2["post_question"],
-                                        // $res2["post_likes"],
-                                        // $res2["post_date"],
-                                        // $res2["post_context"],
+                                        $res2["post_tag"],
+                                        $res2["post_question"],
+                                        $res2["post_likes"],
+                                        $res2["post_date"],
+                                        $res2["post_context"],
                                     );   
                         array_push($posts,$tmp);
                         $tmp=array();                    
@@ -92,9 +92,9 @@ if(require '(Control)tokenCheck.php'){
                         while($res3 = mysqli_fetch_assoc($xx3)){	
                             array_push($tmp,$res3["post_id"],
                                             $res3["reply_id"],
-                                            // $res3["reply_data"],
-                                            // $res3["reply_likes"],
-                                            // $res3["reply_date"]
+                                            $res3["reply_data"],
+                                            $res3["reply_likes"],
+                                            $res3["reply_date"]
                                         );   
                             array_push($replies,$tmp);
                             $tmp=array();                    
