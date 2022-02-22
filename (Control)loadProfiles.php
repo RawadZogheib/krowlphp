@@ -92,7 +92,6 @@ if(require '(Control)tokenCheck.php'){
                                             $res3["post_question"],
                                             $res3["reply_id"],
                                             $res3["reply_data"],
-                                            $res3["reply_likes"],
                                             $res3["reply_date"]
                                         );   
                             array_push($replies,$tmp);
