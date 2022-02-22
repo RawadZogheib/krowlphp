@@ -93,7 +93,9 @@ if(require '(Control)tokenCheck.php'){
                                             $res3["reply_id"],
                                             $res3["reply_data"],
                                             $res3["reply_date"]
-                                        );   
+                                        ); 
+                            require "(Model)countReplies.inc.php";  
+                            array_push($tmp,$res5["nbr"]);
                             array_push($replies,$tmp);
                             $tmp=array();                    
                         }
