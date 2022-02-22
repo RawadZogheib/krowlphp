@@ -67,11 +67,16 @@ if(require '(Control)tokenCheck.php'){
                 if(mysqli_num_rows($xx2)>0){
 
                     while($res2 = mysqli_fetch_assoc($xx2)){	
+                        $post_id= $res2["post_id"];
                         array_push($tmp,$res2["post_id"],
                                         $res2["post_question"],
-                                        $res2["post_date"],
                                         $res2["post_context"],
                                     );   
+                         require "(Model)countReplies.inc.php"; 
+
+                        
+                        array_push($tmp,$res5["nbr"]);
+                        array_push($tmp, $res2["post_date"]);
                         array_push($posts,$tmp);
                         $tmp=array();                    
                     }
@@ -88,15 +93,14 @@ if(require '(Control)tokenCheck.php'){
                         $tmp=array(); 
             
                         while($res3 = mysqli_fetch_assoc($xx3)){
-                           $post_id= $res3["post_id"];
-                            array_push($tmp,$post_id,
-                                            $res3["post_question"],
+                           
+                            array_push($tmp,$res3["post_id"],
                                             $res3["reply_id"],
+                                            $res3["post_question"],
                                             $res3["reply_data"],
+                                            $res3["reply_date"],
                                         ); 
-                            require "(Model)countReplies.inc.php";  
-                            array_push($tmp,$res5["nbr"]);
-                            array_push($tmp, $res3["reply_date"]);
+                            
                             array_push($replies,$tmp);
                             $tmp=array();                    
                         }
