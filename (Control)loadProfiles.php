@@ -66,17 +66,23 @@ if(require '(Control)tokenCheck.php'){
                 require "(Model)getAccountPosts.inc.php";
                 if(mysqli_num_rows($xx2)>0){
 
-                    while($res2 = mysqli_fetch_assoc($xx2)){	
-                        $post_id= $res2["post_id"];
-                        array_push($tmp,$res2["post_id"],
-                                        $res2["post_question"],
-                                        $res2["post_context"],
-                                    );   
-                         require "(Model)countReplies.inc.php"; 
-
+                    while($res4 = mysqli_fetch_assoc($xx2)){	
+                        $post_id= $res4["post_id"];
+                        array_push($tmp,$res4["post_id"],
+                                        $res4["post_tag"],
+                                        $res4["post_likes"],); 
                         
-                        array_push($tmp,$res5["nbr"]);
-                        array_push($tmp, $res2["post_date"]);
+                        require "(Model)checklikePosts.inc.php"; //status of the button that has been pressed ( -1->unlike, 0->no button is pressed, 1->like )
+                        if($res2["nbr"]==0){
+                            array_push($tmp,"0");
+                        }else{
+                            array_push($tmp,$res2["post_likes_val"]);
+                        }
+                        array_push($tmp,$res4["post_question"]);
+                        array_push($tmp,$res4["post_context"]);
+                                      
+                         require "(Model)countReplies.inc.php";
+                        array_push($tmp,$res5["nbr"],$res4["post_date"]);
                         array_push($posts,$tmp);
                         $tmp=array();                    
                     }
@@ -91,16 +97,23 @@ if(require '(Control)tokenCheck.php'){
                     if(mysqli_num_rows($xx3)>0){
                         $json_array[0] = 'success';
                         $tmp=array(); 
-            
+                        $res2=0;
                         while($res3 = mysqli_fetch_assoc($xx3)){
-                           
-                            array_push($tmp,$res3["post_id"],
+                            $post_id= $res3["post_id"];
+                            array_push($tmp,$post_id,
                                             $res3["reply_id"],
-                                            $res3["post_question"],
-                                            $res3["reply_data"],
-                                            $res3["reply_date"],
-                                        ); 
-                            
+                                            $res3["post_tag"],
+                                            $res3["post_likes"],); 
+
+                            require "(Model)checklikePosts.inc.php"; //status of the button that has been pressed ( -1->unlike, 0->no button is pressed, 1->like )
+                            if($res2["nbr"]==0){
+                                $t1 = 1;
+                                array_push($tmp,"0");
+                            }else{
+                                $t1 = 1;
+                                array_push($tmp,$res2["post_likes_val"]);
+                            }
+                            array_push($tmp,$res3["post_question"],$res3["post_context"],$res3["post_date"],$res3["reply_data"],$res3["reply_date"]);
                             array_push($replies,$tmp);
                             $tmp=array();                    
                         }
