@@ -69,7 +69,7 @@ if(require '(Control)tokenCheck.php'){
                     while($res4 = mysqli_fetch_assoc($xx2)){	
                         $post_id= $res4["post_id"];
                         array_push($tmp,$res4["post_id"],
-                                        $res4["first_name"].''.$res4["last_name"],
+                                        $res4["first_name"].' '.$res4["last_name"],
                                         $res4["post_tag"],
                                         $res4["post_likes"],); 
                         
@@ -103,7 +103,7 @@ if(require '(Control)tokenCheck.php'){
                             $post_id= $res3["post_id"];
                             array_push($tmp,$post_id,
                                             $res3["reply_id"],
-                                            $res3["first_name"].''.$res3["last_name"],
+                                            $res3["first_name"].' '.$res3["last_name"],
                                             $res3["post_tag"],
                                             $res3["post_likes"],); 
 

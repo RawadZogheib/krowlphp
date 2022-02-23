@@ -22,7 +22,7 @@ if(require '(Control)tokenCheck.php'){
             while($res = mysqli_fetch_assoc($xx)){	
                 $post_id=$res["post_id"];
                 array_push($table1,$post_id,
-                                    $res["first_name"].''.$res["last_name"],
+                                    $res["first_name"].' '.$res["last_name"],
                                     $res["post_tag"],
                                     $res["post_question"],
                                     $res["post_likes"],
