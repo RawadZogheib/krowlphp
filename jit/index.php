@@ -79,7 +79,11 @@
                   audioOutput: '<deviceLabel>',
                   videoInput: '<deviceLabel>'
                 },
-                interfaceConfigOverwrite: { SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
+                interfaceConfigOverwrite: { 
+                APP_NAME: 'Krowl',  
+                DEFAULT_BACKGROUND: 'krowl_logo2.png',
+                DEFAULT_LOGO_URL: 'krowl_logo2.png',
+                SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
                 userInfo: {
                 displayName:<?php echo $account?>
                 },
