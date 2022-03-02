@@ -81,7 +81,7 @@
                 },
                 interfaceConfigOverwrite: { 
                 APP_NAME: 'Krowl',  
-                backgroundImageUrl: './jit/krowl_logo2.png',
+                backgroundImageUrl: 'https://ibb.co/qk08ZKQ',
                 DEFAULT_LOGO_URL: './jit/krowl_logo2.png',
                 SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
                 userInfo: {
