@@ -72,7 +72,7 @@
                   startWithAudioMuted: [true],
                   startWithVideoMuted: [true],
                   disableInitialGUM: true,
-                  {
+                  
                   // The domain url to apply (will replace the domain in the sharing conference link/embed section)
                   //inviteDomain: 'example-company.org,
                   // The hex value for the colour used as background
@@ -86,8 +86,8 @@
                   // Overwrite for pool of background images for avatars
                   avatarBackgrounds: ['url(https://ibb.co/qk08ZKQ)', '#FFFF33'],
                   // The lobby/prejoin screen background
-                  premeetingBackground: 'url(https://ibb.co/qk08ZKQ)'
-              }
+                  premeetingBackground: 'url(https://ibb.co/qk08ZKQ)',
+              
                 },
                 // optionally, we can have the meeting select the devices we want
                 devices: {
