@@ -76,17 +76,17 @@
                   // The domain url to apply (will replace the domain in the sharing conference link/embed section)
                   //inviteDomain: 'example-company.org,
                   // The hex value for the colour used as background
-                  backgroundColor: '#FFFF33',
+                  //backgroundColor: '#FFFF33',
                   // The url for the image used as background
-                  backgroundImageUrl: 'https://ibb.co/qk08ZKQ',
+                  //backgroundImageUrl: 'https://ibb.co/qk08ZKQ',
                   // The anchor url used when clicking the logo image
                   //logoClickUrl: 'https://example-company.org',
                   // The url used for the image used as logo
-                  logoImageUrl: 'https://ibb.co/qk08ZKQ',
+                  //logoImageUrl: 'https://ibb.co/qk08ZKQ',
                   // Overwrite for pool of background images for avatars
-                  avatarBackgrounds: ['url(https://ibb.co/qk08ZKQ)', '#FFFF33'],
+                  //avatarBackgrounds: ['url(https://ibb.co/qk08ZKQ)', '#FFFF33'],
                   // The lobby/prejoin screen background
-                  premeetingBackground: 'url(https://ibb.co/qk08ZKQ)',
+                  //premeetingBackground: 'url(https://ibb.co/qk08ZKQ)',
               
                 },
                 // optionally, we can have the meeting select the devices we want
@@ -97,7 +97,7 @@
                 },
                 interfaceConfigOverwrite: { 
                 APP_NAME: 'Krowl',  
-                DEFAULT_LOGO_URL: './jit/krowl_logo2.png',
+                //DEFAULT_LOGO_URL: './jit/krowl_logo2.png',
                 SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
                 userInfo: {
                 displayName:<?php echo $account?>
