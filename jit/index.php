@@ -2,9 +2,13 @@
 	<?php 
           foreach($_GET as $table_name=>$table)
           $_GET[$table_name] = base64_decode(urldecode($table));
-      
+          echo "11111111111111";
+          echo "$_GET[$table_name]";
+
           foreach($_GET as $account_Id=>$account)
           $_GET[$account_Id] = base64_decode(urldecode($account));
+          echo "22222222222";
+          echo "$_GET[$account_Id]";
 		if(!empty($_GET[$table_name]) && !empty($_GET[$account_Id])){
       
 
