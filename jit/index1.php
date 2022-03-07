@@ -1,4 +1,5 @@
-<?php if($type == "silent"){ ?>
+<?php echo "2222222";
+if($type == "silent"){ ?>
     <html>
       <head>
         <script src='https://8x8.vc/external_api.js' async></script>
