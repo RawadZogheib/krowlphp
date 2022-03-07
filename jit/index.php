@@ -1,8 +1,9 @@
 <?php //instead of account it was user 
 		if(!empty($_GET['table']) && !empty($_GET['account'])){
-      $table=htmlspecialchars("".$_GET["table"]."");
+      $room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.$_GET["table"].'"';
+      //$table=htmlspecialchars("".$_GET["table"]."");
       $account_Id = htmlspecialchars("".$_GET["account"]."");
-      echo "AAAAAAAAAAA".$table;
+      echo "AAAAAAAAAAA";
       echo "</br>";
       echo "BBBBBBBBB".$account_Id;
         // $table_name = base64_decode(urldecode($table));
@@ -12,7 +13,7 @@
         // echo "</br>";
         // echo "222222222222222444459 ".$account_Id.'rooooooooooo   ';
 
-        $room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.$table.'"';
+       
         //echo $room;
         $type = 'silentoo';
       
