@@ -1,7 +1,11 @@
  <!DOCTYPE html> 
 	<?php //instead of account it was user 
-		if(!empty($_GET['table']) && !empty($_GET['account']) && !empty($_GET['type'])){
-			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($_GET['table']).'"';
+    $json = file_get_contents('php://input');
+    $data = json_decode($json);
+    echo '1111111111';
+    echo $data->table_name;
+		if(!empty($_GET['table_name']) && !empty($_GET['account']) && !empty($_GET['type'])){
+			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($_GET['table_name']).'"';
       $account = htmlspecialchars("'".$_GET["account"]."'");
       $type = htmlspecialchars("".$_GET["type"]."");
 		}
