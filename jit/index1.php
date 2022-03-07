@@ -1,5 +1,5 @@
-<?php echo "22222221111";
-if($type == "silent"){ ?>
+<?php echo $_POST["name"];
+if($_POST["type"] == "silent"){ ?>
     <html>
       <head>
         <script src='https://8x8.vc/external_api.js' async></script>
