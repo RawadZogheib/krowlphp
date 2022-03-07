@@ -11,7 +11,7 @@
         echo "</br>";
         echo "2222222222222224444 ".$account_Id;
 
-        $room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.$table_name.'"';
+        $room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.$table_name.'';
         $type = 'silentoo';
       
 		}
