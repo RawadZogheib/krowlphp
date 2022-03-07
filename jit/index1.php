@@ -1,4 +1,4 @@
-<?php echo $_POST["name"];
+<?php echo $_POST["name"]; echo "99";
 if($_POST["type"] == "silent"){ ?>
     <html>
       <head>
