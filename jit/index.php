@@ -1,5 +1,4 @@
- <!DOCTYPE html> 
-	<?php //instead of account it was user 
+<?php //instead of account it was user 
 		if(!empty($_GET['table']) && !empty($_GET['account'])){
       $table=htmlspecialchars("".$_GET["table"]."");
       $account_Id = htmlspecialchars("".$_GET["account"]."");
