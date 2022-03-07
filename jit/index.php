@@ -3,9 +3,6 @@
 		if(!empty($_GET['table']) && !empty($_GET['account'])){
       $table=htmlspecialchars("".$_GET["table"]."");
       $account = htmlspecialchars("".$_GET["account"]."");
-      echo $table;
-      echo "</br>";
-      echo $account_Id;
       
         $table_name = base64_decode(urldecode($table));
         $account_Id =base64_decode(urldecode($account));
