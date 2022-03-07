@@ -1,28 +1,20 @@
  <!DOCTYPE html> 
-	<?php 
-  echo $_GET["table"];
-  echo "</br>";
-  echo $_GET["account"];
-  
-          foreach($_GET as $table){
-            $_GET[$table] = base64_decode(urldecode($table));
-            echo "111111111111113     ".$_GET[$table];
-            echo "</br>";
-          }
+	<?php //instead of account it was user 
+		if(!empty($_GET['table']) && !empty($_GET['account'])){
+      $table=htmlspecialchars("'".$_GET["table"]."'");
+      $account = htmlspecialchars("'".$_GET["account"]."'");
 
-
-		if(!empty($_GET[$table_name]) && !empty($_GET[$account_Id])){
+      
+        $table_name = base64_decode(urldecode($table));
+        $account_Id =base64_decode(urldecode($account));
       
 
-
-
-			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($_GET[$table_name]).'"';
-      $account_Id = htmlspecialchars("'".$_GET[$account_Id]."'");
-      $type = 'silentoo';
-
+        $room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($table_name).'"';
+        $type = 'silentoo';
+      
 		}
     else{
-      echo 'account_Id id not found !!!';
+      echo 'account id not found';
     }
 	?>
   <?php if($type == "silent"){ ?>
