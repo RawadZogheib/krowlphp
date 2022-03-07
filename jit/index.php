@@ -7,7 +7,7 @@
         $table_name = base64_decode(urldecode($table));
         $account_Id =base64_decode(urldecode($account));
       
-        echo "111111111111111".$table_name;
+        //echo "111111111111111".$table_name;
         echo "</br>";
         echo "222222222222222444459 ".$account_Id;
 
