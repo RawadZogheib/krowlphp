@@ -1,8 +1,8 @@
  <!DOCTYPE html> 
 	<?php //instead of account it was user 
 		if(!empty($_GET['table']) && !empty($_GET['account'])){
-      $table=htmlspecialchars("'".$_GET["table"]."'");
-      $account_Id = htmlspecialchars("'".$_GET["account"]."'");
+      $table=htmlspecialchars("".$_GET["table"]."");
+      $account_Id = htmlspecialchars("".$_GET["account"]."");
       echo $table;
       echo "</br>";
       echo $account_Id;
@@ -14,7 +14,7 @@
         // echo "</br>";
         // echo "222222222222222 ".$account_Id;
 
-        $room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($table).'"';
+        $room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.$table.'"';
         $type = 'silentoo';
       
 		}
