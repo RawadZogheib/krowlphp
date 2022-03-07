@@ -1,6 +1,9 @@
  <!DOCTYPE html> 
 	<?php 
   echo $_GET["table"];
+  echo "</br>";
+  echo $_GET["account"];
+  echo "</br>";
           foreach($_GET as $table_name=>$table)
           $_GET[$table_name] = base64_decode(urldecode($table));
           echo "11111111111111     ".$_GET[$table_name];
