@@ -6,6 +6,7 @@
       $account = htmlspecialchars("'".$_GET["account"]."'");
       $type = htmlspecialchars("".$_GET["type"]."");
       echo $type;
+      echo "11111";
       header("Location:index1.php");
 
       exit();
