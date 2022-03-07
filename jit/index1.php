@@ -1,5 +1,5 @@
-<?php echo $_POST["name"]; echo "99";
-if($_POST["type"] == "silent"){ ?>
+<?php echo $_SESSION["name"]; echo "99";
+if($_SESSION["type"] == "silent"){ ?>
     <html>
       <head>
         <script src='https://8x8.vc/external_api.js' async></script>

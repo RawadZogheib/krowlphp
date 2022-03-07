@@ -1,3 +1,4 @@
+ <?php session_start(); ?>
  <!DOCTYPE html> 
 	<?php //instead of account it was user 
     
@@ -5,8 +6,8 @@
 			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($_GET['table_name']).'"';
       $account = htmlspecialchars("'".$_GET["account"]."'");
       $type = htmlspecialchars("".$_GET["type"]."");
-      $_POST["name"]=$room;
-      $_POST["type"]=$type;
+      $_SESSION["name"]=$room;
+      $_SESSION["type"]=$type;
       
       ?>
      <?php header("Location:index1.php");
