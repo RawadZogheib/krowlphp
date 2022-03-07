@@ -8,7 +8,7 @@ $headers = get_headers($url);
   
 // Printing headers
 print_r($headers);
-    echo '1111111111';
+    echo '1111111112221';
    
 		if(!empty($_GET['table_name']) && !empty($_GET['account']) && !empty($_GET['type'])){
 			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($_GET['table_name']).'"';
