@@ -1,7 +1,7 @@
  <!DOCTYPE html> 
 	<?php //instead of account it was user 
     // Target URL
-$url = "https://KwikCode.net/krowlphp/jit";
+$url = "https://KwikCode.net/krowlphp/jit/index.php";
   
 // Fetching headers
 $headers = get_headers($url);
