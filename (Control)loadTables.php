@@ -26,12 +26,14 @@ if(require '(Control)tokenCheck.php'){
         $user_uni = htmlspecialchars($data->user_uni);
         $currentPage=htmlspecialchars($data->currentPage);
 
-        require '(Model)countTables.inc.php';
 
-        $tot_tables=$res["nbr"];
         if($isPrivate == '1'){
+            require '(Model)countPublicTables.inc.php';
+            $tot_tables=$res["nbr"];
              require '(Model)loadPublicTables.inc.php';
         }else{
+            require '(Model)countPrivateTables.inc.php';
+            $tot_tables=$res["nbr"];
             require '(Model)loadPrivateTables.inc.php';
         }
        
