@@ -9,6 +9,7 @@ if(require '(Control)tokenCheck.php'){
     $table2=array();
     $table3=array();
     $table4=array();
+    $table5=array();
     $json_array=array();
 
     $i=0; //counter
@@ -18,19 +19,22 @@ if(require '(Control)tokenCheck.php'){
     
     $json_array[0] = 'error4';
    
-    if(!empty($data->account_Id) && !empty($data->currentPage) && !empty($data->user_uni)){
+    if(!empty($data->account_Id)&& !empty($data->isPrivet) && !empty($data->currentPage) && !empty($data->user_uni)){
         
         $account_Id = htmlspecialchars($data->account_Id);
+        $isPrivate = htmlspecialchars($data->isPrivet); //1 -> Public & 2 ->Private
         $user_uni = htmlspecialchars($data->user_uni);
         $currentPage=htmlspecialchars($data->currentPage);
 
         require '(Model)countTables.inc.php';
 
         $tot_tables=$res["nbr"];
-
-        require '(Model)loadTables.inc.php';
-
-
+        if($isPrivate == '1'){
+             require '(Model)loadPublicTables.inc.php';
+        }else{
+            require '(Model)loadPrivateTables.inc.php';
+        }
+       
         if(mysqli_num_rows($xx)>0){
             
             $nbr_table= mysqli_num_rows($xx); 
@@ -46,15 +50,24 @@ if(require '(Control)tokenCheck.php'){
                 if($isSilent == '2'){
                     $isSilent=true;
                 }else{ $isSilent=false;}
-                $isPrivate=$res["isPrivate"];
+                
+
+                
+
+                $table1 = array($table_id,$table_name,$seats,$isSilent);
                 if($isPrivate == '2'){
-                    $isPrivate=true;
-                }else{ $isPrivate=false;}
-                
+                    require '(Model)loadParticipants.inc.php';
+                    if(mysqli_num_rows($yy1)>0){
+                        while($res5 = mysqli_fetch_assoc($yy1)){
+                             $table5=array($res5["account_Id"],$res5["username"],"photo");
+                        }
+                    }else{
+                        $table5=array();
+                    }
+                $table1=array_push($table1,$table5);
+                }
+               
 
-                
-
-                $table1 = array($table_id,$table_name,$seats,$isSilent,$isPrivate);
 
                 require '(Model)loadOccupants.inc.php';
                 if(mysqli_num_rows($yy)>0){
