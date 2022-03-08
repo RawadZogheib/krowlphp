@@ -13,7 +13,7 @@
       echo 'account id not found';
     }
 	?>
-  <?php if($type == "silent"){ ?>
+  <?php if($type == "2"){ ?>
     <html>
       <head>
         <script src='https://8x8.vc/external_api.js' async></script>
