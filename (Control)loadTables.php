@@ -64,7 +64,7 @@ if(require '(Control)tokenCheck.php'){
                     }else{
                         $table5=array();
                     }
-                $table1=array_push($table1,$table5);
+                array_push($table1,$table5);
                 }
                
 
