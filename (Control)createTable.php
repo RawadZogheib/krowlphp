@@ -27,10 +27,12 @@ if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->table
                     require '(Model)inviteParticipants.inc.php'; //inserting the creator of the table in the participant table 
                     if($zz){
                         $json_array[0] = 'success';
+                        $json_array[1] = "$table_id";
                     }
                     
                 }else{
                     $json_array[0] = 'success';
+                    $json_array[1] = "$table_id";
                 }
                
             }
