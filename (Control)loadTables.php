@@ -55,17 +55,17 @@ if(require '(Control)tokenCheck.php'){
                 
 
                 $table1 = array($table_id,$table_name,$seats,$isSilent);
-                if($isPrivate == '2'){
-                    require '(Model)loadParticipants.inc.php';
-                    if(mysqli_num_rows($yy1)>0){
-                        while($res5 = mysqli_fetch_assoc($yy1)){
-                             $table5=array($res5["account_Id"],$res5["username"],"photo");
-                        }
-                    }else{
-                        $table5=array();
-                    }
-                $table1=array_push($table1,$table5);
-                }
+                // if($isPrivate == '2'){
+                //     require '(Model)loadParticipants.inc.php';
+                //     if(mysqli_num_rows($yy1)>0){
+                //         while($res5 = mysqli_fetch_assoc($yy1)){
+                //              $table5=array($res5["account_Id"],$res5["username"],"photo");
+                //         }
+                //     }else{
+                //         $table5=array();
+                //     }
+                // $table1=array_push($table1,$table5);
+                // }
                
 
 
