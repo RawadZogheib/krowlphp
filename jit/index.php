@@ -1,22 +1,9 @@
-<?php //instead of account it was user 
-		if(!empty($_GET['table']) && !empty($_GET['account'])){
-      $room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.$_GET["table"].'"';
-      //$table=htmlspecialchars("".$_GET["table"]."");
-      $account_Id = htmlspecialchars("".$_GET["account"]."");
-      echo "AAAAAAAAAAA";
-      echo "</br>";
-      echo "BBBBBBBBB".$account_Id;
-        // $table_name = base64_decode(urldecode($table));
-        // $account_Id =base64_decode(urldecode($account));
-      
-        // //echo "111111111111111".$table_name;
-        // echo "</br>";
-        // echo "222222222222222444459 ".$account_Id.'rooooooooooo   ';
-
-       
-        //echo $room;
-        $type = 'silentoo';
-      
+<!DOCTYPE html> 
+	<?php //instead of account it was user 
+		if(!empty($_GET['table']) && !empty($_GET['account']) && !empty($_GET['type'])){
+			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($_GET['table']).'"';
+      $account = htmlspecialchars("'".$_GET["account"]."'");
+      $type = htmlspecialchars("".$_GET["type"]."");
 		}
     else{
       echo 'account id not found';
@@ -54,7 +41,7 @@
                 },
                 interfaceConfigOverwrite: { SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
                 userInfo: {
-                displayName:<?php echo $account_Id?>
+                displayName:<?php echo $account?>
                 },
             });
             
@@ -92,11 +79,9 @@
                   audioOutput: '<deviceLabel>',
                   videoInput: '<deviceLabel>'
                 },
-                interfaceConfigOverwrite: { 
-                APP_NAME: 'Krowl',  
-                SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
+                interfaceConfigOverwrite: { SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
                 userInfo: {
-                displayName:<?php echo $account_Id?>
+                displayName:<?php echo $account?>
                 },
             });
             
