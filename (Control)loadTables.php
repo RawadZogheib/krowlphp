@@ -42,9 +42,11 @@ if(require '(Control)tokenCheck.php'){
 
                 $table_name=$res["table_name"];
                 $seats=$res["seats"];
-                $table_type=$res["table_type"];
+                $isSilent=$res["isSilent"];
+                $isPrivate=$res["isPrivate"];
+                
 
-                $table1 = array($table_name,$seats,$table_type);
+                $table1 = array($table_name,$seats,$isSilent,$isPrivate);
 
                 require '(Model)loadOccupants.inc.php';
                 if(mysqli_num_rows($yy)>0){

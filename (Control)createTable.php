@@ -6,12 +6,13 @@ require '(Control)versionTest.php';
 if(require '(Control)tokenCheck.php'){ 
     
  
-if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->table_uni) && !empty($data->seats)&& !empty($data->table_type)){
+if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->table_uni) && !empty($data->seats) && !empty($data->table_type) && !empty($data->table_type2)){
     $account_Id = htmlspecialchars($data->account_Id);
     $table_name = htmlspecialchars($data->table_name);
     $table_uni = htmlspecialchars($data->table_uni);
 	$seats = htmlspecialchars($data->seats);
     $table_type = htmlspecialchars($data->table_type); //$table_type=1 -> Public OR $table_type=2 -> Private
+    $table_type2 = htmlspecialchars($data->table_type2); //$table_type2=1 -> Quiet OR $table_type2=2 -> Silent
 
     $json_array[0] = 'error4';
 
