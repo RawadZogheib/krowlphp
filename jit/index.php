@@ -13,8 +13,7 @@
       $res = mysqli_fetch_assoc($yy);
       $type=$res["isSilent"];
     }
-	?>
-  <?php if($type == "2"){ ?>
+ if($type == "2"){ ?>
     <html>
       <head>
         <script src='https://8x8.vc/external_api.js' async></script>
