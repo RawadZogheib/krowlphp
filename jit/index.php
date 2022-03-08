@@ -4,7 +4,10 @@
 			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($_GET['table']).'"';
       $account = htmlspecialchars("'".$_GET["account"]."'");
       require "(Model)getTypeTable.inc.php";
-      $type = "";
+      if(mysqli_num_rows($yy)>0){
+        $res = mysqli_fetch_assoc($yy);
+        $type=$res["isSilent"];
+      }
 		}
     else{
       echo 'account id not found';
