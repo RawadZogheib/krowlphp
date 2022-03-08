@@ -39,7 +39,7 @@ if(require '(Control)tokenCheck.php'){
             while($res = mysqli_fetch_assoc($xx)){	
                 $i=$i+1;
                 $table1=array();
-
+                $table_id=$res["table_id"];
                 $table_name=$res["table_name"];
                 $seats=$res["seats"];
                 $isSilent=$res["isSilent"];
@@ -54,7 +54,7 @@ if(require '(Control)tokenCheck.php'){
 
                 
 
-                $table1 = array($table_name,$seats,$isSilent,$isPrivate);
+                $table1 = array($table_id,$table_name,$seats,$isSilent,$isPrivate);
 
                 require '(Model)loadOccupants.inc.php';
                 if(mysqli_num_rows($yy)>0){
