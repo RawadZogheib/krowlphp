@@ -43,7 +43,15 @@ if(require '(Control)tokenCheck.php'){
                 $table_name=$res["table_name"];
                 $seats=$res["seats"];
                 $isSilent=$res["isSilent"];
+                if($isSilent == '2'){
+                    $isSilent=true;
+                }else{ $isSilent=false;}
                 $isPrivate=$res["isPrivate"];
+                if($isPrivate == '2'){
+                    $isPrivate=true;
+                }else{ $isPrivate=false;}
+                
+
                 
 
                 $table1 = array($table_name,$seats,$isSilent,$isPrivate);
