@@ -97,8 +97,9 @@ if(require '(Control)tokenCheck.php'){
                     $table3=array();
                     array_push($table1,$table3);
                 }
+                array_push($table1,$admin);
                 array_push($table4,$table1);
-                array_push($table4,$admin);
+                
                 if ($i == $nbr_table){
                     $json_array[$j] = $table4;
                 }
