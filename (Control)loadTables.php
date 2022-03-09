@@ -50,12 +50,15 @@ if(require '(Control)tokenCheck.php'){
                 $table_name=$res["table_name"];
                 $seats=$res["seats"];
                 $isSilent=$res["isSilent"];
+                $admin_id=$res["admin_id"];
                 if($isSilent == '2'){
                     $isSilent=true;
                 }else{ $isSilent=false;}
-                
-
-                
+                if($res["admin_id"] == $account_Id){
+                    $admin=true;
+                }else{
+                    $admin =false;
+                }
 
                 $table1 = array($table_id,$table_name,$seats,$isSilent);
                 if($isPrivate == '2'){
@@ -94,6 +97,7 @@ if(require '(Control)tokenCheck.php'){
                     array_push($table1,$table3);
                 }
                 array_push($table4,$table1);
+                array_push($table4,$admin);
                 if ($i == $nbr_table){
                     $json_array[$j] = $table4;
                 }
