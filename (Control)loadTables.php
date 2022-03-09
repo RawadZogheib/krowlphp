@@ -60,12 +60,12 @@ if(require '(Control)tokenCheck.php'){
                     $admin =false;
                 }
 
-                $table1 = array($table_id,$table_name,$seats,$isSilent);
+                $table1 = array($table_id,$admin,$table_name,$seats,$isSilent);
                 if($isPrivate == '2'){
                     require '(Model)loadParticipants.inc.php';
                     if(mysqli_num_rows($yy1)>0){
                         while($res5 = mysqli_fetch_assoc($yy1)){
-                             $table5=array();
+                            $table5=array();
                              $table5=array($res5["account_Id"],$res5["username"],"photo");
                              array_push($table6,$table5);
                              
@@ -97,9 +97,7 @@ if(require '(Control)tokenCheck.php'){
                     $table3=array();
                     array_push($table1,$table3);
                 }
-                array_push($table1,$admin);
                 array_push($table4,$table1);
-                
                 if ($i == $nbr_table){
                     $json_array[$j] = $table4;
                 }
