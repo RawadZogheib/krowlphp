@@ -65,9 +65,10 @@ if(require '(Control)tokenCheck.php'){
                     require '(Model)loadParticipants.inc.php';
                     if(mysqli_num_rows($yy1)>0){
                         while($res5 = mysqli_fetch_assoc($yy1)){
+                             $table5=array();
                              $table5=array($res5["account_Id"],$res5["username"],"photo");
                              array_push($table6,$table5);
-                             $table5=array();
+                             
                         }
                     }else if(mysqli_num_rows($yy1) == 0){
                         $table6=array();
