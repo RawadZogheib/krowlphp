@@ -75,6 +75,7 @@ if(require '(Control)tokenCheck.php'){
                         
                     }
                 array_push($table1,$table6);
+                $table6=array();
                 }
                
 
