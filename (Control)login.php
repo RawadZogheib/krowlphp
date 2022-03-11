@@ -31,7 +31,11 @@ if(!empty($data->email) && !empty($data->password)){
 					if(password_verify($pass, $repass)){
 						if($yy2){
 							require '(Model)getUserInfo.inc.php';
-	
+							if(!empty($data->private)){
+								$friend_id=$res["account_Id"];
+								$table_id=$data->private;
+								require '(Model)addParticipants.php';
+							}
 							require '(View)true.php';
 						} 
 						else{
