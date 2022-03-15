@@ -13,29 +13,35 @@ if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->posit
 	$position = htmlspecialchars($data->position);
 
     $json_array[0] = 'error4';
-   
-    require '(Model)checkNbrSeats.inc.php';
-    $table_id =$res["table_id"];
-    require '(Model)checkNbrOccupants.inc.php';
-
-    if($res1["nbr"]>=$res["seats"]){
-        $json_array[0] = 'error8'; //Full Table
-    }
-    else{ //there's available places
-        require '(Model)checkPosition.inc.php';
+    require "(Model)checkisUserAvailable.inc.php";
+    if($res6["nbr"]==0){
+        require '(Model)checkNbrSeats.inc.php';
+        $table_id =$res["table_id"];
+        require '(Model)checkNbrOccupants.inc.php';
     
-        if($res["nbr"]==0){
-            
-            require '(Model)insertPosition.inc.php';
-            $json_array[0] = 'success';
-       }else{
-        $json_array[0] = 'error9'; //Position Taken
+        if($res1["nbr"]>=$res["seats"]){
+            $json_array[0] = 'error8'; //Full Table
         }
-    }
+        else{ //there's available places
+            require '(Model)checkPosition.inc.php';
+        
+            if($res["nbr"]==0){
+                
+                require '(Model)insertPosition.inc.php';
+                $json_array[0] = 'success';
+           }else{
+            $json_array[0] = 'error9'; //Position Taken
+            }
+        }
+        
+        echo json_encode($json_array);
     
-    echo json_encode($json_array);
+        mysqli_close($con);
 
-    mysqli_close($con);
+    }else{
+        $json_array[0] = 'error410';
+    }
+
 
 
 }else require '(View)Error7.php';
