@@ -4,7 +4,7 @@
 
 require '(Control)versionTest.php'; 
 require 'Functions.php';
-
+$con=con($server);
 if(!empty($data->private)){
     $private = htmlspecialchars($data->private);
     $json_array[0] = 'error4';
