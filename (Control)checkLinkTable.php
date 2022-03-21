@@ -4,6 +4,7 @@
 
 require '(Control)versionTest.php'; 
 require 'Functions.php';
+require '(Model)config.inc.php';
 $con=con($server);
 if(!empty($data->private)){
     $private = htmlspecialchars($data->private);
