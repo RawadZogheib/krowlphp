@@ -13,12 +13,15 @@ if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->table
 	$seats = htmlspecialchars($data->seats);
     $table_type = htmlspecialchars($data->table_type); //$table_type=1 -> Public OR $table_type=2 -> Private
     $table_type2 = htmlspecialchars($data->table_type2); //$table_type2=1 -> Quiet OR $table_type2=2 -> Silent
-
     $json_array[0] = 'error4';
 
         require '(Model)nameTableUnique.inc.php'; //Table name is unique 
         if($res["nbr"]==0){
-
+            if($table_type == 2){
+                $pass=uniqid(); // generate a unique ID 
+            }else{
+                $pass=0;
+            }
             require '(Model)createTable.inc.php'; 
             if($yy){
 
@@ -28,6 +31,7 @@ if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->table
                     if($zz){
                         $json_array[0] = 'success';
                         $json_array[1] = "$table_id";
+                        $json_array[2]= base64_encode($table_id.'-'.$pass);
                     }
                     
                 }else{

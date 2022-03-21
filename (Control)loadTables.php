@@ -55,9 +55,9 @@ if(require '(Control)tokenCheck.php'){
                     $isSilent=true;
                 }else{ $isSilent=false;}
                 if($res["admin_id"] == $account_Id){
-                    $admin=true;
+                    $admin=base64_encode($table_id.'-'.$res["table_pass"]);
                 }else{
-                    $admin =false;
+                    $admin =-999999999;
                 }
 
                 $table1 = array($table_id,$admin,$table_name,$seats,$isSilent);

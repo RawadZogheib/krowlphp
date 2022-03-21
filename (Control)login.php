@@ -1,5 +1,6 @@
 <?php
 require '(Control)versionTest.php';
+require 'Functions.php';
 $option = array('cost'=>11);
 
 if(!empty($data->email) && !empty($data->password)){
@@ -31,10 +32,15 @@ if(!empty($data->email) && !empty($data->password)){
 					if(password_verify($pass, $repass)){
 						if($yy2){
 							require '(Model)getUserInfo.inc.php';
+
 							if(!empty($data->private)){
+								$private = htmlspecialchars($data->private);
+
+								$array1 = decodeBase64($private);
+								$table_id=$array1[0];
 								$friend_id=$res["account_Id"];
-								$table_id=$data->private;
-								require '(Model)addParticipants.php';
+								
+								require '(Model)addParticipants.inc.php';
 							}
 							require '(View)true.php';
 						} 
