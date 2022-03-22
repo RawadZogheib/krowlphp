@@ -54,21 +54,18 @@ if(require '(Control)tokenCheck.php'){
                 if($isSilent == '2'){
                     $isSilent=true;
                 }else{ $isSilent=false;}
+                $admin ="";
+                    if($isPrivate == '2'){
 
-                if($isPrivate == '2'){
-
-                if($res["admin_id"] == $account_Id){
-                    $admin=base64_encode($table_id.'-'.$res["table_pass"]);
-                }else{
-                    $admin ="";
+                    if($res["admin_id"] == $account_Id){
+                        $admin=base64_encode($table_id.'-'.$res["table_pass"]);
+                    }else{
+                        $admin ="";
+                    }
                 }
                 $table1 = array($table_id,$admin,$table_name,$seats,$isSilent);
                 
-                }else{
-                    $table1 = array($table_id,$table_name,$seats,$isSilent);
-                }
-
-
+            
                 
                 if($isPrivate == '2'){
                     require '(Model)loadParticipants.inc.php';
