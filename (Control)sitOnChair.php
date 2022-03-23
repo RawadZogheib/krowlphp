@@ -34,14 +34,14 @@ if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->posit
             }
         }
         
-        echo json_encode($json_array);
-    
-        mysqli_close($con);
+
 
     }else{
         $json_array[0] = 'error410';
     }
-
+    echo json_encode($json_array);
+    
+    mysqli_close($con);
 
 
 }else require '(View)Error7.php';
