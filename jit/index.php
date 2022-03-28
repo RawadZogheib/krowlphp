@@ -59,7 +59,7 @@
     <html>
       <head>
         <script src='https://8x8.vc/external_api.js' async></script>
-        <style>html, body, #jaas-container { height: 100%; }</style>
+        <style>html, body, #jaas-container { height: 99.5%; }</style>
         <script type="text/javascript">
 
           const domain = '8x8.vc';
