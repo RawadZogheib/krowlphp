@@ -4,7 +4,7 @@
    $sql="DELETE FROM `occupants` WHERE `account_Id`=(SELECT `account_Id` FROM `account` WHERE `username`='".$nameLeft."')";
     $yy=mysqli_query($con,$sql);
   
-
+    //header("Location: http://www.google.com/");
     //echo "<script>window.close();</script>";
 ?>
 

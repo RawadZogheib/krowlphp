@@ -28,27 +28,38 @@ if(!empty($data->email) && !empty($data->password)){
 
 				if($yy){
 					// set password success
-					require '(Control)tokenCreate.php';
-					if(password_verify($pass, $repass)){
-						if($yy2){
-							require '(Model)getUserInfo.inc.php';
+						require '(Control)tokenCreate.php';
+						if(password_verify($pass, $repass)){
+							if($yy2){
+								require '(Model)getUserInfo.inc.php';
 
-							if(!empty($data->private)){
-								$private = htmlspecialchars($data->private);
-
-								$array1 = decodeBase64($private);
-								$table_id=$array1[0];
-								$friend_id=$res["account_Id"];
+								if(!empty($data->private)){
+									$private = htmlspecialchars($data->private);
+									$array1 = decodeBase64($private);
+									$table_id=$array1[0];
+									$friend_id=$res["account_Id"];
+									
+									require '(Model)addParticipants.inc.php';
+								}
+								if($res["isRegistered"] == 0){//1 => is registed
+									require '(Control)vCode.php';
+									require  '(Model)loginUpdateVCode.inc.php';
+									if($qq){
+										require '(View)true.php';
+										//require '(Control)postmark.php';
+                                        //require '(Control)slack.php';
+									}
+								}else if($res["isRegistered"] == 1){
+									require '(View)true.php';
+								}else require '(View)false.php';
 								
-								require '(Model)addParticipants.inc.php';
-							}
-							require '(View)true.php';
-						} 
-						else{
-							require '(View)ErrorToken.php';
-						}//return $token & $tokenHashed
-					
-					}else require '(View)false.php';
+							} 
+							else{
+								require '(View)ErrorToken.php';
+							}//return $token & $tokenHashed
+						
+						}else require '(View)false.php';
+				
 				}else require '(View)Error4.php'; //4 Cannot connect to the dataBase.
 
 			}else require '(View)false.php';

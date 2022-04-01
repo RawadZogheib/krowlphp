@@ -82,7 +82,7 @@ if(!empty($data->email) && !empty($data->first_name) && !empty($data->last_name)
                                         require '(Model)registInsert.inc.php';
                                 
                                         if($yy){
-                                                require '(View)success.php'; //Success.
+                                                echo '["true"]';//require '(View)true.php'; //Success.
                                                 //require '(Control)postmark.php';
                                                 //require '(Control)slack.php';
                                         }else require '(View)Error4.php'; //4 Cannot connect to the dataBase.

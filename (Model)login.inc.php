@@ -1,6 +1,6 @@
 <?php
 
-	$sql = "SELECT count(*)as nbr, `password` as hashedPassword,`account_Id` as account_Id FROM `account` WHERE  `email` = '".$email."'";
+	$sql = "SELECT count(*)as nbr, `password` as hashedPassword,`account_Id` as account_Id, `isRegistered` as isRegistered FROM `account` WHERE  `email` = '".$email."'";
 
 	$xx = mysqli_query($con,$sql);
 	$res = mysqli_fetch_assoc($xx);

@@ -1,3 +1,5 @@
 <?php 
-		echo '["success","'.$userTokenChat.'"]';
+		// echo '["true","'.$userTokenChat.'"]';
+
+		echo '["true"]';
 ?>
