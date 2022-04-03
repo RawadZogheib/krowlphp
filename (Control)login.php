@@ -47,7 +47,6 @@ if(!empty($data->email) && !empty($data->password)){
 									if($qq){
 										require '(View)true.php';
 										//require '(Control)postmark.php';
-                                        //require '(Control)slack.php';
 									}
 								}else if($res["isRegistered"] == 1){
 									require '(View)true.php';
