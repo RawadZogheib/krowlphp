@@ -44,6 +44,7 @@ if(require '(Control)tokenCheck.php'){
             $json_array[1] = $tot_tables;
 
             while($res = mysqli_fetch_assoc($xx)){	
+                $new=false;
                 $i=$i+1;
                 $table1=array();
                 $table_id=$res["table_id"];
@@ -51,19 +52,28 @@ if(require '(Control)tokenCheck.php'){
                 $seats=$res["seats"];
                 $isSilent=$res["isSilent"];
                 $admin_id=$res["admin_id"];
+                $d11=$res["created_at"];
+                $d22=date("Y-m-d H:i:s");
+
+                $d1 = strtotime($d11);
+                $d2 = strtotime($d22);
+                $totalSecondsDiff = abs($d2-$d1); 
+                $totalMinutesDiff = $totalSecondsDiff/60;
+                if($totalMinutesDiff<=5){
+                    $new=true;
+                }
+
                 if($isSilent == '2'){
                     $isSilent=true;
                 }else{ $isSilent=false;}
                 $admin ="";
                     if($isPrivate == '2'){
 
-                    if($res["admin_id"] == $account_Id){
-                        $admin=base64_encode($table_id.'-'.$res["table_pass"]);
-                    }else{
-                        $admin ="";
+                        if($res["admin_id"] == $account_Id){
+                            $admin=base64_encode($table_id.'-'.$res["table_pass"]);
+                        }
                     }
-                }
-                $table1 = array($table_id,$admin,$table_name,$seats,$isSilent);
+                $table1 = array($table_id,$admin,$table_name,$seats,$isSilent,$new);
                 
             
                 

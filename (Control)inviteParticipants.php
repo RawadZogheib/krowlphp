@@ -34,6 +34,6 @@ if(!empty($data->account_Id) && !empty($data->friend_id) && !empty($data->table_
 
 
 
-}
+
 
 ?>
