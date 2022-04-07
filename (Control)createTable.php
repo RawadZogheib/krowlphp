@@ -15,7 +15,7 @@ if(!empty($data->account_Id) && !empty($data->table_name) && !empty($data->table
     $table_type2 = htmlspecialchars($data->table_type2); //$table_type2=1 -> Quiet OR $table_type2=2 -> Silent
     $json_array[0] = 'error4';
 
-        require '(Model)nameTableUnique.inc.php'; //Table name is unique 
+        require '(Model)nameTableUnique.inc.php'; //Table name is unique //TODO: using in my model INSERT IGNORE INTO 
         if($res["nbr"]==0){
             if($table_type == 2){
                 $pass=uniqid(); // generate a unique ID 

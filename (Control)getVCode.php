@@ -20,11 +20,11 @@ if(!empty($data->email) && !empty($data->username) && !empty($data->vCode)){
         if($vCode == $res["vCode"]){
             require '(Model)updateIsRegistered.inc.php';
             if($yy){
-                //require '(Control)generateTokenChat.php'; //to be added some control to it 
-               // require '(Model)insertTokenChat.inc.php';
-                    //if($xx1){
+                require '(Control)generateTokenChat.php'; //to be added some control to it 
+                require '(Model)insertTokenChat.inc.php';
+                    if($xx1){
                         require '(View)success2.php'; 
-                    //}else require '(View)false.php';
+                    }else require '(View)false.php';
             
             }else require '(View)false.php';
 
