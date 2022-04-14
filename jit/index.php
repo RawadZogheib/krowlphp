@@ -8,11 +8,12 @@
     else{
       echo 'account id not found';
     }
-    require "(Model)getTypeTable.inc.php";
-    if(mysqli_num_rows($yy)>0){
-      $res = mysqli_fetch_assoc($yy);
-      $type=$res["isSilent"];
-    }
+    $type=1;
+    // require "(Model)getTypeTable.inc.php";
+    // if(mysqli_num_rows($yy)>0){
+    //   $res = mysqli_fetch_assoc($yy);
+    //   $type=$res["isSilent"];
+    // }
  if($type == "2"){ ?>
     <html>
       <head>
