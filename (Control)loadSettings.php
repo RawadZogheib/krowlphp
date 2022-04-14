@@ -10,14 +10,37 @@ if(require '(Control)tokenCheck.php'){
         $account_Id = htmlspecialchars($data->account_Id);
         $json_array[0] = 'error4';
         $settings = array();
+        $uni_array = array();
+        $maj_array = array();
         
-        require '(Model)loadSettings.inc.php';
-        if(mysqli_num_rows($xx)>0){
-           $res = mysqli_fetch_assoc($xx);	
-            array_push($settings,$res["first_name"],$res["last_name"],$res["email"],$res["username"],$res["bio"],$res["date_of_birth"],$res["university_ids"],$res["major_degree_ids"],$res["minor_degree_ids"]);
-            	
+        require '(Model)getAccountInfos.inc.php';
+        if(mysqli_num_rows($xx6)>0){
+           $res = mysqli_fetch_assoc($xx6);	
+            array_push($settings,$res["first_name"],$res["last_name"],$res["email"],$res["username"],$res["bio"],$res["date_of_birth"],$res["uni_name"],$res["degree_name"],$res["degree_name"]);
+            
+            require '(Model)getUniversitiesList.inc.php';
+            if(mysqli_num_rows($xx)>0){
+                $t1 = 1;
+                while($res1 = mysqli_fetch_assoc($xx)){	
+        
+                    $uni_array[] = array($res1["name_uni"]." - ".$res1["country_code"]);
+                }	
+            }else $uni_array[] = [];
+
+            require '(Model)getMajorsList.inc.php';
+            if(mysqli_num_rows($xx1)>0){
+                $t2 = 1;
+                while($res1 = mysqli_fetch_assoc($xx1)){	
+                    
+                    $maj_array[] = array($res1["name_maj"]);
+                }	
+            }else $maj_array[] = [];
+
+
             $json_array[0]="success";
             $json_array[1]=$settings;
+            $json_array[2]=$uni_array;
+            $json_array[3]=$maj_array;
         }    
 
             echo json_encode($json_array);

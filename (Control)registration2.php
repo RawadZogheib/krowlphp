@@ -30,9 +30,9 @@ require '(Model)config.inc.php';
     //Get Universities List
 
     require '(Model)getMajorsList.inc.php';
-    if(mysqli_num_rows($xx)>0){
+    if(mysqli_num_rows($xx1)>0){
 		$t2 = 1;
-		while($res1 = mysqli_fetch_assoc($xx)){	
+		while($res1 = mysqli_fetch_assoc($xx1)){	
 			
 			$maj_array[] = array($res1["name_maj"]);
 		}	
