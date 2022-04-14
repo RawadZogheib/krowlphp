@@ -8,6 +8,9 @@
       echo "ROOOM : ".$room;
       echo "</br>";
       echo "account : ".$account;
+      $type=2;
+      echo "</br>";
+      echo $type;
 		}
 
     else{
@@ -18,7 +21,7 @@
     //   $res = mysqli_fetch_assoc($yy);
     //   $type=$res["isSilent"];
     // }
-    $type=2;
+    
  if($type == "2"){ ?>
     <html>
       <head>
@@ -28,22 +31,16 @@
 
           const domain = '8x8.vc';
           window.onload = () => {
-            var api = new JitsiMeetExternalAPI(domain, {
+            var api = new JitsiMeetExternalAPI('8x8.vc', {
               roomName: <?php echo $room;?>,
               parentNode: document.querySelector('#jaas-container'),
-
               configOverwrite: {
-                  // disable the prejoin page
                   prejoinPageEnabled: false,
-                  
-                  //optionally we can control the mute state on join from the emebedding application
                   startWithAudioMuted: [true],
                   startWithVideoMuted: [true],
                   disableInitialGUM: true,
                   toolbarButtons: ['camera','chat','desktop','download','embedmeeting','etherpad','feedback','filmstrip','fullscreen','hangup','help','livestreaming','participants-pane','profile','raisehand','recording','security','settings','sharedvideo','shortcuts','stats','tileview','toggle-camera','videoquality','__end']
-
                 },
-                // optionally, we can have the meeting select the devices we want
                 devices: {
                   audioInput: '<deviceLabel>',
                   audioOutput: '<deviceLabel>',
@@ -52,9 +49,8 @@
                 interfaceConfigOverwrite: { SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
                 userInfo: {
                 displayName:<?php echo $account?>
-                },
+                }
             });
-            
           }
           
         </script>
