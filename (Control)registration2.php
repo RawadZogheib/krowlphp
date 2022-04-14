@@ -20,7 +20,7 @@ require '(Model)config.inc.php';
 		$t1 = 1;
 		while($res1 = mysqli_fetch_assoc($xx)){	
 
-			$uni_array[] = $res1["name_uni"]." - ".$res1["country_code"];
+			$uni_array[] = array($res1["name_uni"]." - ".$res1["country_code"]);
 		}	
 	}else $uni_array[] = [];
 
