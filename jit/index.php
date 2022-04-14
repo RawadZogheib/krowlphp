@@ -2,7 +2,7 @@
 	<?php //instead of account it was user 
 		if(!empty($_GET['table']) && !empty($_GET['account'])){
 			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($_GET['table']).'"';
-      $account = htmlspecialchars($_GET['account']);
+      $account = '"'.htmlspecialchars($_GET['account']).'"';
     
       echo $account;
 		}
