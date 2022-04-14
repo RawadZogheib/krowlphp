@@ -16,7 +16,7 @@ if(require '(Control)tokenCheck.php'){
         require '(Model)getAccountInfos.inc.php';
         if(mysqli_num_rows($xx6)>0){
            $res = mysqli_fetch_assoc($xx6);	
-            array_push($settings,$res["first_name"],$res["last_name"],$res["email"],$res["username"],$res["bio"],$res["date_of_birth"],$res["uni_name"],$res["degree_name"],$res["degree_name"]);
+            array_push($settings,$res["first_name"],$res["last_name"],$res["email"],$res["username"],$res["bio"],$res["date_of_birth"],$res["uni_name"],$res["major"],$res["minor"]);
             
             require '(Model)getUniversitiesList.inc.php';
             if(mysqli_num_rows($xx)>0){
