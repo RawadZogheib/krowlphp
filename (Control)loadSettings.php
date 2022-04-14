@@ -37,10 +37,10 @@ if(require '(Control)tokenCheck.php'){
             }else $maj_array[] = [];
 
 
-            $json_array[0]="success";
-            $json_array[1]=$settings;
-            $json_array[2]=$uni_array;
-            $json_array[3]=$maj_array;
+            // $json_array[0]="success";
+            // $json_array[1]=$settings;
+            $json_array[0]=$uni_array;
+            // $json_array[3]=$maj_array;
         }    
 
             echo json_encode($json_array);
