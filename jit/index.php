@@ -2,18 +2,23 @@
 	<?php //instead of account it was user 
 		if(!empty($_GET['table']) && !empty($_GET['account'])){
 			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($_GET['table']).'"';
-      $account = htmlspecialchars("'".$_GET["account"]."'");
+      $account = htmlspecialchars("".$_GET["account"]."");
 
+
+      echo "ROOOM : ".$room;
+      echo "</br>";
+      echo "account : ".$account;
 		}
+
     else{
       echo 'account id not found';
     }
-    $type=1;
     // require "(Model)getTypeTable.inc.php";
     // if(mysqli_num_rows($yy)>0){
     //   $res = mysqli_fetch_assoc($yy);
     //   $type=$res["isSilent"];
     // }
+    $type=1;
  if($type == "2"){ ?>
     <html>
       <head>
@@ -65,7 +70,7 @@
 
           const domain = '8x8.vc';
           window.onload = () => {
-            var api = new JitsiMeetExternalAPI(domain, {
+            var api = new JitsiMeetExternalAPI('8x8.vc', {
               roomName: <?php echo $room;?>,
               parentNode: document.querySelector('#jaas-container'),
 
