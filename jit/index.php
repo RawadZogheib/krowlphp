@@ -18,6 +18,7 @@
     //   $res = mysqli_fetch_assoc($yy);
     //   $type=$res["isSilent"];
     // }
+    $type=2;
  if($type == "2"){ ?>
     <html>
       <head>
