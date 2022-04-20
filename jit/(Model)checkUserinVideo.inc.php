@@ -7,6 +7,8 @@
 
     $zz=mysqli_query($con,$sql);
     $res1= mysqli_fetch_assoc($zz);
+    echo "AAAAAAAAA";
+    echo $res1;
 
 ?>
 
