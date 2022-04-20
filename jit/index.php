@@ -2,11 +2,12 @@
 	<?php //instead of account it was user 
 		if(!empty($_GET['table']) && !empty($_GET['account'])){
 			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($_GET['table']).'"';
-      $account_Id = '"'.htmlspecialchars($_GET['account']).'"';
+      $account = '"'.htmlspecialchars($_GET['account']).'"';
     
-    require "(Model)checkUserinTable.inc.php";
+    require "(Model)checkUserinVideo.inc.php";
       if($res1["nbr"]==1){
-
+      require "(Model)insertUserinVideo.inc.php";
+      if($xx3){
       require "(Model)getTypeTable.inc.php";
       if(mysqli_num_rows($yy)>0){
         $res = mysqli_fetch_assoc($yy);
@@ -44,7 +45,7 @@
                 },
                 interfaceConfigOverwrite: { SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
                 userInfo: {
-                displayName:<?php echo $account_Id?>
+                displayName:<?php echo $account?>
                 },
             });
             
@@ -85,7 +86,7 @@
                 },
                 interfaceConfigOverwrite: { SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
                 userInfo: {
-                displayName:<?php echo $account_Id?>
+                displayName:<?php echo $account?>
                 },
             });
             
@@ -95,7 +96,8 @@
       </head>
       <body><div id="jaas-container" ></div></body>
     </html>
-    <?php }}else{
+    <?php }}
+    }else{
       echo 'Error';
     }
     }else{
