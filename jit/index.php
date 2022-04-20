@@ -2,17 +2,16 @@
 	<?php //instead of account it was user 
 		if(!empty($_GET['table']) && !empty($_GET['account'])){
 			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($_GET['table']).'"';
-      $account = '"'.htmlspecialchars($_GET['account']).'"';
-		}
+      $account_Id = '"'.htmlspecialchars($_GET['account']).'"';
     
-    else{
-      echo 'account id not found';
-    }
-    require "(Model)getTypeTable.inc.php";
-    if(mysqli_num_rows($yy)>0){
-      $res = mysqli_fetch_assoc($yy);
-      $type=$res["isSilent"];
-    }
+    require "(Model)checkUserinTable.inc.php";
+      if($res1["nbr"]==1){
+
+      require "(Model)getTypeTable.inc.php";
+      if(mysqli_num_rows($yy)>0){
+        $res = mysqli_fetch_assoc($yy);
+        $type=$res["isSilent"];
+      }
  if($type == "2"){ ?>
     <html>
       <head>
@@ -45,7 +44,7 @@
                 },
                 interfaceConfigOverwrite: { SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
                 userInfo: {
-                displayName:<?php echo $account?>
+                displayName:<?php echo $account_Id?>
                 },
             });
             
@@ -86,7 +85,7 @@
                 },
                 interfaceConfigOverwrite: { SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
                 userInfo: {
-                displayName:<?php echo $account?>
+                displayName:<?php echo $account_Id?>
                 },
             });
             
@@ -96,4 +95,9 @@
       </head>
       <body><div id="jaas-container" ></div></body>
     </html>
-    <?php } ?>
+    <?php }}else{
+      echo 'Error';
+    }
+    }else{
+      echo 'Field cannot be empty.';
+        } ?>
