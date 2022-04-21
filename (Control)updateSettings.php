@@ -8,7 +8,6 @@ if(require '(Control)tokenCheck.php'){
     $json = file_get_contents('php://input');
     $data = json_decode($json,true);
 
-
     if(!empty($data["account_Id"])){
         
         //saving the value before removing it from the array
@@ -22,16 +21,26 @@ if(require '(Control)tokenCheck.php'){
         //checking if after removing version and account_Id there's any value to update it in DB 
         if(!empty($data)){
 
-            foreach ($data as $key => $val){
+            foreach ($data as $index => $value){
                 
-                require '(Model)updateSettings.inc.php';
-                if($yy){
-                    $json_array[0] = 'success';
+                if(!empty($data[$index])){
+
+                    $key=htmlspecialchars($index);
+                    $val=htmlspecialchars($value);
+                    require '(Model)updateSettings.inc.php';
+                    if($yy){
+
+                        $json_array[0] = 'success';
+
+                    }
+
+                }else{
+
+                   array_push($json_array,$index);
+
                 }
-                
+
             }
-
-
 
         }
         
@@ -40,7 +49,6 @@ if(require '(Control)tokenCheck.php'){
 
 
     }else require '(View)Error7.php';
-
 
 }
 ?>
