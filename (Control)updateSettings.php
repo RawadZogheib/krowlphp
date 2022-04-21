@@ -4,30 +4,42 @@
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){ 
     
-if(!empty($data->account_Id) && !empty($data->fname) && !empty($data->lname) && !empty($data->email) && !empty($data->username) && !empty($data->bio) && !empty($data->date_of_birth) && !empty($data->uni) && !empty($data->major) && !empty($data->minor)){
-  
-    $account_Id = htmlspecialchars($data->account_Id);
-    $fname = htmlspecialchars($data->fname);
-    $lname = htmlspecialchars($data->lname);
-    $email = htmlspecialchars($data->email);
-    $username = htmlspecialchars($data->username);
-    $bio = htmlspecialchars($data->bio);
-    $date_of_birth = htmlspecialchars($data->date_of_birth);
-    $uni = htmlspecialchars($data->uni);
-    $major = htmlspecialchars($data->major);
-    $minor = htmlspecialchars($data->minor);
-    $json_array[0] = 'error4';
+    //converting json_array to an array 
+    $json = file_get_contents('php://input');
+    $data = json_decode($json,true);
 
-    require '(Model)updateSettings.inc.php'; 
-    if($yy){
-        $json_array[0] = 'success';
-    }
 
+    if(!empty($data["account_Id"])){
+        
+        //saving the value before removing it from the array
+        $account_Id= htmlspecialchars($data["account_Id"]);
+        $json_array[0] = 'error4';
+
+        //removing these 2 values
+        unset($data["version"]);
+        unset($data["account_Id"]);
+
+        //checking if after removing version and account_Id there's any value to update it in DB 
+        if(!empty($data)){
+
+            foreach ($data as $key => $val){
+                
+                require '(Model)updateSettings.inc.php';
+                if($yy){
+                    $json_array[0] = 'success';
+                }
+                
+            }
+
+
+
+        }
+        
         echo json_encode($json_array);
 
-        mysqli_close($con);
 
-}else require '(View)Error7.php';
+
+    }else require '(View)Error7.php';
 
 
 }
