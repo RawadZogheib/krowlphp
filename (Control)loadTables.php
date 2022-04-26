@@ -74,7 +74,7 @@ if(require '(Control)tokenCheck.php'){
                             $admin=base64_encode($table_id.'-'.$res["table_pass"]);
                         }
                     }
-                $table1 = array($table_id,$admin,$table_name,$seats,$isSilent,$new);
+                $table1 = array($table_id,$admin,$table_name,$seats,$isSilent,$new,$isUserOccupant);
                 
             
                 
@@ -104,20 +104,17 @@ if(require '(Control)tokenCheck.php'){
                     while($res1 = mysqli_fetch_assoc($yy)){	
                         $table2 = array($res1["account_Id"],$res1["username"],$res1["position"],"batikhh");
                         if($res1["account_Id"] == $account_Id){
-                            $isUserOccupant=true;
+                            $table1[6]=true;
                         }
                         array_push($table3,$table2);
                         $table2=array();
                     }	
-                    array_push($table1,$isUserOccupant);
                     array_push($table1,$table3);
                     $table3=array();
                
                 }else  if(mysqli_num_rows($yy) == 0){
                     $t1=1;
                     $table3=array();
-                    $isUserOccupant=false;
-                    array_push($table1,$isUserOccupant);
                     array_push($table1,$table3);
                 }
                 array_push($table4,$table1);
