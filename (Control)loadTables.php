@@ -83,8 +83,8 @@ if(require '(Control)tokenCheck.php'){
                     if(mysqli_num_rows($yy1)>0){
                         while($res5 = mysqli_fetch_assoc($yy1)){
                             $table5=array();
-                             $table5=array($res5["account_Id"],$res5["username"],"photo");
-                             array_push($table6,$table5);
+                            $table5=array($res5["account_Id"],$res5["username"],"photo");
+                            array_push($table6,$table5);
                              
                         }
                     }else if(mysqli_num_rows($yy1) == 0){
@@ -116,6 +116,8 @@ if(require '(Control)tokenCheck.php'){
                 }else  if(mysqli_num_rows($yy) == 0){
                     $t1=1;
                     $table3=array();
+                    $isUserOccupant=false;
+                    array_push($table1,$isUserOccupant);
                     array_push($table1,$table3);
                 }
                 array_push($table4,$table1);
