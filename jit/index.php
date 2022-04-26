@@ -34,7 +34,7 @@
                   startWithAudioMuted: [true],
                   startWithVideoMuted: [true],
                   disableInitialGUM: true,
-                  toolbarButtons: ['camera','chat','desktop','download','embedmeeting','etherpad','feedback','filmstrip','fullscreen','hangup','help','livestreaming','participants-pane','profile','raisehand','recording','security','settings','sharedvideo','shortcuts','stats','tileview','toggle-camera','videoquality','__end']
+                  toolbarButtons: ['camera','chat','desktop','download','embedmeeting','etherpad','feedback','filmstrip','fullscreen','help','livestreaming','participants-pane','profile','raisehand','recording','security','settings','sharedvideo','shortcuts','stats','tileview','toggle-camera','videoquality','__end']
 
                 },
                 // optionally, we can have the meeting select the devices we want
@@ -76,7 +76,7 @@
                   startWithAudioMuted: [true],
                   startWithVideoMuted: [true],
                   disableInitialGUM: true,
-                   toolbarButtons: ['camera','chat','closedcaptions','desktop','download','embedmeeting','etherpad','feedback','filmstrip','fullscreen','hangup','help','livestreaming','microphone','participants-pane','profile','raisehand','recording','security','settings','shareaudio','sharedvideo','shortcuts','tileview','toggle-camera','videoquality', '__end']
+                   toolbarButtons: ['camera','chat','closedcaptions','desktop','download','embedmeeting','etherpad','feedback','filmstrip','fullscreen','help','livestreaming','microphone','participants-pane','profile','raisehand','recording','security','settings','shareaudio','sharedvideo','shortcuts','tileview','toggle-camera','videoquality', '__end']
                 },
                 // optionally, we can have the meeting select the devices we want
                 devices: {
