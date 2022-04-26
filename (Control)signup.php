@@ -23,7 +23,7 @@ if(!empty($data->email)){
                    // }else require '(View)Error2_6.php'; //2_6 It's not a university email.
                }else require '(View)Error2_5.php'; //2_5 It's not an  email format.
 
-}else require '(View)Error6.php'; //6 Email already exist.
+     }else require '(View)Error6.php'; //6 Email already exist.
   
 mysqli_close($con);
 

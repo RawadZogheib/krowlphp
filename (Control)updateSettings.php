@@ -27,30 +27,84 @@ if(require '(Control)tokenCheck.php'){
 
                     $key=htmlspecialchars($index);
                     $val=htmlspecialchars($value);
-                    require '(Model)updateSettings.inc.php';
-                    if($yy){
-                        if($key == "username"){
 
-                            $username=$val;
-                            require '(Control)generateTokenChat.php';
-                            $key="token_chat";
-                            $val=$userTokenChat;
-                            require '(Model)updateSettings.inc.php';
-                            if($yy){
+                    if($key == "email"){
 
-                                $json_array[0] = 'success';
+                        $emailExp= "/\A[^@\s]+@[^@\s]+\z/";
+                        $email=$val;
+                        require '(Model)registMail.inc.php';
 
-                            }
-                            
-                        }else{
+                        if($res["nbr"]==0){
 
+                            if(preg_match("/\s/", $email)){
+
+                                require '(View)Error1.php'; //1 No Spaces Allowed.
+                   
+                            }else if(preg_match($emailExp, $email)==1){
+
+                                       //if(Swot::isAcademic($email)){
+                                        require '(Model)updateSettings.inc.php';
+                                        if($yy){
+                                            $json_array[0] = 'success';
+                                        }
+
+                                      // }else require '(View)Error2_6.php'; //2_6 It's not a university email.
+                                    }else require '(View)Error2_5.php'; //2_5 It's not an  email format.
+                   
+                        }else require '(View)Error6.php'; //6 Email already exist.
+
+                    }else if($key == "username"){
+
+                        $userNameRegExp = "/^[a-zA-Z0-9_\.]*$/";
+                        $username=$val;
+                        require '(Model)registUserName.inc.php';
+
+                        if($res["nbr"]==0){
+
+                             if(preg_match("/\s/", $username)){
+                                  require '(View)Error1.php'; //1 No Spaces Allowed.
+                               }else if(strlen($username)<8){
+                                   require '(View)Error2_1.php'; //2_1 Your username must contain at least 8 characters.
+                               }else if(preg_match($userNameRegExp, $username) == 0){
+                                   require '(View)Error2_2.php'; //2_2 Your username can only contain lowercase and uppercase characters and special characters( _ .).
+                               }else{
+                                require '(Model)updateSettings.inc.php';
+                                if($yy){
+                                        require '(Control)generateTokenChat.php';
+                                        $key="token_chat";
+                                        $val=$userTokenChat;
+                                        require '(Model)updateSettings.inc.php';
+                                        if($yy){
+            
+                                            $json_array[0] = 'success';
+            
+                                        }
+                               }}
+                   
+                        }else require '(View)Error5.php'; //5 UserName already exist.
+
+
+
+
+                    }else if($key == "date_of_birth"){
+                        $date_of_birth=$val;
+                        $currentDate = date("d-m-Y");
+                        $age = date_diff(date_create($date_of_birth), date_create($currentDate));
+
+                        if($age->format("%y")<17){
+                            require '(View)Error2_4.php';  //2_4 Your age must be greater than 17.
+                        }else require '(Model)updateSettings.inc.php';
+                        if($yy){
                             $json_array[0] = 'success';
-
                         }
                         
 
+                    }else{
+                        require '(Model)updateSettings.inc.php';
+                        if($yy){
+                            $json_array[0] = 'success';
+                        }
                     }
-
                 }else{
 
                    array_push($json_array,$index);
@@ -62,6 +116,7 @@ if(require '(Control)tokenCheck.php'){
         }
         
         echo json_encode($json_array);
+        mysqli_close($con);
 
 
 
