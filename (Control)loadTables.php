@@ -45,6 +45,7 @@ if(require '(Control)tokenCheck.php'){
 
             while($res = mysqli_fetch_assoc($xx)){	
                 $new=false;
+                $isUserOccupant=false;
                 $i=$i+1;
                 $table1=array();
                 $table_id=$res["table_id"];
@@ -102,10 +103,13 @@ if(require '(Control)tokenCheck.php'){
 
                     while($res1 = mysqli_fetch_assoc($yy)){	
                         $table2 = array($res1["account_Id"],$res1["username"],$res1["position"],"batikhh");
+                        if($res1["account_Id"] == $account_Id){
+                            $isUserOccupant=true;
+                        }
                         array_push($table3,$table2);
                         $table2=array();
                     }	
-
+                    array_push($table1,$isUserOccupant);
                     array_push($table1,$table3);
                     $table3=array();
                
