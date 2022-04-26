@@ -29,8 +29,25 @@ if(require '(Control)tokenCheck.php'){
                     $val=htmlspecialchars($value);
                     require '(Model)updateSettings.inc.php';
                     if($yy){
+                        if($key == "username"){
 
-                        $json_array[0] = 'success';
+                            $username=$val;
+                            require '(Control)generateTokenChat.php';
+                            $key="token_chat";
+                            $val=$userTokenChat;
+                            require '(Model)updateSettings.inc.php';
+                            if($yy){
+
+                                $json_array[0] = 'success';
+
+                            }
+                            
+                        }else{
+
+                            $json_array[0] = 'success';
+
+                        }
+                        
 
                     }
 
