@@ -10,4 +10,4 @@ api.executeCommand('hangup');
       </head>
     
     </html>
-
+<?php echo '["CLOSEEEEEEEEEEEEEE"]';?>
