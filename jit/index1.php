@@ -18,7 +18,7 @@
                   startWithAudioMuted: [true],
                   startWithVideoMuted: [true],
                   disableInitialGUM: true,
-                   toolbarButtons: ['camera','chat','closedcaptions','desktop','download','embedmeeting','etherpad','feedback','filmstrip','fullscreen','help','livestreaming','microphone','participants-pane','profile','raisehand','recording','security','settings','shareaudio','sharedvideo','shortcuts','tileview','toggle-camera','videoquality']
+                   toolbarButtons: ['camera','chat','closedcaptions','desktop','download','embedmeeting','etherpad','feedback','filmstrip','fullscreen','help','livestreaming','microphone','participants-pane','raisehand','recording','security','settings','shareaudio','sharedvideo','shortcuts','toggle-camera','videoquality']
                 },
                 // optionally, we can have the meeting select the devices we want
                 devices: {
