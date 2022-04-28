@@ -2,7 +2,7 @@
 
     //occupant_video = 0 -> he's sitting on a table but didn't join the jit meeting 
     require '../(Model)config.inc.php';
-    $con=con("krowltest");
+    $con=con("krowl");
 
     $sql="SELECT count(*)as nbr,`occupant_id` FROM `occupants` WHERE `account_Id`=(SELECT `account_Id` FROM `account` WHERE `username`=".$account.") AND `occupant_video`=0";
 
