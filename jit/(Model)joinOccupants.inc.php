@@ -1,6 +1,6 @@
 <?php //insert the occupant that join the meeting
 echo "JOINN";
-	require '(Model)config.inc.php';
+	require '../(Model)config.inc.php';
    $con=con("krowl");
    $sql="INSERT INTO `jit`(`jit_id`, `jit_name`) VALUES(NULL,'".$nameJoined."')";
     $yy=mysqli_query($con,$sql);
