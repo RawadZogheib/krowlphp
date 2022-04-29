@@ -68,13 +68,15 @@ if(require '(Control)tokenCheck.php'){
                     $isSilent=true;
                 }else{ $isSilent=false;}
                 $admin ="";
+                $isAdmin=false;
                     if($isPrivate == '2'){
 
                         if($res["admin_id"] == $account_Id){
+                            $isAdmin=true;
                             $admin=base64_encode($table_id.'-'.$res["table_pass"]);
                         }
                     }
-                $table1 = array($table_id,$admin,$table_name,$seats,$isSilent,$new,$isUserOccupant);
+                $table1 = array($table_id,$admin,$table_name,$seats,$isSilent,$new,$isUserOccupant,$isAdmin);
                 
             
                 

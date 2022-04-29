@@ -7,8 +7,9 @@
     
     require "(Model)checkUserinVideo.inc.php";
       if($res1["nbr"]==1){
-      require "(Model)insertUserinVideo.inc.php";
-      if($xx3){
+        $occupant_video=$res1["occupant_video"];
+        if($occupant_video <= 5){
+          
       require "(Model)getTypeTable.inc.php";
       if(mysqli_num_rows($yy)>0){
         $res = mysqli_fetch_assoc($yy);
@@ -58,7 +59,9 @@
     </html>
   <?php }else{ require 'index1.php';?>
    
-    <?php }}
+    <?php }}else{
+      echo 'You exceed the number of attendence';
+    }
     }else{
       echo 'Error';
     }

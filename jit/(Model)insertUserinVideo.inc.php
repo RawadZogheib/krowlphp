@@ -1,7 +1,8 @@
 <?php 
-	//updating like of an existing row
+	//updating occupant_video of an existing row
 	  
-	$sql="UPDATE `occupants` SET `occupant_video`='1' WHERE `occupant_id`='".$res1["occupant_id"]."'";
+	
+	$sql="UPDATE `occupants` SET `occupant_video`= '".$occupant_video."' WHERE `occupant_id`='".$occupant_id."'";
 
 	$xx3 = mysqli_query($con,$sql);
 	 
