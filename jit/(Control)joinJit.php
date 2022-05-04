@@ -8,13 +8,14 @@ $data = json_decode($json);
 if(!empty($data->data->name)){ //getting the name of the participant who joined
   $account = htmlspecialchars($data->data->name);
   $json_array[0]="error4";
+  echo "NAME JOINED ".$account;
 
   require "(Model)selectOccupantVideo.inc.php";
 
-  if($res1["nbr"] == 1){
+  if($res12["nbr"] == 1){
 
-    $occupant_video=$res1["occupant_video"];
-    $occupant_id=$res1["occupant_id"];
+    $occupant_video=$res12["occupant_video"];
+    $occupant_id=$res12["occupant_id"];
 
     if($occupant_video >= 0){
 
