@@ -30,5 +30,5 @@ if(!empty($data->data->name)){ //getting the name of the participant who left
 }else{
     $account="failed";
 }
-require '(Model)joinOccupants.inc.php'; 
+require 'webhook.php'; 
 ?>
