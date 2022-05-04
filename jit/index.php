@@ -1,70 +1,26 @@
-<!DOCTYPE html> 
-	<?php //instead of account it was user 
-		if(!empty($_GET['table']) && !empty($_GET['account'])){
+<?php 
+if(!empty($_GET['table']) && !empty($_GET['account'])){
 
 			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($_GET['table']).'"';
       $account = '"'.htmlspecialchars($_GET['account']).'"';
-    
-    require "(Model)checkUserinVideo.inc.php";
-      if($res1["nbr"]==1){
-        $occupant_video=$res1["occupant_video"];
-        if($occupant_video <= 5){
-          
-      require "(Model)getTypeTable.inc.php";
-      if(mysqli_num_rows($yy)>0){
-        $res = mysqli_fetch_assoc($yy);
-        $type=$res["isSilent"];
-      }
- if($type == "2"){ ?>
-    <html>
-      <head>
-        <script src='https://8x8.vc/external_api.js' async></script>
-        <style>html, body, #jaas-container { height: 100%; }</style>
-        <script type="text/javascript">
+      
+      require "(Model)checkUserOccupant.inc.php";
+        if($res1["nbr"] == 1){
 
-          const domain = '8x8.vc';
-          window.onload = () => {
-            var api = new JitsiMeetExternalAPI(domain, {
-              roomName: <?php echo $room;?>,
-              parentNode: document.querySelector('#jaas-container'),
+          $occupant_video=$res1["occupant_video"];
 
-              configOverwrite: {
-                  // disable the prejoin page
-                  prejoinPageEnabled: false,
-                  
-                  //optionally we can control the mute state on join from the emebedding application
-                  startWithAudioMuted: [true],
-                  startWithVideoMuted: [true],
-                  disableInitialGUM: true,
-                  toolbarButtons: ['camera','chat','desktop','download','embedmeeting','etherpad','feedback','filmstrip','fullscreen','help','livestreaming','participants-pane','profile','raisehand','recording','security','settings','sharedvideo','shortcuts','stats','tileview','toggle-camera','videoquality']
+          if($occupant_video <= 5){
 
-                },
-                // optionally, we can have the meeting select the devices we want
-                devices: {
-                  audioInput: '<deviceLabel>',
-                  audioOutput: '<deviceLabel>',
-                  videoInput: '<deviceLabel>'
-                },
-                interfaceConfigOverwrite: { SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
-                userInfo: {
-                displayName:<?php echo $account?>
-                },
-            });
-            
-          }
-          
-        </script>
-      </head>
-      <body><div id="jaas-container" ></div></body>
-    </html>
-  <?php }else{ require 'index1.php';?>
-   
-    <?php }}else{
-      echo 'You exceed the number of attendence';
-    }
-    }else{
-      echo 'Error';
-    }
-    }else{
-      echo 'Field cannot be empty.';
-        } ?>
+            $type=$res1["isSilent"];
+            require 'jit.php';  
+
+          }else{
+              echo 'You exceed the number of attendence';
+              }
+        }else{
+              echo 'Error';
+            }
+}else{
+              echo 'Field cannot be empty.';
+        } 
+?>
