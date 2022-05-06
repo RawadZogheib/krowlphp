@@ -3,7 +3,6 @@
         <script src='https://8x8.vc/external_api.js' async></script>
         <style>html, body, #jaas-container { height: 99.5%; }</style>
         <script type="text/javascript">
-          history.replaceState(null, document.querySelector("account").innerText, window.location.pathname)
           const domain = '8x8.vc';
           window.onload = () => {
             var api = new JitsiMeetExternalAPI(domain, {
