@@ -11,11 +11,18 @@ if(!empty($data->account_Id) && !empty($data->table_id)){
     $table_id = htmlspecialchars($data->table_id);
 
     $json_array[0] = 'error4';
+    require '(Model)checkOccupantTable.inc.php';
+    if($res1["nbr"]==0){
 
-    require '(Model)removeTable.inc.php'; 
-    if($yy){
-        $json_array[0] = 'success';
+        require '(Model)removeTable.inc.php'; 
+        if($yy){
+            $json_array[0] = 'success';
+        }
+
+    }else{
+        $json_array[0] = 'error418'; // Can't remove it. Participants are in a meeting 
     }
+    
 
         echo json_encode($json_array);
 

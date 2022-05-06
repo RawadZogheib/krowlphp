@@ -7,15 +7,22 @@ if(require '(Control)tokenCheck.php'){
     
 if(!empty($data->account_Id) && !empty($data->table_id)&& !empty($data->participant_id)){
   
-    $account_Id = htmlspecialchars($data->account_Id);
+    //$account_Id = htmlspecialchars($data->account_Id);
     $table_id = htmlspecialchars($data->table_id);
-    $participant_id = htmlspecialchars($data->participant_id);
+    $account_Id = htmlspecialchars($data->participant_id);
 
     $json_array[0] = 'error4';
 
-    require '(Model)removeParticipant.inc.php'; 
-    if($yy){
-        $json_array[0] = 'success';
+    require '(Model)checkisUserAvailable.inc';
+    if( $res6["nbr"] == 0 || ( $res6["nbr"] == 1 && $res6["occupant_video"] == 0 )  ){
+
+        require '(Model)removeParticipant.inc.php'; 
+        if($yy){
+            $json_array[0] = 'success';
+        }
+
+    }else{
+        $json_array[0] = 'error417'; // Can't remove it. Participant is in a meeting 
     }
 
         echo json_encode($json_array);
