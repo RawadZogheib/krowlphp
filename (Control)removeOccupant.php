@@ -12,10 +12,20 @@ if(!empty($data->account_Id) && !empty($data->table_id)){
 
     $json_array[0] = 'error4';
 
-    require '(Model)removeOccupant.inc.php'; 
-    if($yy){
-        $json_array[0] = 'success';
+    require '(Model)checkisUserAvailable.inc.php';
+
+    if($res6["nbr"] == 1 && $res6["occupant_video"] == 0 ){
+
+        require '(Model)removeOccupant.inc.php'; 
+        if($yy){
+            $json_array[0] = 'success';
+        }
+
+    }else{
+        $json_array[0] = 'error417';
     }
+
+
 
         echo json_encode($json_array);
 
