@@ -15,7 +15,7 @@ if(!empty($data->account_Id) && !empty($data->table_id)&& !empty($data->particip
 
     require '(Model)checkisUserAvailable.inc.php';
     if( $res6["nbr"] == 0 || ( $res6["nbr"] == 1 && $res6["occupant_video"] == 0 )  ){
-        echo "HEREE";
+        
         require '(Model)removeParticipant.inc.php'; 
         if($yy){
             $json_array[0] = 'success';
