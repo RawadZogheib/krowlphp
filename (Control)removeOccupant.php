@@ -14,7 +14,7 @@ if(!empty($data->account_Id) && !empty($data->table_id)){
 
     require '(Model)checkisUserAvailable.inc.php';
 
-    if($res6["nbr"] == 1 && $res6["occupant_video"] == 0 ){
+    if($res6["nbr"] == 1 && $res6["occupant_video"] == 0 && $res6["load_jit"] == 0 ){
 
         require '(Model)removeOccupant.inc.php'; 
         if($yy){
