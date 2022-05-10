@@ -19,8 +19,7 @@ if(!empty($data->data->name)){ //getting the name of the participant who joined
 
     if($occupant_video >= 0){
 
-      $load_jit=0;
-      
+
       $occupant_video=$occupant_video + 1;
       require "(Model)updateOccupantVideo.inc.php";
       if($xx3){
