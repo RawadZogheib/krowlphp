@@ -17,7 +17,6 @@ if(!empty($data->data->name)){ //getting the name of the participant who left
     $occupant_id=$res12["occupant_id"];
     if($occupant_video > 0){
       $load_jit=0;
-      require '(Model)updateLoadJit.inc.php';
       $occupant_video=$occupant_video - 1;
       require "(Model)updateOccupantVideo.inc.php";
       if($xx3){
