@@ -7,7 +7,7 @@ if(require '(Control)tokenCheck.php'){
     
 if(!empty($data->account_Id) && !empty($data->table_id)&& !empty($data->participant_id)){
   
-    //$account_Id = htmlspecialchars($data->account_Id);
+    $admin_id = htmlspecialchars($data->account_Id);
     $table_id = htmlspecialchars($data->table_id);
     $account_Id = htmlspecialchars($data->participant_id);
 
