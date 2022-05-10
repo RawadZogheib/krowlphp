@@ -10,7 +10,6 @@ if(!empty($_GET['table']) && !empty($_GET['account'])){
           $occupant_video=$res1["occupant_video"];
 
           if($occupant_video <= 5){
-            require '(Model)updateLoadJit.inc.php';
             
             $type=$res1["isSilent"];
             require 'jit.php';  

@@ -18,8 +18,6 @@ if(!empty($data->data->name)){ //getting the name of the participant who joined
     $occupant_id=$res12["occupant_id"];
 
     if($occupant_video >= 0){
-
-
       $occupant_video=$occupant_video + 1;
       require "(Model)updateOccupantVideo.inc.php";
       if($xx3){
