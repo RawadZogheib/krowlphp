@@ -13,7 +13,7 @@ if(!empty($data->account_Id) && !empty($data->table_id)&& !empty($data->particip
 
     $json_array[0] = 'error4';
 
-    require '(Model)checkisUserAvailable.inc';
+    require '(Model)checkisUserAvailable.inc.php';
     if( $res6["nbr"] == 0 || ( $res6["nbr"] == 1 && $res6["occupant_video"] == 0 )  ){
 
         require '(Model)removeParticipant.inc.php'; 
