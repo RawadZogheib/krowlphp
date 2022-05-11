@@ -6,10 +6,12 @@ $json = file_get_contents('php://input');
 $data = json_decode($json);
 
  
-if(!empty($data->data->name) || !empty($data->data->email)){ //getting the name of the participant who joined
+if(!empty($data->data->name) || !empty($data->fqn)){ //getting the name of the participant who joined
   $account = htmlspecialchars($data->data->name);
-  $email = htmlspecialchars($data->data->email);
+  $fqn = htmlspecialchars($data->fqn);
 
+  $table = explode("vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/", $fqn);
+  
   $json_array[0]="error4";
 
 
