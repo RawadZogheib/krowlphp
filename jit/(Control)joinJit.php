@@ -5,9 +5,11 @@
 $json = file_get_contents('php://input');
 $data = json_decode($json);
 
+ 
 if(!empty($data->data->name) || !empty($data->data->email)){ //getting the name of the participant who joined
   $account = htmlspecialchars($data->data->name);
   $email = htmlspecialchars($data->data->email);
+
   $json_array[0]="error4";
 
 
