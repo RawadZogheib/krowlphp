@@ -31,7 +31,7 @@
                 },
                 interfaceConfigOverwrite: { SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
                 userInfo: {
-                displayName:<?php echo $getaccount?>},
+                displayName:<?php echo "'".$getaccount."'"?>},
             });
             
           }
