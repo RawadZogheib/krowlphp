@@ -2,10 +2,10 @@
 	//updating occupant_video of an existing row
 	  
 	
-	$sql="UPDATE `occupants` SET `occupant_video`= '".$occupant_video."' WHERE `occupant_id`='".$occupant_id."'";
+	$sql="INSERT INTO `occupants`(`occupant_id`, `table_id`, `account_Id`, `inviter_id`, `position`, `occupant_video`)
+    VALUES (NULL,'".$table[0]."','".$res12["account_Id"]."','0','".$table[1]."','1')";
 
-	$xx3 = mysqli_query($con,$sql);
-    // INSERT INTO `occupants`(`occupant_id`, `table_id`, `account_Id`, `inviter_id`, `position`, `occupant_video`, `joined_at`)
-    //  VALUES (NULL,'[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]')
+	$xx4 = mysqli_query($con,$sql);
+
 ?>
 

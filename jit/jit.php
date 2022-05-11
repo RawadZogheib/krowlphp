@@ -6,7 +6,7 @@
           const domain = '8x8.vc';
           window.onload = () => {
             var api = new JitsiMeetExternalAPI(domain, {
-              roomName: <?php echo $room;?>,
+              roomName: <?php echo $table[0];?>,
               parentNode: document.querySelector('#jaas-container'),
 
               configOverwrite: {
@@ -31,7 +31,6 @@
                 },
                 interfaceConfigOverwrite: { SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
                 userInfo: {
-                email:<?php echo $table?>,
                 displayName:<?php echo $account?>},
             });
             

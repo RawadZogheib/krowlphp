@@ -10,8 +10,8 @@ if(!empty($data->data->name) || !empty($data->fqn)){ //getting the name of the p
   $account = htmlspecialchars($data->data->name);
   $fqn = htmlspecialchars($data->fqn);
 
-  $table = explode("vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/", $fqn);
-  
+  $gettable = explode("vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/", $fqn);
+  $table = explode("/", $gettable[1]);
   $json_array[0]="error4";
 
 
@@ -30,13 +30,13 @@ if(!empty($data->data->name) || !empty($data->fqn)){ //getting the name of the p
       }
       
     }
-  // }else if($res12["nbr"] == 0){
-  //   require '(Model)insertOccupantVideo.inc.php';
-  //   if($xx4){
-  //     $json_array[0]="success";
-  //   }
-  // }
-  }
+
+  }else if($res12["nbr"] == 0){
+      require '(Model)insertOccupantVideo.inc.php';
+      if($xx4){
+        $json_array[0]="success";
+      }
+    }
 }else{
     $account="failed";
 }
