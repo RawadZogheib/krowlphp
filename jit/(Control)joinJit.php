@@ -5,10 +5,11 @@
 $json = file_get_contents('php://input');
 $data = json_decode($json);
 
-if(!empty($data->data->name)){ //getting the name of the participant who joined
+if(!empty($data->data->name) || !empty($data->data->email)){ //getting the name of the participant who joined
   $account = htmlspecialchars($data->data->name);
+  $email = htmlspecialchars($data->data->email);
   $json_array[0]="error4";
-  echo "NAME JOINED ".$account;
+
 
   require "(Model)selectOccupantVideo.inc.php";
 
@@ -24,6 +25,11 @@ if(!empty($data->data->name)){ //getting the name of the participant who joined
         $json_array[0]="success";
       }
       
+    }
+  }else if($res12["nbr"] == 0){
+    require '(Model)insertOccupantVideo.inc.php';
+    if($xx4){
+      $json_array[0]="success";
     }
   }
 
