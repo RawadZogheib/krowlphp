@@ -31,9 +31,8 @@
                 },
                 interfaceConfigOverwrite: { SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'calendar', 'sounds' ] },
                 userInfo: {
-                email:<?php echo $table?>
-                displayName:<?php echo $account?>
-                },
+                email:<?php echo $table?>,
+                displayName:<?php echo $account?>},
             });
             
           }
