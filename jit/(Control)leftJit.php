@@ -6,10 +6,14 @@ $json = file_get_contents('php://input');
 $data = json_decode($json);
 
 if(!empty($data->data->name)){ //getting the name of the participant who left
-  $account = htmlspecialchars($data->data->name);
+  $getaccount = htmlspecialchars($data->data->name);
   $json_array[0]="error4";
+  
+  $tableaccount = explode("/", $getaccount);
+  $account = $tableaccount[0];
 
   require "(Model)selectOccupantVideo.inc.php";
+
 
   if($res12["nbr"] == 1){
     
