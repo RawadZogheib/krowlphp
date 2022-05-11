@@ -3,7 +3,7 @@ if(!empty($_GET['table']) && !empty($_GET['account'])){
       $gettable=htmlspecialchars($_GET['table']);
       $table = explode("/", $gettable);
 
-			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($_GET['table']).'"';
+			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.$table[0].'"';
       $account = '"'.htmlspecialchars($_GET['account']).'"';
       
       require "(Model)checkUserOccupant.inc.php";
