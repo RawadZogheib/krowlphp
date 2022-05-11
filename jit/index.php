@@ -1,10 +1,13 @@
 <?php 
 if(!empty($_GET['table']) && !empty($_GET['account'])){
-      $gettable=htmlspecialchars($_GET['table']);
-      $table = explode("/", $gettable);
 
-			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.$gettable.'"';
-      $account = '"'.htmlspecialchars($_GET['account']).'"';
+
+  $getaccount=htmlspecialchars($_GET['account']);
+
+  $tableaccount = explode("/", $getaccount);
+
+			$room = '"vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/'.htmlspecialchars($_GET['table']).'"';
+      $account = '"'.$tableaccount[0].'"';
       
       require "(Model)checkUserOccupant.inc.php";
         if($res1["nbr"] == 1){

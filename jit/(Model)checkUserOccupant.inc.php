@@ -4,7 +4,7 @@
     require '../(Model)config.inc.php';
     $con=con("krowl");
 
-    $sql="SELECT count(*)as nbr,o.`occupant_id`,o.`occupant_video`,t.`isSilent` FROM `occupants`o JOIN `tables`t on o.`table_id`=t.`table_id` WHERE `account_Id`=(SELECT `account_Id` FROM `account` WHERE `username`=".$account.") AND `table_name`='".$table[0]."'";
+    $sql="SELECT count(*)as nbr,o.`occupant_id`,o.`occupant_video`,t.`isSilent` FROM `occupants`o JOIN `tables`t on o.`table_id`=t.`table_id` WHERE `account_Id`=(SELECT `account_Id` FROM `account` WHERE `username`=".$account.") AND `table_name`='".$_GET['table']."'";
 
     $zz=mysqli_query($con,$sql);
     $res1= mysqli_fetch_assoc($zz);
