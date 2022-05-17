@@ -83,8 +83,8 @@ if(!empty($data->email) && !empty($data->first_name) && !empty($data->last_name)
                                 
                                         if($yy){
                                                 echo '["true"]';//require '(View)true.php'; //Success.
-                                                //require '(Control)postmark.php';
-                                                //require '(Control)slack.php';
+                                                require '(Control)postmark.php';
+                                                require '(Control)slack.php';
                                         }else require '(View)Error4.php'; //4 Cannot connect to the dataBase.
                                 }
                         }else require '(View)Error5.php'; //5 UserName already exist.
