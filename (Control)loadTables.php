@@ -11,11 +11,14 @@ if(require '(Control)tokenCheck.php'){
     $table4=array();
     $table5=array();
     $table6=array();
+    $table7=array();
+    $table8=array();
+    $table9=array();
     $json_array=array();
 
-    $i=0; //counter
     $j=2; //counter
     $tot_tables=0;
+    $tot_notifs=0;
     $t1=0;
     
     $json_array[0] = 'error4';
@@ -31,22 +34,21 @@ if(require '(Control)tokenCheck.php'){
         if($isPrivate == '1'){
             require '(Model)countPublicTables.inc.php';
             $tot_tables=$res["nbr"];
-             require '(Model)loadPublicTables.inc.php';
+            require '(Model)loadPublicTables.inc.php';
         }else{
             require '(Model)countPrivateTables.inc.php';
             $tot_tables=$res["nbr"];
             require '(Model)loadPrivateTables.inc.php';
         }
        
+        //Sending the tables with their participant(if private) and occupants
         if(mysqli_num_rows($xx)>0){
-            
-            $nbr_table= mysqli_num_rows($xx); 
+
             $json_array[1] = $tot_tables;
 
             while($res = mysqli_fetch_assoc($xx)){	
                 $new=false;
                 $isUserOccupant=false;
-                $i=$i+1;
                 $table1=array();
                 $table_id=$res["table_id"];
                 $table_name=$res["table_name"];
@@ -118,17 +120,22 @@ if(require '(Control)tokenCheck.php'){
                     $table3=array();
                     array_push($table1,$table3);
                 }
+
                 array_push($table4,$table1);
-                if ($i == $nbr_table){
-                    $json_array[$j] = $table4;
-                }
-                if ($i == 12){
-                    $json_array[$j] = $table4;
-                    $i=0;
-                    $j=$j+1;
-                    $nbr_table=$nbr_table-12;
-                    $table4=array();
-                }
+                
+
+                ///it's for distributing every 12 tables on a body
+
+                // if ($i == $nbr_table){
+                //     $json_array[$j] = $table4;
+                // }                
+                // if ($i == 12){
+                //     $json_array[$j] = $table4;
+                //     $i=0;
+                //     $j=$j+1;
+                //     $nbr_table=$nbr_table-12;
+                //     $table4=array();
+                // }
                 
                
             }	
@@ -137,12 +144,36 @@ if(require '(Control)tokenCheck.php'){
             $table4=array();
 
         }
+
+        //Sending notification in  body 3 regards if there's tables or not 
+        require 'Notification/(Model)loadNotifications.inc.php';
+        if(mysqli_num_rows($k1)>0){
+            $tot_notifs=mysqli_num_rows($k1);
+            
+            while($res11 = mysqli_fetch_assoc($k1)){
+                $p=$res11['notif_params'];
+                $params = json_decode($p,true); //array
+                $table7=array($res11["notif_id"],$res11["notif_sender"],$res11["username"],$res11["notif_type"],$params);
+                array_push($table8,$table7);
+                $table7=array();
+            }
+            
+        }else if(mysqli_num_rows($k1) == 0){
+           
+            $table8=array();
+        
+        }
+
+
         if($t1 == 1){
             $json_array[0] = 'success';
         }else if($t1 == 2){
             $json_array[0] = 'empty';
-            $json_array[1] = 0;
+            $json_array[1] = "0";
         }
+        $json_array[$j] = $table4; //inserting tables in body2 if there's table or not 
+        $json_array[$j+1] = "$tot_notifs";
+        $json_array[$j+2] =  $table8;
 
 
 

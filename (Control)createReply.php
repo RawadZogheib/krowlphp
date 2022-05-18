@@ -17,8 +17,22 @@ if(!empty($data->account_Id) && !empty($data->post_id) && !empty($data->reply_da
     require '(Model)createReply.inc.php'; 
     if($yy){
             $json_array[0] = 'success';
-            $json_array[1] = "$id";
-    }
+            $json_array[1] = "$reply_id";
+
+            //Insert Notification
+            require '(Model)getPost.inc.php';
+            if(mysqli_num_rows($yy)>0){
+
+                $res = mysqli_fetch_assoc($yy);
+                $receiver_id=$res["account_Id"];
+                $sender=$account_Id;
+                $notif_type=31; //3 -> third tab = Forum ,  1 -> Creating a Reply (or Post if we  want to add this feature later)
+                require 'Notification/(Control)insertNotification.php';
+                
+            }	
+
+
+        }
 
         echo json_encode($json_array);
 

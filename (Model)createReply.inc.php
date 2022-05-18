@@ -6,7 +6,7 @@
     VALUES (NULL,'".$account_Id."','".$post_id."','".$reply_data."',0,'".$reply_date."')";
 
     $yy=mysqli_query($con,$sql);
-    $id = mysqli_insert_id($con);
+    $reply_id = mysqli_insert_id($con);
 
 ?>
 
