@@ -1,20 +1,23 @@
 <?php 
 
 //WebHook 
-
+     
 $json = file_get_contents('php://input');
 $data = json_decode($json);
 
- 
-if(!empty($data->data->name) || !empty($data->fqn)){ //getting the name of the participant who joined
+
+
+if(!empty($data->data->name) || !empty($data->fqn)){//getting the name of the participant who joined
   $getaccount = htmlspecialchars($data->data->name);
   $fqn = htmlspecialchars($data->fqn);
 
   $tableaccount = explode("/", $getaccount);
   $account = $tableaccount[0];
   $position =$tableaccount[1];
+  
+  require 'Global/globalVariables.php';
 
-  $gettable = explode("vpaas-magic-cookie-5bea10f9861f4c588b1c164f2f3113de/", $fqn);
+  $gettable = explode("$jaasAppID", $fqn);
   $table =  $gettable[1];
   $json_array[0]="error4";
 
