@@ -8,11 +8,11 @@ switch ($notif_type) {
     $paramsArr = array("receiver"=>"$receiver_id", "post"=>"$post_id", "reply" => "$reply_id");
     break;
 
-  case 32:
+  case 32: // Forum, Like/Unlike a Post
     $paramsArr = array("receiver"=>"$receiver_id", "post"=>"$post_id", "like" => "$like");
     break;
   
-  case 33:
+  case 33: // Forum, Like/Unlike a Reply
     $paramsArr = array("receiver"=>"$receiver_id", "post"=>"$post_id", "reply" => "$reply_id", "like" => "$like");
 }
 
