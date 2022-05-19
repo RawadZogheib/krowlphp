@@ -2,12 +2,11 @@
 $json = file_get_contents('php://input');
 $data = json_decode($json);
 
+require 'Global/globalVariables.php';
 if(!empty($data->version)){
 
     $version = htmlspecialchars($data->version);
     
-    require 'Global/globalVariables.php';
-
     if($version != $apiVersion){
         require '(View)ErrorVersion.php';
         exit;
