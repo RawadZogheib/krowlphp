@@ -2,7 +2,7 @@
 
 //Loading Tables and the Occupants of every table of accounts in a same University 
 
-//require '(Control)versionTest.php'; 
+require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
 
     $table1=array();
