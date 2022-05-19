@@ -11,7 +11,9 @@ switch ($notif_type) {
   case 32:
     $paramsArr = array("receiver"=>"$receiver_id", "post"=>"$post_id", "like" => "$like");
     break;
-
+  
+  case 33:
+    $paramsArr = array("receiver"=>"$receiver_id", "post"=>"$post_id", "reply" => "$reply_id", "like" => "$like");
 }
 
 $params = json_encode($paramsArr);

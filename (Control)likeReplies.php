@@ -43,6 +43,16 @@ if(require '(Control)tokenCheck.php'){
         $json_array[0] = 'success';
         $json_array[2] = $res1["reply_likes"];//total like of the comment
 
+        if($json_array[1] == 1 || $json_array[1] == -1){
+
+            $receiver_id=$res1["account_Id"];
+            $sender= $account_Id;
+            $like = $json_array[1];
+            $notif_type=33; //3 -> third tab = Forum ,  2 -> Like/Unlike a Reply
+            require 'Notification/(Control)insertNotification.php';
+            
+        }
+
         }	
         
    

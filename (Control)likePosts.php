@@ -43,7 +43,7 @@ if(require '(Control)tokenCheck.php'){
 
         if($json_array[1] == 1 || $json_array[1] == -1){
 
-            $receiver_id=$res["account_Id"];
+            $receiver_id=$res1["account_Id"];
             $sender= $account_Id;
             $like = $json_array[1];
             $notif_type=32; //3 -> third tab = Forum ,  2 -> Like/Unlike a Post
