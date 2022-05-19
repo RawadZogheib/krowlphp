@@ -3,7 +3,7 @@
 //Loading Tables and the Occupants of every table of accounts in a same University 
 
 require '(Control)versionTest.php'; 
-if(require '(Control)tokenCheck.php'){
+//if(require '(Control)tokenCheck.php'){
 
     $table1=array();
     $table2=array();
@@ -170,5 +170,5 @@ if(require '(Control)tokenCheck.php'){
 
     }else require '(View)Error7.php';
 
-}
+//}
 ?>
