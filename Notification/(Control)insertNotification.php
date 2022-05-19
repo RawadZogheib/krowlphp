@@ -8,14 +8,10 @@ switch ($notif_type) {
     $paramsArr = array("receiver"=>"$receiver_id", "post"=>"$post_id", "reply" => "$reply_id");
     break;
 
-  case "blue":
-    echo "Your favorite color is blue!";
+  case 32:
+    $paramsArr = array("receiver"=>"$receiver_id", "post"=>"$post_id", "like" => "$like");
     break;
-  case "green":
-    echo "Your favorite color is green!";
-    break;
-  default:
-    echo "Your favorite color is neither red, blue, nor green!";
+
 }
 
 $params = json_encode($paramsArr);
