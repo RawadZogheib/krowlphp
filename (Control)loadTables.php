@@ -11,17 +11,12 @@ if(require '(Control)tokenCheck.php'){
     $table4=array();
     $table5=array();
     $table6=array();
-    $table7=array();
-    $table8=array();
-    $table9=array();
     $json_array=array();
 
     $j=2; //counter
     $tot_tables=0;
     $tot_notifs=0;
     $t1=0;
-    
-
     
    
     if(!empty($data->account_Id)&& !empty($data->isPrivet) && !empty($data->currentPage) && !empty($data->user_uni)){
@@ -31,29 +26,15 @@ if(require '(Control)tokenCheck.php'){
         $user_uni = htmlspecialchars($data->user_uni);
         $currentPage=htmlspecialchars($data->currentPage);
 
-            //Sending notification in  body 3 regards if there's tables or not 
-    require 'Notification/(Model)loadNotifications.inc.php';
-    if(mysqli_num_rows($k1)>0){
-        $tot_notifs=mysqli_num_rows($k1);
+        //Getting number of notifications
+        require 'Notification/(Model)loadNotifications.inc.php';
+        if(mysqli_num_rows($k1)>0){
+            $tot_notifs=mysqli_num_rows($k1);
+        }
         
-        // while($res11 = mysqli_fetch_assoc($k1)){
-        //     $p=$res11['notif_params'];
-        //     $params = json_decode($p,true); //array
-        //     $table7=array($res11["notif_id"],$res11["notif_sender"],$res11["username"],$res11["notif_type"],$params);
-        //     array_push($table8,$table7);
-        //     $table7=array();
-        // }
-        
-    }else if(mysqli_num_rows($k1) == 0){
-       
-        // $table8=array();
-    
-
-    }
-
-    $json_array[0] = "$tot_notifs";
-   // $json_array[1] =  $table8;
-    $json_array[1] = "error4";
+        $json_array[0] = "error4";
+        $json_array[1] = "$tot_notifs";
+  
 
 
 
@@ -173,9 +154,9 @@ if(require '(Control)tokenCheck.php'){
 
 
         if($t1 == 1){
-            $json_array[1] = 'success';
+            $json_array[0] = 'success';
         }else if($t1 == 2){
-            $json_array[1] = 'empty';
+            $json_array[0] = 'empty';
             $json_array[$j] = "0";
         }
 
