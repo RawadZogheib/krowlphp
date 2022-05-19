@@ -1,8 +1,8 @@
 <?php 
 
 
-require '(Control)versionTest.php'; 
-if(require '(Control)tokenCheck.php'){
+require '../(Control)versionTest.php'; 
+if(require '../(Control)tokenCheck.php'){
 
     $notifs = array();
     $t1=0;
