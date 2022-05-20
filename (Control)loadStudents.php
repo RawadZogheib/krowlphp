@@ -6,6 +6,7 @@
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
 
+    $tot_notifs=0;
     $students = array();
     $table1=array();
     $nbr_friends =0;
@@ -20,6 +21,16 @@ if(require '(Control)tokenCheck.php'){
         $account_Id = htmlspecialchars($data->account_Id);
         $currentPage=htmlspecialchars($data->currentPage);
 
+         //Getting number of notifications
+         require 'Notification/(Model)loadNotifications.inc.php';
+         if(mysqli_num_rows($k1)>0){
+             $tot_notifs=mysqli_num_rows($k1);
+         }
+ 
+         $json_array[1] = $tot_notifs;
+
+
+
         require '(Model)countStudents.inc.php';
 
         $tot_students=$res1["nbr"];
@@ -28,7 +39,7 @@ if(require '(Control)tokenCheck.php'){
         require '(Model)loadStudents1.inc.php';
         if(mysqli_num_rows($xx)>0){
             
-            $json_array[1] = $tot_students;
+            $json_array[2] = $tot_students;
         
            
 
@@ -66,7 +77,7 @@ if(require '(Control)tokenCheck.php'){
                 $table1=array();
 
             }
-            $json_array[2] = $students;
+            $json_array[3] = $students;
 
         }else  if(mysqli_num_rows($xx) == 0){
             $t1 = 2;
@@ -78,7 +89,7 @@ if(require '(Control)tokenCheck.php'){
             $json_array[0] = 'success';
         }else if($t1 == 2){
             $json_array[0] = 'empty';
-            $json_array[1] = 0;
+            $json_array[2] = 0;
         }
          
             echo json_encode($json_array);

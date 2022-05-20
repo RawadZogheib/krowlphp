@@ -25,6 +25,7 @@ if(require '(Control)tokenCheck.php'){
         $isPrivate = htmlspecialchars($data->isPrivet); //1 -> Public & 2 ->Private
         $user_uni = htmlspecialchars($data->user_uni);
         $currentPage=htmlspecialchars($data->currentPage);
+        $json_array[0] = "error4";
 
         //Getting number of notifications
         require 'Notification/(Model)loadNotifications.inc.php';
@@ -32,7 +33,7 @@ if(require '(Control)tokenCheck.php'){
             $tot_notifs=mysqli_num_rows($k1);
         }
         
-        $json_array[0] = "error4";
+        
         $json_array[1] = "$tot_notifs";
   
 

@@ -6,14 +6,27 @@
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
 
+    $tot_notifs=0;
     $posts = array();
     $table1= array();
     $t1=0;
+    
     
     if(!empty($data->account_Id) && !empty($data->user_uni)){
         
         $account_Id = htmlspecialchars($data->account_Id);
         $user_uni = htmlspecialchars($data->user_uni);
+        $json_array[0] = 'error4';
+
+
+        //Getting number of notifications
+        require 'Notification/(Model)loadNotifications.inc.php';
+        if(mysqli_num_rows($k1)>0){
+            $tot_notifs=mysqli_num_rows($k1);
+        }
+
+        $json_array[1] = "$tot_notifs";
+                
         
         require '(Model)loadPosts.inc.php';
         if(mysqli_num_rows($xx)>0){
@@ -45,8 +58,8 @@ if(require '(Control)tokenCheck.php'){
             $posts = array();
         }
                     
-            $json_array[0] = 'error4';
-            $json_array[1] =  $posts;
+             
+            $json_array[2] =  $posts;
             
 
             if($t1 == 1){

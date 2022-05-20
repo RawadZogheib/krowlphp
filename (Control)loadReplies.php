@@ -6,6 +6,7 @@
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
 
+    $tot_notifs=0;
     $replies = array();
     $posts = array();
     $tmp = array();
@@ -19,11 +20,19 @@ if(require '(Control)tokenCheck.php'){
         $currentPage = htmlspecialchars($data->currentPage);
         $json_array[0] = 'error4';
 
+        //Getting number of notifications
+        require 'Notification/(Model)loadNotifications.inc.php';
+        if(mysqli_num_rows($k1)>0){
+            $tot_notifs=mysqli_num_rows($k1);
+        }
+
+        $json_array[1] = $tot_notifs;
+
         require '(Model)countReplies.inc.php';
         if($res5["nbr"]!=0){
 
         $tot_replies=$res5["nbr"];
-        $json_array[1] = $tot_replies;
+        $json_array[2] = $tot_replies;
         
         require '(Model)getPost.inc.php';
         if(mysqli_num_rows($yy)>0){
@@ -38,7 +47,7 @@ if(require '(Control)tokenCheck.php'){
                 
                 array_push($posts,$res2["post_likes_val"]);
             }
-            $json_array[2]=$posts;
+            $json_array[3]=$posts;
 
         require '(Model)loadReplies.inc.php';
         if(mysqli_num_rows($xx)>0){
@@ -71,7 +80,7 @@ if(require '(Control)tokenCheck.php'){
             $t1 = 2;
             $replies = array();
         }
-            $json_array[3] =  $replies;
+            $json_array[4] =  $replies;
 
     }
         }else if($res5["nbr"]==0)  {

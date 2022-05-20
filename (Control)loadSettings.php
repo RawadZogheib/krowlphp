@@ -8,11 +8,20 @@ if(require '(Control)tokenCheck.php'){
     if(!empty($data->account_Id)){
         
         $account_Id = htmlspecialchars($data->account_Id);
+        $tot_notifs=0;
         $json_array[0] = 'error4';
         $settings = array();
         $uni_array = array();
         $maj_array = array();
-        
+
+        //Getting number of notifications
+        require 'Notification/(Model)loadNotifications.inc.php';
+        if(mysqli_num_rows($k1)>0){
+            $tot_notifs=mysqli_num_rows($k1);
+        }
+
+        $json_array[1] = $tot_notifs;
+
         require '(Model)getAccountInfos.inc.php';
         if(mysqli_num_rows($xx6)>0){
            $res = mysqli_fetch_assoc($xx6);	
@@ -38,9 +47,9 @@ if(require '(Control)tokenCheck.php'){
 
 
             $json_array[0]="success";
-            $json_array[1]=$settings;
-            $json_array[0]=$uni_array;
-            $json_array[3]=$maj_array;
+            $json_array[2]=$settings;
+            $json_array[3]=$uni_array;
+            $json_array[4]=$maj_array;
         }    
 
             echo json_encode($json_array);

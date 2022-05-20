@@ -5,6 +5,7 @@
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
 
+    $tot_notifs=0;
     $replies=array();
     $posts= array();
     $infos= array();
@@ -25,6 +26,16 @@ if(require '(Control)tokenCheck.php'){
         }
         
             $json_array[0] = 'error4';
+
+             //Getting number of notifications
+            require 'Notification/(Model)loadNotifications.inc.php';
+            if(mysqli_num_rows($k1)>0){
+                $tot_notifs=mysqli_num_rows($k1);
+            }
+
+            $json_array[1] = $tot_notifs;
+
+
 
             require "(Model)getAccountInfos.inc.php";
             if(mysqli_num_rows($xx6)>0){
@@ -55,11 +66,11 @@ if(require '(Control)tokenCheck.php'){
 
                 array_push($infos,'0'); // 0 -> this student is not a friend with the account_Id , UNFRIEND
             }
-            $json_array[1] = $infos;
+            $json_array[2] = $infos;
             }
             }else{
                 array_push($infos,"3"); //not to add any button (requested, friend)
-                $json_array[1] = $infos;
+                $json_array[2] = $infos;
     
             }
           
@@ -87,10 +98,10 @@ if(require '(Control)tokenCheck.php'){
                         array_push($posts,$tmp);
                         $tmp=array();                    
                     }
-                    $json_array[2] = $posts;
+                    $json_array[3] = $posts;
                 }else if(mysqli_num_rows($xx2) == 0){
                     $posts = array();
-                    $json_array[2] = $posts;
+                    $json_array[3] = $posts;
                 }
                 
 
@@ -119,12 +130,12 @@ if(require '(Control)tokenCheck.php'){
                             array_push($replies,$tmp);
                             $tmp=array();                    
                         }
-                        $json_array[3] = $replies;
+                        $json_array[4] = $replies;
 
                     }else if(mysqli_num_rows($xx3) == 0){
                         $json_array[0] = 'success';
                         $replies=array();
-                        $json_array[3] = $replies;
+                        $json_array[4] = $replies;
                     }
                 }
             
