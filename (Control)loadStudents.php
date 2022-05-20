@@ -39,7 +39,7 @@ if(require '(Control)tokenCheck.php'){
         require '(Model)loadStudents1.inc.php';
         if(mysqli_num_rows($xx)>0){
             
-            $json_array[2] = $tot_students;
+            $json_array[2] = "$tot_students";
         
            
 

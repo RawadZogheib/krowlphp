@@ -20,7 +20,7 @@ if(require '(Control)tokenCheck.php'){
             $tot_notifs=mysqli_num_rows($k1);
         }
 
-        $json_array[1] = $tot_notifs;
+        $json_array[1] = "$tot_notifs";
 
         require '(Model)getAccountInfos.inc.php';
         if(mysqli_num_rows($xx6)>0){

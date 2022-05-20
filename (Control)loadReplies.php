@@ -26,7 +26,7 @@ if(require '(Control)tokenCheck.php'){
             $tot_notifs=mysqli_num_rows($k1);
         }
 
-        $json_array[1] = $tot_notifs;
+        $json_array[1] = "$tot_notifs";
 
         require '(Model)countReplies.inc.php';
         if($res5["nbr"]!=0){
