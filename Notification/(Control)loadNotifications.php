@@ -31,8 +31,10 @@ if(require '../(Control)tokenCheck.php'){
 
             if($t1 == 1){
                 $json_array[0] = 'success';
+                require '(Control)clickRing.php';
             }else if($t1 == 2){
                 $json_array[0] = 'empty';
+                require '(Control)clickRing.php';
             }
             echo json_encode($json_array);
 
