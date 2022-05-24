@@ -23,16 +23,16 @@ switch ($notif_type) {
     $paramsArr = array("receiver"=>"$receiver_id", "request"=>"1");
     $fileRequired = '(Model)insertNotification.inc.php';
     break;
-  
-  case 42: // Students & Student Profile, Cancel Friendship/ Request Unfriend a user/ Stop Request Friendship
-    $type=41;
-    $fileRequired= '(Model)deleteNotification.inc.php';
-    break;
 
-  case 43: // Students & Student Profile, Confirm Friendship Request 
+  case 42: // Students & Student Profile, Confirm Friendship Request 
     $type=41;
     $paramsArr = array("receiver"=>"$receiver_id", "request"=>"2");
     $fileRequired= '(Model)updateNotification.inc.php';
+    break;
+  
+  case 43: // Students & Student Profile, Cancel Friendship/ Request Unfriend a user/ Stop Request Friendship
+    $type=41;
+    $fileRequired= '(Model)deleteNotification.inc.php';
     break;
   
 }
