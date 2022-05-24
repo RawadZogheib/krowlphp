@@ -13,12 +13,18 @@ if(require '(Control)tokenCheck.php'){
         $id1 = htmlspecialchars($data->account_Id);
         $id2=htmlspecialchars($data->friend_id);
 
-        require '(Model)confirmFriends.inc.php';
-        if($yy){
-            $json_array[0] = 'success';
+        require '(Model)checkFriendship.inc.php';
+        if($res["nbr"]==1){ 
+
+            require '(Model)confirmFriends.inc.php';
+            if(mysqli_affected_rows($con)>0){
+                $json_array[0] = 'success';
+                $receiver_id = $id2;
+                $sender = $id1;
+                $notif_type = 42; //4 -> Fouth tab = Students ,  2 -> Confirm Friendship Request 
+                require 'Notification/(Control)insertNotification.php';
+            }
         }
-
-
         
          
         echo json_encode($json_array);

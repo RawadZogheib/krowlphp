@@ -20,9 +20,10 @@ if(require '(Control)tokenCheck.php'){
 
 
         //Getting number of notifications
-        require 'Notification/(Model)loadNotifications.inc.php';
-        if(mysqli_num_rows($k1)>0){
-            $tot_notifs=mysqli_num_rows($k1);
+        require 'Notification/(Model)countNotifications.inc.php';
+        if(mysqli_num_rows($k10)>0){
+            $res10 =mysqli_fetch_assoc($k10);
+            $tot_notifs=$res10["notif_nbr"];
         }
 
         $json_array[1] = "$tot_notifs";

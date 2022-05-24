@@ -1,7 +1,7 @@
 <?php 
 
 //STUDENTS
-//Cancel friendship invitation or when I want to Unfriend a user or to Stop the request friendship invitation
+//Cancel friendship invitation 
 
 require '(Control)versionTest.php'; 
 if(require '(Control)tokenCheck.php'){
@@ -12,13 +12,25 @@ if(require '(Control)tokenCheck.php'){
         $id1 = htmlspecialchars($data->account_Id);
         $id2=htmlspecialchars($data->friend_id);
 
-        require '(Model)cancelFriends.inc.php';
-        if($yy){
-            $json_array[0] = 'success';
+        require '(Model)checkFriendship.inc.php';
+        if($res["nbr"]==1){ 
+            $request=$res["request"];
+            $sender_request=$res["sender_request"];
+            require '(Model)cancelFriends.inc.php';
+            if(mysqli_affected_rows($con)>0){
+                $json_array[0] = 'success';
+                if($request == 1){
+                    
+                    $receiver_id = $id1;
+                    $sender = $id2;
+                
+                    $notif_type = 43; // Students & Student Profile, Cancel Friendship Request
+                    require 'Notification/(Control)insertNotification.php';
+
+                }
+
+            }
         }
-
-
-       
          
         echo json_encode($json_array);
 

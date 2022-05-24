@@ -15,8 +15,12 @@ if(require '(Control)tokenCheck.php'){
         require '(Model)checkFriendship.inc.php';
         if($res["nbr"]==0){ 
             require '(Model)requestFriends.inc.php';
-            if($yy){
+            if(mysqli_affected_rows($con)>0){
                 $json_array[0] = 'success';
+                $receiver_id = $id2;
+                $sender = $id1;
+                $notif_type = 41; //4 -> Fourth Tab = Students and Student Profile, 1 -> Request Friendship
+                require 'Notification/(Control)insertNotification.php';
             }
         }
        
