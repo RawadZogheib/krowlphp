@@ -107,7 +107,9 @@ if(require '(Control)tokenCheck.php'){
                     }
                 }else{
 
-                   array_push($json_array,$index);
+                   //array_push($json_array,$index);
+                   array_push($json_array);
+
 
                 }
 
