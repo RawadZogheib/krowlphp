@@ -7,8 +7,7 @@
 
     $yy1=mysqli_query($con,$sql1);
 
-    if(mysqli_affected_rows($con)>0){
-        $notif_nbr= "LAST_INSERT_ID(notif_nbr) + 1";
-        require '(Model)updateNotifNbr.inc.php';
-    }
+    // if(mysqli_affected_rows($con)>0){
+    
+    // }
 ?>

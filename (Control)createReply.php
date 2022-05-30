@@ -26,8 +26,11 @@ if(!empty($data->account_Id) && !empty($data->post_id) && !empty($data->reply_da
                 $res = mysqli_fetch_assoc($yy);
                 $receiver_id=$res["account_Id"];
                 $sender=$account_Id;
-                $notif_type=31; //3 -> third tab = Forum ,  1 -> Creating a Reply (or Post if we  want to add this feature later)
-                require 'Notification/(Control)insertNotification.php';
+                if($receiver_id != $sender){
+                    $notif_type=31; //3 -> third tab = Forum ,  1 -> Creating a Reply (or Post if we  want to add this feature later)
+                    require 'Notification/(Control)insertNotification.php';
+                }
+
                 
             }	
 

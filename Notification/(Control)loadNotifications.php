@@ -18,7 +18,7 @@ if(require '../(Control)tokenCheck.php'){
             while($res11 = mysqli_fetch_assoc($k1)){
                 $p=$res11['notif_params'];
                 $params = json_decode($p,true); //array
-                $notifs[]=array($res11["notif_id"],$res11["notif_sender"],$res11["username"],$res11["notif_type"],$params);
+                $notifs[]=array($res11["notif_id"],$res11["notif_sender"],$res11["username"],$res11["notif_type"],$res11["notif_status"],$params);
         
             }
         }else  if(mysqli_num_rows($k1) == 0){

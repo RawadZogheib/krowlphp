@@ -19,8 +19,10 @@ if(require '(Control)tokenCheck.php'){
                 $json_array[0] = 'success';
                 $receiver_id = $id2;
                 $sender = $id1;
+                if($receiver_id != $sender){
                 $notif_type = 41; //4 -> Fourth Tab = Students and Student Profile, 1 -> Request Friendship
                 require 'Notification/(Control)insertNotification.php';
+                }
             }
         }
        

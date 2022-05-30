@@ -23,10 +23,10 @@ if(require '(Control)tokenCheck.php'){
                     
                     $receiver_id = $id1;
                     $sender = $id2;
-                
+                    if($receiver_id != $sender){
                     $notif_type = 43; // Students & Student Profile, Cancel Friendship Request
                     require 'Notification/(Control)insertNotification.php';
-
+                    }
                 }
 
             }

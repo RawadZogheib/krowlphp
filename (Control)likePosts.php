@@ -46,8 +46,11 @@ if(require '(Control)tokenCheck.php'){
             $receiver_id=$res1["account_Id"];
             $sender= $account_Id;
             $like = $json_array[1];
-            $notif_type=32; //3 -> third tab = Forum ,  2 -> Like/Unlike a Post
-            require 'Notification/(Control)insertNotification.php';
+            if($receiver_id != $sender){
+                $notif_type=32; //3 -> third tab = Forum ,  2 -> Like/Unlike a Post
+                require 'Notification/(Control)insertNotification.php';
+            }
+
             
         }
 
