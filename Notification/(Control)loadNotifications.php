@@ -7,7 +7,7 @@ if(require '../(Control)tokenCheck.php'){
     $notifs = array();
     $t1=0;
     
-    if(!empty($data->account_Id) && !empty($data->notif_nbr)){
+    if(!empty($data->account_Id) && !isset($data->notif_nbr)){
         
         $account_Id = htmlspecialchars($data->account_Id);
         $notif_nbr = htmlspecialchars($data->notif_nbr); //sending the badge that we clicked on 
