@@ -3,7 +3,6 @@
     $status_after = 1;
     require '(Model)updateNotifStatus.inc.php';
     if(mysqli_affected_rows($con)>0){
-        echo "11111111111111";
         $json_array[0] = 'success';
 
     }else if(mysqli_affected_rows($con) == -1){

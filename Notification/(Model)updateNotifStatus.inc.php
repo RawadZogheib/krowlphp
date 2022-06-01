@@ -5,5 +5,5 @@
 
 $sql = " UPDATE `notifications` SET `notif_status`= $status_after WHERE json_extract(`notif_params`, '$.receiver') = '".$account_Id."' AND `notif_status`= $status_before LIMIT $notif_nbr ";
 
-
+$k11 = mysqli_query($con,$sql);
 ?>
