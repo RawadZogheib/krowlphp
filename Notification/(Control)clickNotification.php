@@ -11,16 +11,9 @@ if(require '../(Control)tokenCheck.php'){
         
         $account_Id = htmlspecialchars($data->account_Id);
         $currentPage = htmlspecialchars($data->currentPage);
-        if(gettype($data->notif_nbr) === "integer"){
-            $notif_nbr = htmlspecialchars($data->notif_nbr); //sending the badge that we clicked on 
-            $count = 5; //i want to display the 5 latest notifications
-        }else{
-            $count=20;
-        }
-        $json_array[0] = 'error4';
         
-     
-
+        $count = 20; //i want to display the 5 latest notifications
+        $json_array[0] = 'error4';
         
         require '(Model)loadNotifications.inc.php';
         if(mysqli_num_rows($k1)>0){
@@ -37,21 +30,14 @@ if(require '../(Control)tokenCheck.php'){
         }       
             
             $json_array[1] = $notifs;
-           
-            $status_before = 0;
-            $status_after = 1;
             if($t1 == 1){
                 $json_array[0] = 'success';
-                if(gettype($data->notif_nbr) === "integer"){
-                    require '(Control)clickRing.php';
-                }
-                
+              
             }else if($t1 == 2){
                 $json_array[0] = 'empty';
-                if(gettype($data->notif_nbr) === "integer"){
-                    require '(Control)clickRing.php';
-                }
+               
             }
+
             echo json_encode($json_array);
 
             mysqli_close($con);
