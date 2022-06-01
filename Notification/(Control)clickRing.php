@@ -1,4 +1,4 @@
-<?php 
+<?php echo "11111111111111";
     $status_before = 0;
     $status_after = 1;
     require '(Model)updateNotifStatus.inc.php';
