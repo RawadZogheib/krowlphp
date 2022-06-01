@@ -21,6 +21,8 @@ if(require '(Control)tokenCheck.php'){
         $account_Id = htmlspecialchars($data->account_Id);
         $currentPage=htmlspecialchars($data->currentPage);
 
+        $count=20;
+
         //Getting number of notifications
         require 'Notification/(Model)countNotifications.inc.php';
         if(mysqli_num_rows($k10)>0){

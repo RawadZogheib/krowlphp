@@ -18,5 +18,16 @@ function decodeBase64($code){
 
 }
 
+function loadLimit($count,$currentPage){
+    
+    $load=array();
+
+    $offset=$count*($currentPage-1);
+    array_push($load,$offset,$count);
+
+    return $load;
+    
+}
+
 ?>
 

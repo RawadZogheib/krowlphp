@@ -25,6 +25,8 @@ if(require '(Control)tokenCheck.php'){
         $isPrivate = htmlspecialchars($data->isPrivet); //1 -> Public & 2 ->Private
         $user_uni = htmlspecialchars($data->user_uni);
         $currentPage=htmlspecialchars($data->currentPage);
+
+        $count=12; // i want to display the latest 12 tables
         $json_array[0] = "error4";
 
         //Getting number of notifications

@@ -7,9 +7,13 @@ if(require '../(Control)tokenCheck.php'){
     $notifs = array();
     $t1=0;
     
-    if(!empty($data->account_Id)){
+    if(!empty($data->account_Id) && !empty($data->notif_nbr)){
         
         $account_Id = htmlspecialchars($data->account_Id);
+        $notif_nbr = htmlspecialchars($data->notif_nbr); //sending the badge that we clicked on 
+        
+        $count = 5; //i want to display the 5 latest notifications
+        $currentPage = 1;
         $json_array[0] = 'error4';
         
         require '(Model)loadNotifications.inc.php';
@@ -40,6 +44,6 @@ if(require '../(Control)tokenCheck.php'){
 
             mysqli_close($con);
 
-    }else require '(View)Error7.php';
+    }else require '../(View)Error7.php';
 }
 ?>
