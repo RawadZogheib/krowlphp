@@ -17,6 +17,16 @@ if(require '(Control)tokenCheck.php'){
     
     if(!empty($data->account_Id)){
         $account_Id = htmlspecialchars($data->account_Id); //if the user is viewing his own profile 
+        $json_array[0] = 'error4';
+         //Getting number of notifications
+         require 'Notification/(Model)countNotifications.inc.php';
+         if(mysqli_num_rows($k10)>0){
+             $res10 =mysqli_fetch_assoc($k10);
+             $tot_notifs=$res10["notif_nbr"];
+         }
+ 
+
+        $json_array[1] = "$tot_notifs";
 
         if(!empty($data->userId)){
             $friend_id = htmlspecialchars($data->userId);
@@ -25,20 +35,6 @@ if(require '(Control)tokenCheck.php'){
             $t2=1; // to execute isFriend function
         }
         
-            $json_array[0] = 'error4';
-
-             //Getting number of notifications
-             require 'Notification/(Model)countNotifications.inc.php';
-             if(mysqli_num_rows($k10)>0){
-                 $res10 =mysqli_fetch_assoc($k10);
-                 $tot_notifs=$res10["notif_nbr"];
-             }
-     
-
-            $json_array[1] = "$tot_notifs";
-
-
-
             require "(Model)getAccountInfos.inc.php";
             if(mysqli_num_rows($xx6)>0){
                     $res6 = mysqli_fetch_assoc($xx6);	

@@ -14,8 +14,10 @@ if(require '../(Control)tokenCheck.php'){
         if(gettype($data->notif_nbr) === "integer"){
             $notif_nbr = htmlspecialchars($data->notif_nbr); //sending the badge that we clicked on 
             $count = 5; //i want to display the 5 latest notifications
+            $notif_status="notif_status=0 OR notif_status=1 OR notif_status=2";
         }else{
             $count=20;
+            $notif_status="notif_status=0 OR notif_status=1 OR notif_status=2 OR notif_status=3 OR notif_status=4";
         }
         $json_array[0] = 'error4';
         

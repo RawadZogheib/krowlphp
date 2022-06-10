@@ -48,13 +48,9 @@ if(require '(Control)tokenCheck.php'){
             $receiver_id=$res1["account_Id"];
             $sender= $account_Id;
             $like = $json_array[1];
-
-            if($receiver_id != $sender){
-                $notif_type=33; //3 -> third tab = Forum ,  2 -> Like/Unlike a Reply
-                require 'Notification/(Control)insertNotification.php';
-                
-            }
-
+            $notif_type=33; //3 -> third tab = Forum ,  2 -> Like/Unlike a Reply
+            require 'Notification/(Control)insertNotification.php';
+            
         }
 
         }	

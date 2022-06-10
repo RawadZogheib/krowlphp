@@ -5,28 +5,53 @@ $paramsArr = array();
 switch ($notif_type) {
 
   case 31: // Forum, Creating a Reply
-    $paramsArr = array("receiver"=>"$receiver_id", "post"=>"$post_id", "reply" => "$reply_id");
+    $paramsArr = array("receiver"=>"$receiver_id", "post"=>array($post_id,
+    $res["post_question"],
+    $res["post_tag"],
+    $res["username"],
+    $res["post_likes"],
+    $res["post_context"],
+    $res["post_date"]
+  ),
+   "reply" => "$reply_id" );
     $fileRequired = '(Model)insertNotification.inc.php';
     break;
 
   case 32: // Forum, Like/Unlike a Post
-    $paramsArr = array("receiver"=>"$receiver_id", "post"=>"$post_id", "like" => "$like");
+    $paramsArr = array("receiver"=>"$receiver_id", "post"=>array($post_id,
+    $res1["post_question"],
+    $res1["post_tag"],
+    $res1["username"],
+    $res1["post_likes"],
+    $res1["post_context"],
+    $res1["post_date"]
+    ), "like" => "$like");
+
     $fileRequired = '(Model)insertNotification.inc.php';
     break;
   
   case 33: // Forum, Like/Unlike a Reply
-    $paramsArr = array("receiver"=>"$receiver_id", "post"=>"$post_id", "reply" => "$reply_id", "like" => "$like");
+    $paramsArr = array("receiver"=>"$receiver_id",  "post"=>array($post_id,
+    $res1["post_question"],
+    $res1["post_tag"],
+    $res1["username"],
+    $res1["post_likes"],
+    $res1["post_context"],
+    $res1["post_date"]
+    ), "reply" => "$reply_id", "like" => "$like");
+    echo $paramsArr;
     $fileRequired = '(Model)insertNotification.inc.php';
     break;
   
   case 41: // Students & Student Profile, Request a Friendship
-    $paramsArr = array("receiver"=>"$receiver_id", "request"=>"1");
+
+    $paramsArr = array("receiver"=>"$receiver_id","info"=>($infos),"request"=>"1");
     $fileRequired = '(Model)insertNotification.inc.php';
     break;
 
   case 42: // Students & Student Profile, Confirm Friendship Request 
     $type=41;
-    $paramsArr = array("receiver"=>"$receiver_id", "request"=>"2");
+    $paramsArr = array("receiver"=>"$receiver_id","info"=>($infos), "request"=>"2");
     $fileRequired= '(Model)updateNotification.inc.php';
     break;
   
@@ -40,5 +65,6 @@ switch ($notif_type) {
 $params = json_encode($paramsArr);
 
 require $fileRequired;
+
 
 ?>
