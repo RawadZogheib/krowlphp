@@ -28,9 +28,9 @@ $trackOpens = true;
 $trackLinks = "None";
 
 
-echo "hiii33";
+echo "h30000";
 // Send an email:
- $client->sendEmail(
+ print_r($client->sendEmail(
   $fromEmail,
   $toEmail,
   $subject,
@@ -46,7 +46,6 @@ echo "hiii33";
   $trackLinks,
   NULL, // Metadata array
 
-);
-echo "hiii4";
-echo "Result: ".$sendResult;
+));
+
 ?>
