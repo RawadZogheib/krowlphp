@@ -28,6 +28,7 @@ $trackOpens = true;
 $trackLinks = "None";
 
 
+echo "hiii";
 // Send an email:
 $sendResult = $client->sendEmail(
   $fromEmail,
@@ -46,5 +47,5 @@ $sendResult = $client->sendEmail(
   NULL, // Metadata array
 
 );
-print_r("Result: ".$sendResult);
+echo "Result: ".$sendResult;
 ?>
