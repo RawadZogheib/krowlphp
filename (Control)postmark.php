@@ -45,5 +45,5 @@ $sendResult = $client->sendEmail(
   NULL, // Metadata array
   $messageStream
 );
-
+print_r($sendResult);
 ?>
