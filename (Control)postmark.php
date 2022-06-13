@@ -17,8 +17,8 @@ use Postmark\PostmarkClient;
 
 
 $client = new PostmarkClient("dd966b63-c58c-4772-8123-05e4e98acd1a");
-$fromEmail = "sender@example.org";
-$toEmail = "team@krowl.io";
+$fromEmail = "team@krowl.io";
+$toEmail = "dana.almourany@gmail.com";
 $subject = "Hello from Postmark";
 $htmlBody = "<strong>Hello</strong> dear Postmark user.";
 $textBody = "Hello dear Postmark user.";
