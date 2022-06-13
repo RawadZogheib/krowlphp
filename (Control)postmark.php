@@ -60,7 +60,7 @@
       // $locCodeException =  $_SERVER["DOCUMENT_ROOT"]  . '/krowlphp/Error/View/(View)codeException.php';
       
       $emailRegExp = "/[a-zA-Z0-9]+@(g|hot)mail.com/";
-      $email = '"dana.almourany@gmail.com';
+      $email = 'dana.almourany@gmail.com';
 
 // if(!preg_match($emailRegExp,$email)){
 //       require $locError2_5;//2_5 It's not an  email format.
