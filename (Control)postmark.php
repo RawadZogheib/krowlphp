@@ -86,7 +86,7 @@
       $mail->Subject = "Test is Test Email sent via Gmail SMTP Server using PHP Mailer";
       $content = "<b>This is a Test Email sent via Gmail SMTP Server using PHP mailer class code: </b>";
       
-      $mail->MsgHTML($content); 
+      print_r($mail->MsgHTML($content)); 
       if(!$mail->Send()) {
         echo "Error while sending Email.";
         //var_dump($mail);
