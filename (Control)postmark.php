@@ -26,7 +26,7 @@ $textBody = "Hello dear Postmark user.";
 $tag = "example-email-tag";
 $trackOpens = true;
 $trackLinks = "None";
-$messageStream = "outbound";
+
 
 // Send an email:
 $sendResult = $client->sendEmail(
@@ -44,7 +44,7 @@ $sendResult = $client->sendEmail(
   NULL, // Attachment array
   $trackLinks,
   NULL, // Metadata array
-  $messageStream
+
 );
-print_r($sendResult);
+print_r("Result: ".$sendResult);
 ?>
