@@ -12,7 +12,7 @@ if(require '(Control)tokenCheck.php'){
     $t1=0;
     
     
-    if(!empty($data->account_Id) && !empty($data->user_uni)){
+    if(!empty($data->account_Id) && !empty($data->user_uni) && !empty($data->currentPage)){
         
         $account_Id = htmlspecialchars($data->account_Id);
         $user_uni = htmlspecialchars($data->user_uni);
