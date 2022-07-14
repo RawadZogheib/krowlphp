@@ -88,6 +88,7 @@ if(require '(Control)tokenCheck.php'){
         }else if($res5["nbr"]==0)  {
             $t1=2;
         } 
+    }
 
             if($t1 == 1){
                 $json_array[0] = 'success';
