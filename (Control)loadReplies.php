@@ -31,7 +31,6 @@ if(require '(Control)tokenCheck.php'){
         $json_array[1] = "$tot_notifs";
 
         require '(Model)countReplies.inc.php';
-        if($res5["nbr"]!=0){
 
         $tot_replies=$res5["nbr"];
         $json_array[2] = $tot_replies;
@@ -51,6 +50,7 @@ if(require '(Control)tokenCheck.php'){
             }
             $json_array[3]=$posts;
 
+        if($res5["nbr"]!=0){
         require '(Model)loadReplies.inc.php';
         if(mysqli_num_rows($xx)>0){
 
