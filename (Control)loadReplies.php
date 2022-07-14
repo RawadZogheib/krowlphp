@@ -84,7 +84,7 @@ if(require '(Control)tokenCheck.php'){
         }
             $json_array[4] =  $replies;
 
-    }
+    
         }else if($res5["nbr"]==0)  {
             $t1=2;
         } 
