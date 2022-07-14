@@ -17,7 +17,7 @@ if(require '(Control)tokenCheck.php'){
         $account_Id = htmlspecialchars($data->account_Id);
         $user_uni = htmlspecialchars($data->user_uni);
         $currentPage = htmlspecialchars($data->currentPage);
-        $count=10;
+        $count=5;
         $json_array[0] = 'error4';
 
         //Getting number of notifications
