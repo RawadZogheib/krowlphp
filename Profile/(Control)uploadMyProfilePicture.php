@@ -19,7 +19,7 @@
     // }
     echo "hereeeeeeeeeeeeeeeeeeeeeeeeee0000000000000000000000000";
     require '(Model)config.inc.php';
-    $con=con();
+    $con=con($server);
     echo "hereeeeeeeeeeeeeeeeeeeeeeeeee111111111111111";
 //array to return
 $return["error"] = false;
