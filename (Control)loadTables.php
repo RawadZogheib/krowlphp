@@ -11,6 +11,7 @@ if(require '(Control)tokenCheck.php'){
     $table4=array();
     $table5=array();
     $table6=array();
+    $table7=array();
     $json_array=array();
 
     $j=2; //counter
@@ -32,11 +33,18 @@ if(require '(Control)tokenCheck.php'){
         //Getting number of notifications
         require 'Notification/(Model)countNotifications.inc.php';
         if(mysqli_num_rows($k10)>0){
-            $res10 =mysqli_fetch_assoc($k10);
-            $tot_notifs=$res10["notif_nbr"];
-        }
+            $json_array[0]='success';
+            while($res10 = mysqli_fetch_assoc($k10)){
+                $notifandprof=$res10["notif_nbr"];
+               
+                array_push($table7,"$notifandprof");
+               
+           }
         
-        $json_array[1] = "$tot_notifs";
+            
+        }
+
+        $json_array[1] = $table7;
   
 
 
@@ -96,7 +104,7 @@ if(require '(Control)tokenCheck.php'){
                     if(mysqli_num_rows($yy1)>0){
                         while($res5 = mysqli_fetch_assoc($yy1)){
                             $table5=array();
-                            $table5=array($res5["account_Id"],$res5["username"],"photo");
+                            $table5=array($res5["account_Id"],$res5["username"],$res5["photo"]);
                             array_push($table6,$table5);
                              
                         }
@@ -115,7 +123,7 @@ if(require '(Control)tokenCheck.php'){
                     $t1=1;
 
                     while($res1 = mysqli_fetch_assoc($yy)){	
-                        $table2 = array($res1["account_Id"],$res1["username"],$res1["position"],"batikhh");
+                        $table2 = array($res1["account_Id"],$res1["username"],$res1["position"],$res1["photo"]);
                         if($res1["account_Id"] == $account_Id){
                             $table1[6]=true;
                         }

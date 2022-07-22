@@ -10,6 +10,7 @@ if(require '(Control)tokenCheck.php'){
     $posts= array();
     $infos= array();
     $tmp=array();
+    $table1 = array();
     $t1=0;
     $t2=0;
     $initial=0;
@@ -25,7 +26,21 @@ if(require '(Control)tokenCheck.php'){
              $tot_notifs=$res10["notif_nbr"];
          }
  
-
+         //Getting number of notifications
+         require 'Notification/(Model)countNotifications.inc.php';
+         if(mysqli_num_rows($k10)>0){
+             $json_array[0]='success';
+             while($res10 = mysqli_fetch_assoc($k10)){
+                 $notifandprof=$res10["notif_nbr"];
+                
+                 array_push($table1,"$notifandprof");
+                
+            }
+         
+             
+         }
+ 
+         $json_array[1] = $table1;
         $json_array[1] = "$tot_notifs";
 
         if(!empty($data->userId)){
@@ -42,7 +57,7 @@ if(require '(Control)tokenCheck.php'){
                                     $res6["last_name"],
                                     $res6["uni_name"],
                                     $res6["bio"],
-                                    //$res6["photo"]
+                                    $res6["photo"]
                                 );   
 
             require "(Model)loadFriends.inc.php"; //number of friends

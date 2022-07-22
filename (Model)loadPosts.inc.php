@@ -8,7 +8,7 @@
 
 
 
-	$sql="SELECT p.`post_id`, p.`post_question`,p.`post_context`, p.`post_likes`, p.`post_tag`, p.`post_date`, a.`first_name`, a.`last_name`,a.`username` FROM `posts`p 
+	$sql="SELECT p.`post_id`, p.`post_question`,p.`post_context`, p.`post_likes`, p.`post_tag`, p.`post_date`, a.`first_name`, a.`last_name`,a.`username`,a.`photo` FROM `posts`p 
 	join `account`a on p.`account_Id`=a.`account_Id` WHERE a.university_ids='".$user_uni."' ORDER BY p.`post_date` DESC LIMIT ".$limit[0].",".$limit[1]."";
 
 	$xx = mysqli_query($con,$sql);

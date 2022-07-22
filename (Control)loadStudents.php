@@ -8,7 +8,8 @@ if(require '(Control)tokenCheck.php'){
 
     $tot_notifs=0;
     $students = array();
-    $table1=array();
+    $table2=array();
+    $table1 = array();
     $nbr_friends =0;
     $t1=0;
    
@@ -26,11 +27,18 @@ if(require '(Control)tokenCheck.php'){
         //Getting number of notifications
         require 'Notification/(Model)countNotifications.inc.php';
         if(mysqli_num_rows($k10)>0){
-            $res10 =mysqli_fetch_assoc($k10);
-            $tot_notifs=$res10["notif_nbr"];
+            $json_array[0]='success';
+            while($res10 = mysqli_fetch_assoc($k10)){
+                $notifandprof=$res10["notif_nbr"];
+               
+                array_push($table1,"$notifandprof");
+               
+           }
+        
+            
         }
- 
-         $json_array[1] = $tot_notifs;
+
+        $json_array[1] = $table1;
 
 
 
@@ -50,7 +58,7 @@ if(require '(Control)tokenCheck.php'){
 
                 $student_id=$res2["account_Id"];
 
-                $table1 = array($student_id,
+                $table2 = array($student_id,
                                     $res2["first_name"],
                                     $res2["last_name"],
                                     "",
@@ -63,21 +71,21 @@ if(require '(Control)tokenCheck.php'){
                 if(mysqli_num_rows($xx5)>=0)
                 $nbr_friends=mysqli_num_rows($xx5);
                 
-                array_push($table1,"$nbr_friends");
+                array_push($table2,"$nbr_friends");
                 require '(Model)loadStudents2.inc.php';
 
                 if($res3["nbr"]==1){
                     $t1 = 1;
                     if($res3["request"]==1)// 1 -> REQUEST OR 2 -> FRIEND IN DB 
-                    array_push($table1,'1');  //1 -> REQUEST
+                    array_push($table2,'1');  //1 -> REQUEST
                     else if($res3["request"]==2)
-                    array_push($table1,'2');// 2 -> FRIEND 
+                    array_push($table2,'2');// 2 -> FRIEND 
                 }else{
                     $t1 = 1;
-                    array_push($table1,'0'); // 0 -> this student is not a friend with the account_Id , UNFRIEND
+                    array_push($table2,'0'); // 0 -> this student is not a friend with the account_Id , UNFRIEND
                 }
-                array_push($students,$table1);
-                $table1=array();
+                array_push($students,$table2);
+                $table2=array();
 
             }
             $json_array[3] = $students;

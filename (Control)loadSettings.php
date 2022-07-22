@@ -11,16 +11,25 @@ if(require '(Control)tokenCheck.php'){
         $tot_notifs=0;
         $json_array[0] = 'error4';
         $settings = array();
+        $table1=array();
         $uni_array = array();
         $maj_array = array();
 
         //Getting number of notifications
         require 'Notification/(Model)countNotifications.inc.php';
         if(mysqli_num_rows($k10)>0){
-            $res10 =mysqli_fetch_assoc($k10);
-            $tot_notifs=$res10["notif_nbr"];
+            $json_array[0]='success';
+            while($res10 = mysqli_fetch_assoc($k10)){
+                $notifandprof=$res10["notif_nbr"];
+               
+                array_push($table1,"$notifandprof");
+               
+           }
+        
+            
         }
-        $json_array[1] = "$tot_notifs";
+
+        $json_array[1] = $table1;
 
         require '(Model)getAccountInfos.inc.php';
         if(mysqli_num_rows($xx6)>0){

@@ -10,6 +10,7 @@ if(require '(Control)tokenCheck.php'){
     $replies = array();
     $posts = array();
     $tmp = array();
+    $table1 =array();
     $t1=0;
     $tot_replies=0;
     
@@ -22,13 +23,20 @@ if(require '(Control)tokenCheck.php'){
         $json_array[0] = 'error4';
 
          //Getting number of notifications
-        require 'Notification/(Model)countNotifications.inc.php';
-        if(mysqli_num_rows($k10)>0){
-            $res10 =mysqli_fetch_assoc($k10);
-            $tot_notifs=$res10["notif_nbr"];
-        }
-
-        $json_array[1] = "$tot_notifs";
+         require 'Notification/(Model)countNotifications.inc.php';
+         if(mysqli_num_rows($k10)>0){
+             $json_array[0]='success';
+             while($res10 = mysqli_fetch_assoc($k10)){
+                 $notifandprof=$res10["notif_nbr"];
+                
+                 array_push($table1,"$notifandprof");
+                
+             }
+         
+             
+         }
+ 
+         $json_array[1] = $table1;
 
         require '(Model)countReplies.inc.php';
 

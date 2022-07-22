@@ -4,7 +4,7 @@ if(!empty($_GET['table']) && !empty($_GET['account'])){
   $getaccount=htmlspecialchars($_GET['account']);
 
   $tableaccount = explode("/", $getaccount);
-  require 'Global/globalVariables.php';
+  require '../Global/globalVariables.php';
 
 			$room = "\"".$jaasAppID.htmlspecialchars($_GET['table'])."\"";
       $account = '"'.$tableaccount[0].'"';

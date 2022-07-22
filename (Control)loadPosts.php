@@ -8,7 +8,8 @@ if(require '(Control)tokenCheck.php'){
 
     $tot_notifs=0;
     $posts = array();
-    $table1= array();
+    $table1 = array();
+    $table2= array();
     $t1=0;
     
     
@@ -20,15 +21,22 @@ if(require '(Control)tokenCheck.php'){
         $count=5;
         $json_array[0] = 'error4';
 
-        //Getting number of notifications
-        require 'Notification/(Model)countNotifications.inc.php';
-        if(mysqli_num_rows($k10)>0){
-            $res10 =mysqli_fetch_assoc($k10);
-            $tot_notifs=$res10["notif_nbr"];
-        }
-
-        $json_array[1] = "$tot_notifs";
+                //Getting number of notifications
+                require 'Notification/(Model)countNotifications.inc.php';
+                if(mysqli_num_rows($k10)>0){
+                    $json_array[0]='success';
+                    while($res10 = mysqli_fetch_assoc($k10)){
+                        $notifandprof=$res10["notif_nbr"];
+                       
+                        array_push($table1,"$notifandprof");
+                       
+                    }
                 
+                    
+                }
+        
+                $json_array[1] = $table1;
+                        
         
         require '(Model)loadPosts.inc.php';
         if(mysqli_num_rows($xx)>0){
@@ -36,7 +44,7 @@ if(require '(Control)tokenCheck.php'){
      
             while($res = mysqli_fetch_assoc($xx)){	
                 $post_id=$res["post_id"];
-                array_push($table1,$post_id,
+                array_push($table2,$post_id,
                                     $res["username"],
                                     $res["post_tag"],
                                     $res["post_question"],
@@ -47,13 +55,13 @@ if(require '(Control)tokenCheck.php'){
             require "(Model)checklikePosts.inc.php"; //status of the button that has been pressed ( -1->unlike, 0->no button is pressed, 1->like )
             if($res2["nbr"]==0){
                 $t1 = 1;
-                array_push($table1,"0");
+                array_push($table2,"0");
             }else{
                 $t1 = 1;
-                array_push($table1,$res2["post_likes_val"]);
+                array_push($table2,$res2["post_likes_val"]);
             }
-            array_push($posts,$table1);
-            $table1=array();
+            array_push($posts,$table2);
+            $table2=array();
             }	
         }else if(mysqli_num_rows($xx) == 0){
             $t1 = 2;
