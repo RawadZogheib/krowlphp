@@ -40,13 +40,13 @@ if(require '../(Control)tokenCheck.php'){
             
             $json_array[1] = $notifs;
 
-            // require 'Profile/(Model)getProfilePicture.inc.php';
-            // if(mysqli_num_rows($g1)>0){
-            //     $res12 =mysqli_fetch_assoc($g1);
-            //     $profilePath=$res12["photo"];
-            // }
+            require '../Profile/(Model)getProfilePicture.inc.php';
+            if(mysqli_num_rows($g1)>0){
+                $res12 =mysqli_fetch_assoc($g1);
+                $profilePath=$res12["photo"];
+            }
     
-            // $json_array[2] = "$profilePath";
+            $json_array[2] = "$profilePath";
            
             $status_before = 0;
             $status_after = 1;
