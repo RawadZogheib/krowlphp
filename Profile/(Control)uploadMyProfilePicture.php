@@ -19,12 +19,12 @@
     }
     require '../(Model)config.inc.php';
     $con=con();
-
+    echo "hereeeeeeeeeeeeeeeeeeeeeeeeee";
 //array to return
 $return["error"] = false;
 $return["msg"] = "";
 $return["success"] = true;
-echo "hereeeeeeeeeeeeeeeeeeeeeeeeee";
+
 if(isset($_FILES["file"])){
     $target_dir = "Assets";//directory to upload file
     if(!file_exists("../$target_dir")){
