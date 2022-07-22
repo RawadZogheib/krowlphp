@@ -18,7 +18,7 @@
     //     exit;
     // }
     echo "hereeeeeeeeeeeeeeeeeeeeeeeeee0000000000000000000000000";
-    require '../../(Model)config.inc.php';
+    require '(Model)config.inc.php';
     $con=con();
     echo "hereeeeeeeeeeeeeeeeeeeeeeeeee111111111111111";
 //array to return
