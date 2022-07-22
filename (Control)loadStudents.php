@@ -65,6 +65,7 @@ if(require '(Control)tokenCheck.php'){
                                     // $res2["photo"],
                                      $res2["uni_name"],
                                      $res2["bio"],
+                                     $res2["photo"],
 
                                     );
                 require "(Model)loadFriends2.inc.php";
