@@ -62,10 +62,10 @@ if(require '(Control)tokenCheck.php'){
                                     $res2["first_name"],
                                     $res2["last_name"],
                                     "",
-                                    // $res2["photo"],
+                                    $res2["photo"],
                                      $res2["uni_name"],
                                      $res2["bio"],
-                                     $res2["photo"],
+                                   
 
                                     );
                 require "(Model)loadFriends2.inc.php";
