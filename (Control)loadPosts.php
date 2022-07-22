@@ -51,6 +51,7 @@ if(require '(Control)tokenCheck.php'){
                                     $res["post_likes"],
                                     $res["post_date"],
                                     $res["post_context"],
+                                    $res["photo"]
                                     );
             require "(Model)checklikePosts.inc.php"; //status of the button that has been pressed ( -1->unlike, 0->no button is pressed, 1->like )
             if($res2["nbr"]==0){
