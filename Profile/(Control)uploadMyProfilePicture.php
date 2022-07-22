@@ -38,7 +38,7 @@ if(isset($_FILES["file"])){
     //you can validate here extension and size to upload file.
 
     $savefile = "../$target_dir/$filename";
-
+    echo "hereeeeeeeeeeeeeeeeeeeeeeeeee";
     //complete path to save file
 
     if(move_uploaded_file($_FILES["file"]["tmp_name"], $savefile)) {
