@@ -13,10 +13,11 @@
     //Test version
     require '../Global/globalVariables.php';
 
-    if($version != $apiVersion){
-        require '../(View)ErrorVersion.php';
-        exit;
-    }
+    // if($version != $apiVersion){
+    //     require '../(View)ErrorVersion.php';
+    //     exit;
+    // }
+    echo "hereeeeeeeeeeeeeeeeeeeeeeeeee0000000000000000000000000";
     require '../(Model)config.inc.php';
     $con=con();
     echo "hereeeeeeeeeeeeeeeeeeeeeeeeee";
