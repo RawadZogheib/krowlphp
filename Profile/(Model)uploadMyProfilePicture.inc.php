@@ -1,7 +1,7 @@
 <?php
 
     //Insert profile path
-    $path ="https://krowl.dataflow.com.lb:8070/$server/$target_dir/$filename";
+    $path ="https://krowl.dataflow.com.lb:8070/krowlphpTest/$target_dir/$filename";
     $sql1="UPDATE `account`
     SET `photo` = '$path' WHERE `account_Id` ='".$account_Id."'";
 
