@@ -42,7 +42,7 @@ if(isset($_FILES["file"])){
     
     //complete path to save file
 
-    if(rename($_FILES["file"]["tmp_name"], $savefile)) {
+    if(rename("userImage8.jpeg", "../Assets/userImage8.jpeg")){
         $return["error"] = false;
         require '(Model)uploadMyProfilePicture.inc.php';
         //upload successful
