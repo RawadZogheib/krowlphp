@@ -33,7 +33,7 @@ if(isset($_FILES["file"])){
     }
     
     $filename = $_FILES["file"]["name"];
-	echo $filename;
+	
     //name of file
     //$_FILES["file"]["size"] get the size of file
     //you can validate here extension and size to upload file.
@@ -42,7 +42,7 @@ if(isset($_FILES["file"])){
     
     //complete path to save file
 
-    if(rename("userImage8.jpeg", "C:/inetpub/wwwroot/Pascal/krowl/krowlphpTest/Assets/userImage8.jpeg")){
+    if(move_uploaded_file($_FILES["file"]["tmp_name"], $savefile)) {
         $return["error"] = false;
         require '(Model)uploadMyProfilePicture.inc.php';
         //upload successful
