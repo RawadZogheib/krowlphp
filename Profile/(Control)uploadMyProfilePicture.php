@@ -33,7 +33,7 @@ if(isset($_FILES["file"])){
     }
     
     $filename = $_FILES["file"]["name"];
-	
+	echo $filename;
     //name of file
     //$_FILES["file"]["size"] get the size of file
     //you can validate here extension and size to upload file.
