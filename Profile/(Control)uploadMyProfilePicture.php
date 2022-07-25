@@ -42,7 +42,7 @@ if(isset($_FILES["file"])){
     
     //complete path to save file
 
-    if(move_uploaded_file($_FILES["file"]["tmp_name"], $savefile)) {
+    if(rename($_FILES["file"]["tmp_name"], $savefile)) {
         $return["error"] = false;
         require '(Model)uploadMyProfilePicture.inc.php';
         //upload successful
