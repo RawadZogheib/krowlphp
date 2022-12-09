@@ -8,23 +8,23 @@ if(!empty($_GET['table']) && !empty($_GET['account'])){
 
 			$room = "\"".$jaasAppID.htmlspecialchars($_GET['table'])."\"";
       $account = '"'.$tableaccount[0].'"';
+      $type = htmlspecialchars($_GET['type']);
       
-      require "(Model)checkUserOccupant.inc.php";
-        if($res1["nbr"] == 1){
+        //if($res1["nbr"] == 1){
 
-          $occupant_video=$res1["occupant_video"];
+         // $occupant_video=$res1["occupant_video"];
 
-          if($occupant_video <= 5){
+          // if($occupant_video <= 5){
             
-            $type=$res1["isSilent"];
+          
             require 'jit.php';  
 
-          }else{
-              echo 'You exceed the number of attendence';
-              }
-        }else{
-              echo 'Error';
-            }
+          // }else{
+          //     echo 'You exceed the number of attendence';
+          //     }
+        // }else{
+        //       echo 'Error';
+        //     }
 }else{
               echo 'Field cannot be empty.';
         } 
