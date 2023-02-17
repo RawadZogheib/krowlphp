@@ -17,9 +17,9 @@
                   startWithAudioMuted: [true],
                   startWithVideoMuted: [true],
                   disableInitialGUM: true,
-                  <?php  if($type == "2"){ ?>
+                  <?php  if($type){ ?>
                   toolbarButtons: ['camera','chat','closedcaptions','desktop','download','embedmeeting','etherpad','feedback','filmstrip','fullscreen','help','livestreaming','participants-pane','raisehand','recording','security','settings','shareaudio','sharedvideo','shortcuts','stats','tileview','toggle-camera','videoquality']
-                  <?php }else if($type == "1"){ ?>
+                  <?php }else if(!$type){ ?>
                   toolbarButtons: ['camera','chat','closedcaptions','desktop','download','embedmeeting','etherpad','feedback','filmstrip','fullscreen','help','livestreaming','participants-pane','raisehand','recording','security','settings','shareaudio','sharedvideo','shortcuts','stats','tileview','toggle-camera','videoquality','microphone']
                   <?php } ?>
                 },
