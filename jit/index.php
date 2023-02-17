@@ -1,5 +1,5 @@
 <?php 
-if(!empty($_GET['userName']) && !empty($_GET['table']) && !empty($_GET['isSilent'])){  
+if(!empty($_GET['userName']) && !empty($_GET['table']) && !empty($_GET['isSilent'])){
 
   $getaccount=htmlspecialchars($_GET['userName']);
 
@@ -26,6 +26,10 @@ if(!empty($_GET['userName']) && !empty($_GET['table']) && !empty($_GET['isSilent
         //       echo 'Error';
         //     }
 }else{
+
+echo $_GET['userName'];
+echo $_GET['table'];
+echo $_GET['isSilent'];
               echo 'Field cannot be empty.';
         } 
 ?>
